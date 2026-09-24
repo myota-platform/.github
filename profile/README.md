@@ -11,9 +11,9 @@ Universal programme UI
         │
 API gateway / ingress
         ├── Identity service       accounts, callsigns, SWLs, scopes, OIDC mappings
-        ├── Programme service      programmes, entity types, rules, awards, themes
+        ├── Programme service      programmes, entity types, rules, themes
         ├── Geodata service        PostGIS, imports, provenance, conflation, review
-        └── Activity service       activations, QSOs, award evaluation primitives
+        └── Activity service       activations, QSOs, award progress, certificates
                  │
         PostgreSQL + PostGIS / event outbox
 ```
@@ -33,19 +33,19 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-platform`](https://github.com/myota-platform/myota-platform) | Runnable integration bootstrap, dependency-free vertical slice, local gateway, tests, API contracts, migrations, and cross-service smoke path. |
 | [`myota-contracts`](https://github.com/myota-platform/myota-contracts) | OpenAPI HTTP contracts, event envelopes, compatibility rules, and future generated clients. |
 | [`myota-identity-service`](https://github.com/myota-platform/myota-identity-service) | Amateur-radio-native accounts, operator/SWL participation, multiple callsigns, primary callsign, verification lifecycle, roles, scopes, and optional external identity mappings. |
-| [`myota-programme-service`](https://github.com/myota-platform/myota-programme-service) | Programme configuration, programme-owned entity types, rules, awards, jurisdictions, themes, and optional per-programme OIDC settings. |
+| [`myota-programme-service`](https://github.com/myota-platform/myota-programme-service) | Programme configuration, programme-owned entity types, rules, jurisdictions, themes, and optional per-programme OIDC settings. |
 | [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, import runs, ParkServe/OSM/government/manual adapter contracts, deduplication/conflation, candidate review, and approval workflow. |
-| [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSO primitives, idempotent ingestion, audit events, and programme-specific award evaluation inputs. |
-| [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction and programme switching. |
-| [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web for programme configuration, geodata review, identity administration, and activity operations. |
-| [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, Helm chart, service routing, health probes, and deployment configuration. |
+| [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, MinIO/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
+| [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
+| [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web for programme configuration, geodata review, identity administration, award design, signature/background assets, and activity operations. |
+| [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, MinIO/S3 configuration, Helm chart, service routing, health probes, and deployment configuration. |
 | [`myota-docs`](https://github.com/myota-platform/myota-docs) | Architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, migration strategy, source inspection, and repository map. |
 
 ## Storage and geodata
 
 The initial production topology is one PostgreSQL cluster with two databases:
 
-- `myota_core`: identity, programme, activity, awards, permissions, audit, and outbox data.
+- `myota_core`: identity, programme, activity-owned awards, permissions, audit, and outbox data.
 - `myota_geo`: PostGIS geometry, imported snapshots, source references, conflation candidates, and review records.
 
 This keeps operations simple while giving geodata an independent backup, scaling, and eventual cluster-split path. QGIS is the recommended graphical PostGIS tool for geometry inspection and controlled editing; lifecycle transitions remain API-owned and audited.
@@ -149,12 +149,21 @@ Implemented in the geodata service/API vertical slice. Network fetching and form
 
 ### 5. Activity, awards, and programme execution
 
+- [x] Expose activation execution and award management through the same activity-service process and port 8004.
 - [ ] Implement activation start/close, validity windows, location checks, operator/callsign authorization, and programme rule evaluation.
 - [ ] Implement ADIF upload, object storage, malware scanning, parsing, validation, deduplication, and asynchronous processing.
 - [ ] Implement QSO normalization, worked-station identity, band/mode validation, time-window rules, and correction workflows.
-- [ ] Implement programme-owned award definitions, award-rule versions, qualification evaluation, publication, retirement, and recalculation.
+- [x] Implement programme-linked, programme-owned award definitions with explicit draft, review, approval, publication, and effective-date lifecycle.
+- [x] Implement recursive programme-owned QSO/activity conditions with AND, OR, NOT, and supported metric/entity leaves.
+- [x] Implement hunter and activator categories with administrator-configured incremental achievement levels.
+- [x] Implement A4/Letter print profiles, aspect-ratio/resolution validation, normalized WYSIWYG certificate field placement, and award-manager signature metadata.
+- [x] Implement MinIO/S3-compatible background/signature asset registration, presigned uploads, small API uploads, and certificate-bucket targets.
+- [x] Implement server-side award progress from activity-owned data, participant identity-scoped level requests, permanent issuance records, and higher-level re-requests.
+- [x] Implement PDF certificate rendering when assets are available, retry rendering, and expiring download URLs; preserve issuance history when rendering is deferred.
+- [ ] Implement versioned award-rule recalculation jobs for historical definitions and explicit retirement semantics.
 - [ ] Add activator, hunter, entity, programme, and jurisdiction statistics with reproducible aggregation jobs.
-- [ ] Add public activation history, award progress, leaderboards, downloadable results, and privacy-aware callsign display.
+- [x] Add public programme award listing, participant sign-in, server-side award progress, and level request workflow.
+- [ ] Add public activation history, leaderboards, downloadable results, and privacy-aware callsign display.
 - [ ] Add notifications for proposal decisions, import failures, award qualification, and account security events.
 
 ### 6. Public web experience
