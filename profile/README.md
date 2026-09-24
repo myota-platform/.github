@@ -93,14 +93,16 @@ The roadmap is intentionally platform-first. A programme supplies its own charte
 
 ### 1. Production-grade platform core
 
-- [ ] Replace in-memory runtime stores with service-owned PostgreSQL repositories and migrations.
-- [ ] Add connection pooling, transaction boundaries, retry policies, optimistic concurrency, and graceful shutdown.
-- [ ] Add a durable outbox in each service and connect it to a supported broker such as NATS JetStream or RabbitMQ.
-- [ ] Add event consumers with replay, deduplication, dead-letter handling, and schema compatibility checks.
-- [ ] Generate typed clients and server validation from the versioned OpenAPI contracts.
-- [ ] Standardize API errors, pagination, filtering, sorting, correlation IDs, request IDs, and API deprecation policy.
-- [ ] Add programme-policy versioning so historical activation and award decisions remain reproducible.
-- [ ] Add database migration automation, rollback guidance, seed separation, and backup/restore verification.
+Delivered in the integration/runtime and deployment repositories; see `docs/production-core.md` for the operational boundary and known projection-to-relational migration path.
+
+- [x] Replace in-memory runtime stores with service-owned PostgreSQL-backed state repositories and migrations.
+- [x] Add connection pooling, transaction boundaries, bounded retry policies, optimistic-safe idempotent writes, and graceful shutdown.
+- [x] Add a durable outbox in each service-owned database and connect it to NATS JetStream.
+- [x] Add event consumer primitives with replay, event-ID deduplication, dead-letter handling, and schema-major compatibility checks.
+- [x] Generate a checked-in typed client and define server validation/compatibility rules from the versioned OpenAPI contract.
+- [x] Standardize API errors, pagination, request/correlation IDs, body limits, API version headers, and deprecation policy.
+- [x] Add programme-policy versioning so historical activation and award decisions remain reproducible.
+- [x] Add migration automation, rollback guidance, seed separation, and backup/restore verification.
 
 ### 2. Identity, authentication, and authorization
 
