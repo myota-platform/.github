@@ -135,15 +135,17 @@ The initial administration web is available in `myota-admin-web` and is served o
 
 ### 4. Geodata production pipeline
 
-- [ ] Implement ParkServe US ingestion with licensed-source metadata, snapshot manifests, refresh scheduling, and source-change detection.
-- [ ] Implement OSM extraction/filtering for the required tags, attribution preservation, geometry normalization, and regional refresh jobs.
-- [ ] Implement configurable local-government GIS adapters for WFS, GeoJSON, Shapefile, and ArcGIS FeatureServer sources.
-- [ ] Implement manual proposal import and map drawing with geometry validity, CRS normalization, size limits, and attachment metadata.
-- [ ] Implement spatial deduplication/conflation scoring using name, source identifiers, containment, overlap, distance, and jurisdiction.
-- [ ] Implement reviewable merge/keep-separate/ignore decisions with full provenance and reversible history.
-- [ ] Implement source disappearance semantics: unchanged, stale, retired, or review-required according to programme policy.
-- [ ] Integrate QGIS staging/edit workflows with least-privilege roles and API-owned approval transitions.
-- [ ] Add tile/vector-tile delivery, bounding-box queries, spatial indexes, caching, and map performance budgets.
+- [x] Implement ParkServe US ingestion with licensed-source metadata, snapshot manifests, refresh scheduling, and source-change detection.
+- [x] Implement OSM extraction/filtering for the required tags, attribution preservation, geometry normalization, and regional refresh jobs.
+- [x] Implement configurable local-government GIS adapters for WFS, GeoJSON, Shapefile, and ArcGIS FeatureServer sources.
+- [x] Implement manual proposal import and map drawing with geometry validity, CRS normalization, size limits, and attachment metadata.
+- [x] Implement spatial deduplication/conflation scoring using name, source identifiers, containment, overlap, distance, and jurisdiction.
+- [x] Implement reviewable merge/keep-separate/ignore decisions with full provenance and reversible history.
+- [x] Implement source disappearance semantics: unchanged, stale, retired, or review-required according to programme policy.
+- [x] Integrate QGIS staging/edit workflows with least-privilege roles and API-owned approval transitions.
+- [x] Add tile/vector-tile delivery, bounding-box queries, spatial indexes, caching, and map performance budgets.
+
+Implemented in the geodata service/API vertical slice. Network fetching and format-specific decoding remain deployment-worker responsibilities; the service accepts normalized snapshots and preserves the source format and licensing metadata.
 
 ### 5. Activity, awards, and programme execution
 
