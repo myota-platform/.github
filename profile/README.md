@@ -125,12 +125,12 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Create an authenticated admin shell with navigation, programme context, role-aware menus, breadcrumbs, filters, and audit context.
 - [x] Add a dashboard for service health, pending reviews, active programmes, protected activity, and recent audit events.
 - [x] Add programme administration: create/edit/archive programmes, manage themes, entity types, policy versions, and stored OIDC settings.
-- [ ] Add rule and award administration using programme-owned schemas and drafts; require explicit publication and effective dates.
+- [x] Add rule and award administration using programme-owned schemas and drafts; require explicit publication and effective dates.
 - [x] Add identity administration: accounts, privacy export, deactivation/anonymization, roles/scopes returned by the identity API, and security events.
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
-- [ ] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, review notes, and audit history.
+- [x] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
-- [ ] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
+- [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
 - [x] Add an accessible responsive foundation with keyboard-friendly controls, labels, visible loading/error states, and mobile navigation.
 
 ### 4. Geodata production pipeline
