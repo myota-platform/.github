@@ -96,7 +96,7 @@ The roadmap is intentionally platform-first. A programme supplies its own charte
 
 Delivered in the integration/runtime and deployment repositories; see `docs/production-core.md` for the operational boundary and known projection-to-relational migration path.
 
-- [x] Replace in-memory runtime stores with service-owned PostgreSQL-backed state repositories and migrations.
+- [x] Replace prototype JSONB activity state with a service-owned relational PostgreSQL schema, indexed tables, migrations, bounded pools, and transactional repository methods.
 - [x] Add connection pooling, transaction boundaries, bounded retry policies, optimistic-safe idempotent writes, and graceful shutdown.
 - [x] Add a durable outbox in each service-owned database and connect it to NATS JetStream.
 - [x] Add event consumer primitives with replay, event-ID deduplication, dead-letter handling, and schema-major compatibility checks.
@@ -150,9 +150,9 @@ Implemented in the geodata service/API vertical slice. Network fetching and form
 ### 5. Activity, awards, and programme execution
 
 - [x] Expose activation execution and award management through the same activity-service process and port 8004.
-- [ ] Implement activation start/close, validity windows, location checks, operator/callsign authorization, and programme rule evaluation.
-- [ ] Implement ADIF upload, object storage, malware scanning, parsing, validation, deduplication, and asynchronous processing.
-- [ ] Implement QSO normalization, worked-station identity, band/mode validation, time-window rules, and correction workflows.
+- [x] Implement activation start/close, validity windows, location checks, operator/callsign authorization inputs, and programme rule evaluation with retained rule snapshots.
+- [x] Implement ADIF upload, object storage, malware scanning gates, parsing, validation, deduplication, and asynchronous processing jobs.
+- [x] Implement QSO normalization, worked-station identity, band/mode validation, time-window rules, PostgreSQL COPY batches, and correction workflows.
 - [x] Implement programme-linked, programme-owned award definitions with explicit draft, review, approval, publication, and effective-date lifecycle.
 - [x] Implement recursive programme-owned QSO/activity conditions with AND, OR, NOT, and supported metric/entity leaves.
 - [x] Implement hunter and activator categories with administrator-configured incremental achievement levels.
@@ -160,11 +160,11 @@ Implemented in the geodata service/API vertical slice. Network fetching and form
 - [x] Implement MinIO/S3-compatible background/signature asset registration, presigned uploads, small API uploads, and certificate-bucket targets.
 - [x] Implement server-side award progress from activity-owned data, participant identity-scoped level requests, permanent issuance records, and higher-level re-requests.
 - [x] Implement PDF certificate rendering when assets are available, retry rendering, and expiring download URLs; preserve issuance history when rendering is deferred.
-- [ ] Implement versioned award-rule recalculation jobs for historical definitions and explicit retirement semantics.
-- [ ] Add activator, hunter, entity, programme, and jurisdiction statistics with reproducible aggregation jobs.
+- [x] Implement versioned award-rule recalculation jobs for historical definitions and explicit retirement semantics.
+- [x] Add activator, hunter, entity, programme, and jurisdiction statistics with reproducible aggregation jobs.
 - [x] Add public programme award listing, participant sign-in, server-side award progress, and level request workflow.
-- [ ] Add public activation history, leaderboards, downloadable results, and privacy-aware callsign display.
-- [ ] Add notifications for proposal decisions, import failures, award qualification, and account security events.
+- [x] Add public activation history, leaderboards, JSON/CSV downloadable results, and privacy-aware callsign display.
+- [x] Add notifications for proposal decisions, import failures, award qualification, and account security events through durable notification jobs and event consumption.
 
 ### 6. Public web experience
 
