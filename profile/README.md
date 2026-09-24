@@ -106,14 +106,16 @@ Delivered in the integration/runtime and deployment repositories; see `docs/prod
 
 ### 2. Identity, authentication, and authorization
 
-- [ ] Build the login, registration, account recovery, session, and logout flows without Keycloak.
-- [ ] Implement signed short-lived access tokens, refresh-token rotation, revocation, and service-to-service authentication.
-- [ ] Implement callsign verification workflows, evidence/source recording, lifecycle dates, retirement, and reassignment safeguards.
-- [ ] Implement programme-scoped roles and scopes for participants, approvers, programme administrators, geodata operators, award administrators, and global operators.
-- [ ] Implement jurisdiction/entity-type approver scopes with explicit authorization checks in the geodata service.
-- [ ] Implement optional per-programme OAuth/OIDC provider mappings to internal MyOTA accounts.
-- [ ] Add account privacy controls, data export, deactivation/anonymization, retention rules, and security audit views.
-- [ ] Add rate limits, abuse detection, login alerts, session management, and security event notifications.
+Delivered in the identity service and shared auth contract; external OIDC code exchange remains provider-adapter work behind the stored programme mappings.
+
+- [x] Build login, registration, account recovery, session, and logout flows without Keycloak.
+- [x] Implement signed short-lived access tokens, refresh-token rotation, revocation, and service-to-service authentication.
+- [x] Implement callsign verification workflows, evidence/source recording, lifecycle dates, retirement, and reassignment safeguards.
+- [x] Implement programme-scoped roles and scopes for participants, approvers, programme administrators, geodata operators, award administrators, and global operators.
+- [x] Implement jurisdiction/entity-type approver scopes with explicit authorization checks in the geodata service.
+- [x] Implement optional per-programme OAuth/OIDC provider mappings to internal MyOTA accounts.
+- [x] Add account privacy controls, data export, deactivation/anonymization, retention rules, and security audit views.
+- [x] Add rate limits, abuse detection, login alerts, session management, and security event notifications.
 
 ### 3. General administration web — next major UI milestone
 
