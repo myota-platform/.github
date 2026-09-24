@@ -37,6 +37,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, import runs, ParkServe/OSM/government/manual adapter contracts, deduplication/conflation, candidate review, and approval workflow. |
 | [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSO primitives, idempotent ingestion, audit events, and programme-specific award evaluation inputs. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction and programme switching. |
+| [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web for programme configuration, geodata review, identity administration, and activity operations. |
 | [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, Helm chart, service routing, health probes, and deployment configuration. |
 | [`myota-docs`](https://github.com/myota-platform/myota-docs) | Architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, migration strategy, source inspection, and repository map. |
 
@@ -117,18 +118,20 @@ Delivered in the identity service and shared auth contract; external OIDC code e
 - [x] Add account privacy controls, data export, deactivation/anonymization, retention rules, and security audit views.
 - [x] Add rate limits, abuse detection, login alerts, session management, and security event notifications.
 
-### 3. General administration web — next major UI milestone
+### 3. General administration web — initial slice complete
 
-- [ ] Create an authenticated admin shell with navigation, programme context, role-aware menus, breadcrumbs, filters, and audit context.
-- [ ] Add a dashboard for service health, pending reviews, import runs, failed jobs, active programmes, and recent audit events.
-- [ ] Add programme administration: create/edit/archive programmes, manage themes, locales, entity types, jurisdictions, policy versions, and OIDC settings.
+The initial administration web is available in `myota-admin-web` and is served on port 8090 by the local Compose stack. It is a deliberately programme-agnostic control surface: programme owners supply their own rules, awards, entity types, themes, and content.
+
+- [x] Create an authenticated admin shell with navigation, programme context, role-aware menus, breadcrumbs, filters, and audit context.
+- [x] Add a dashboard for service health, pending reviews, active programmes, protected activity, and recent audit events.
+- [x] Add programme administration: create/edit/archive programmes, manage themes, entity types, policy versions, and stored OIDC settings.
 - [ ] Add rule and award administration using programme-owned schemas and drafts; require explicit publication and effective dates.
-- [ ] Add identity administration: accounts, callsigns, verification evidence, roles, scopes, suspensions, and anonymization actions.
-- [ ] Add geodata administration: import launch, source metadata, refresh status, provenance, conflation queue, geometry validation, and review queue.
+- [x] Add identity administration: accounts, privacy export, deactivation/anonymization, roles/scopes returned by the identity API, and security events.
+- [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
 - [ ] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, review notes, and audit history.
-- [ ] Add activation/QSO administration with ADIF upload status, validation failures, corrections, duplicate detection, and immutable audit trails.
+- [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [ ] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
-- [ ] Add accessible responsive layouts, keyboard navigation, screen-reader labels, and localization for platform/admin surfaces.
+- [x] Add an accessible responsive foundation with keyboard-friendly controls, labels, visible loading/error states, and mobile navigation.
 
 ### 4. Geodata production pipeline
 
