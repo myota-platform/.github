@@ -34,7 +34,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-contracts`](https://github.com/myota-platform/myota-contracts) | OpenAPI HTTP contracts, event envelopes, compatibility rules, and future generated clients. |
 | [`myota-identity-service`](https://github.com/myota-platform/myota-identity-service) | Amateur-radio-native accounts, operator/SWL participation, multiple callsigns, primary callsign, verification lifecycle, roles, scopes, and optional external identity mappings. |
 | [`myota-programme-service`](https://github.com/myota-platform/myota-programme-service) | Programme configuration, programme-owned entity types, rules, jurisdictions, themes, and optional per-programme OIDC settings. |
-| [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, import runs, ParkServe/OSM/government/manual adapter contracts, deduplication/conflation, candidate review, and approval workflow. |
+| [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, candidate-only GeoJSON/KML/GPX/Shapefile/OSM/ParkServe intake, import runs, deduplication/conflation, candidate review, and approval workflow. |
 | [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, MinIO/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
 | [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web for programme configuration, geodata review, identity administration, award design, signature/background assets, and activity operations. |
@@ -50,7 +50,7 @@ The initial production topology is one PostgreSQL cluster with two databases:
 
 This keeps operations simple while giving geodata an independent backup, scaling, and eventual cluster-split path. QGIS is the recommended graphical PostGIS tool for geometry inspection and controlled editing; lifecycle transitions remain API-owned and audited.
 
-Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. Imports preserve source IDs, licensing, attribution, retrieval time, geometry, and refresh semantics.
+Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, requires a programme category, stores provenance, and always writes candidates. Uploaded objects are malware-scanned, stored in MinIO/S3, and queued through the geodata outbox/NATS path.
 
 ## Local development
 
@@ -128,6 +128,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add rule and award administration using programme-owned schemas and drafts; require explicit publication and effective dates.
 - [x] Add identity administration: accounts, privacy export, deactivation/anonymization, roles/scopes returned by the identity API, and security events.
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
+- [x] Move dataset intake into a dedicated Geodata imports page with programme/category selection, pasted text, file upload, MinIO storage, NATS queue events, and candidate-only semantics.
 - [x] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
@@ -144,8 +145,10 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Implement source disappearance semantics: unchanged, stale, retired, or review-required according to programme policy.
 - [x] Integrate QGIS staging/edit workflows with least-privilege roles and API-owned approval transitions.
 - [x] Add tile/vector-tile delivery, bounding-box queries, spatial indexes, caching, and map performance budgets.
+- [x] Add KML, GPX, Shapefile archives, OSM PBF, and ParkServe binary intake alongside GeoJSON/WFS/ArcGIS formats.
+- [x] Add global-admin entity deletion impact warnings, linked-QSO cascade deletion, aggregate rebuild, award-progress recalculation, and audit/conflation cleanup.
 
-Implemented in the geodata service/API vertical slice. Network fetching and format-specific decoding remain deployment-worker responsibilities; the service accepts normalized snapshots and preserves the source format and licensing metadata.
+Implemented in the geodata service/API vertical slice. Network fetching and long-running OSM/ParkServe binary decoding remain deployment-worker responsibilities; the intake stores their source object and durable queued run while GeoJSON/KML/GPX/Shapefile decoding is available at the service boundary.
 
 ### 5. Activity, awards, and programme execution
 
