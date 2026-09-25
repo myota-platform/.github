@@ -24,7 +24,7 @@ The geodata lifecycle is:
 authoritative/imported source → CANDIDATE → PROPOSED → APPROVED
 ```
 
-Approved entities are public programme references. Candidates remain visibly distinct until reviewed by an approver with the correct programme, jurisdiction, and entity-type scope.
+Approved entities are public programme references. Candidates remain visibly distinct until reviewed by an approver with the correct jurisdiction and entity-type scope; platform-wide candidates can be reviewed before a programme is assigned.
 
 ## Repositories
 
@@ -129,7 +129,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add identity administration: accounts, privacy export, deactivation/anonymization, roles/scopes returned by the identity API, and security events.
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
 - [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, MinIO storage, NATS queue events, programme-independent candidate-only semantics.
-- [x] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, review notes, and audit history.
+- [x] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
 - [x] Add an accessible responsive foundation with keyboard-friendly controls, labels, visible loading/error states, and mobile navigation.
