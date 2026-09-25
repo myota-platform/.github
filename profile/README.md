@@ -11,7 +11,7 @@ Universal programme UI
         │
 API gateway / ingress
         ├── Identity service       accounts, callsigns, SWLs, scopes, OIDC mappings
-        ├── Programme service      programmes, entity types, rules, themes
+        ├── Programme service      programmes, shared categories, assignments, rules, themes
         ├── Geodata service        PostGIS, imports, provenance, conflation, review
         └── Activity service       activations, QSOs, award progress, certificates
                  │
@@ -33,7 +33,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-platform`](https://github.com/myota-platform/myota-platform) | Runnable integration bootstrap, dependency-free vertical slice, local gateway, tests, API contracts, migrations, and cross-service smoke path. |
 | [`myota-contracts`](https://github.com/myota-platform/myota-contracts) | OpenAPI HTTP contracts, event envelopes, compatibility rules, and future generated clients. |
 | [`myota-identity-service`](https://github.com/myota-platform/myota-identity-service) | Amateur-radio-native accounts, operator/SWL participation, multiple callsigns, primary callsign, verification lifecycle, roles, scopes, and optional external identity mappings. |
-| [`myota-programme-service`](https://github.com/myota-platform/myota-programme-service) | Programme configuration, programme-owned entity types, rules, jurisdictions, themes, and optional per-programme OIDC settings. |
+| [`myota-programme-service`](https://github.com/myota-platform/myota-programme-service) | Programme configuration, shared entity-category master data and assignments, programme-owned rules, jurisdictions, themes, and optional per-programme OIDC settings. |
 | [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, candidate-only GeoJSON/KML/GPX/Shapefile/OSM/ParkServe intake, import runs, deduplication/conflation, candidate review, and approval workflow. |
 | [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, MinIO/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
@@ -84,7 +84,7 @@ The roadmap is intentionally platform-first. A programme supplies its own charte
 - [x] Define service ownership for identity, programmes, geodata, and activity.
 - [x] Implement dependency-free service boundaries, health endpoints, idempotency handling, and audit-event primitives.
 - [x] Implement operator/SWL accounts, multiple callsigns, one primary callsign, lifecycle states, and verification fields.
-- [x] Implement programme listing/configuration, programme-owned entity types, rules, themes, and optional OIDC configuration.
+- [x] Implement programme listing/configuration, shared entity categories and programme assignments, programme-owned rules, themes, and optional OIDC configuration.
 - [x] Implement the candidate → proposed → approved geodata lifecycle.
 - [x] Implement provenance-aware adapter contracts for ParkServe US, OSM, government GIS, and manual proposals.
 - [x] Define PostgreSQL/PostGIS migrations, core/geodata database topology, QGIS views, and the storage ADR.
@@ -128,6 +128,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add rule and award administration using programme-owned schemas and drafts; require explicit publication and effective dates.
 - [x] Add identity administration: accounts, privacy export, deactivation/anonymization, roles/scopes returned by the identity API, and security events.
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
+- [x] Support shared, database-backed entity categories: entities may have multiple categories, categories may be assigned to multiple programmes, and the first ordered category remains the compatibility primary.
 - [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, MinIO storage, NATS queue events, programme-independent candidate-only semantics.
 - [x] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
