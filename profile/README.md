@@ -179,6 +179,9 @@ Implemented in the geodata service/API vertical slice. Network fetching and long
 - [ ] Add activation logging, ADIF upload, QSO progress, award progress, and programme-specific public workflows.
 - [ ] Add per-programme theme/content configuration, locales, accessibility checks, and mobile-first map behavior.
 - [ ] Add offline-friendly map/data behavior where programme operations require unreliable connectivity.
+- [ ] Build an Android participant application for user workflows only: account and callsign management, programme discovery, map/entity browsing, activation start/close, QSO capture/import, award progress and certificate requests, notifications, and privacy settings. Do not include global administration, programme configuration, geodata approval, role management, or other admin functions.
+- [ ] Build an iOS participant application with the same user-only scope and programme-aware experience as Android. Keep administration, moderation, imports, and programme management in the web control plane.
+- [ ] Define a shared mobile API/SDK, authentication/session model, offline queue and sync behavior, push-notification contracts, minimum supported OS versions, accessibility requirements, and programme-theme/content delivery before native implementation.
 
 ### 7. Reliability, security, and operations
 
