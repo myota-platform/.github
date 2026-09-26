@@ -35,10 +35,10 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-identity-service`](https://github.com/myota-platform/myota-identity-service) | Amateur-radio-native accounts, operator/SWL participation, multiple callsigns, primary callsign, verification lifecycle, roles, scopes, and optional external identity mappings. |
 | [`myota-programme-service`](https://github.com/myota-platform/myota-programme-service) | Programme configuration, shared entity-category master data and assignments, programme-owned rules, jurisdictions, themes, and optional per-programme OIDC settings. |
 | [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, candidate-only GeoJSON/KML/GPX/Shapefile/OSM/ParkServe intake, import runs, deduplication/conflation, candidate review, and approval workflow. |
-| [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, MinIO/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
+| [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, SeaweedFS/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
 | [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web for programme configuration, geodata review, identity administration, award design, signature/background assets, and activity operations. |
-| [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, MinIO/S3 configuration, Helm chart, service routing, health probes, and deployment configuration. |
+| [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, SeaweedFS/S3 configuration, Helm chart, service routing, health probes, and deployment configuration. |
 | [`myota-docs`](https://github.com/myota-platform/myota-docs) | Architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, migration strategy, source inspection, and repository map. |
 
 ## Storage and geodata
@@ -50,7 +50,7 @@ The initial production topology is one PostgreSQL cluster with two databases:
 
 This keeps operations simple while giving geodata an independent backup, scaling, and eventual cluster-split path. QGIS is the recommended graphical PostGIS tool for geometry inspection and controlled editing; lifecycle transitions remain API-owned and audited.
 
-Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, loads the complete shared category catalogue from the database, keeps imports programme-independent, stores provenance, and always writes candidates. Uploaded objects are malware-scanned, stored in MinIO/S3, and queued through the geodata outbox/NATS path.
+Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, loads the complete shared category catalogue from the database, keeps imports programme-independent, stores provenance, and always writes candidates. Uploaded objects are malware-scanned, stored in SeaweedFS through its S3 API, and queued through the geodata outbox/NATS path.
 
 ## Local development
 
@@ -129,7 +129,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add identity administration: accounts, privacy export, deactivation/anonymization, roles/scopes returned by the identity API, and security events.
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
 - [x] Support shared, database-backed entity categories: entities may have multiple categories, categories may be assigned to multiple programmes, and the first ordered category remains the compatibility primary.
-- [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, MinIO storage, NATS queue events, programme-independent candidate-only semantics.
+- [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, SeaweedFS storage, NATS queue events, programme-independent candidate-only semantics.
 - [x] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
@@ -161,7 +161,7 @@ Implemented in the geodata service/API vertical slice. Network fetching and long
 - [x] Implement recursive programme-owned QSO/activity conditions with AND, OR, NOT, and supported metric/entity leaves.
 - [x] Implement hunter and activator categories with administrator-configured incremental achievement levels.
 - [x] Implement A4/Letter print profiles, aspect-ratio/resolution validation, normalized WYSIWYG certificate field placement, and award-manager signature metadata.
-- [x] Implement MinIO/S3-compatible background/signature asset registration, presigned uploads, small API uploads, and certificate-bucket targets.
+- [x] Implement SeaweedFS/S3-compatible background/signature asset registration, presigned uploads, small API uploads, and certificate-bucket targets.
 - [x] Implement server-side award progress from activity-owned data, participant identity-scoped level requests, permanent issuance records, and higher-level re-requests.
 - [x] Implement PDF certificate rendering when assets are available, retry rendering, and expiring download URLs; preserve issuance history when rendering is deferred.
 - [x] Implement versioned award-rule recalculation jobs for historical definitions and explicit retirement semantics.
