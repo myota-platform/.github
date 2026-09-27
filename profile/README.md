@@ -35,7 +35,10 @@ API gateway / ingress
 The geodata lifecycle is:
 
 ```text
-authoritative/imported source → CANDIDATE → PROPOSED → APPROVED
+authoritative/imported source ─┐
+community proposal ────────────┴→ CANDIDATE → APPROVED
+                                           ├→ REJECTED
+APPROVED → RETIRED
 ```
 
 Approved entities are public programme references. Candidates remain visibly distinct until reviewed by an approver with the correct jurisdiction and entity-type scope; platform-wide candidates can be reviewed before a programme is assigned.
@@ -101,7 +104,7 @@ The roadmap is intentionally platform-first. A programme supplies its own charte
 - [x] Implement dependency-free service boundaries, health endpoints, idempotency handling, and audit-event primitives.
 - [x] Implement operator/SWL accounts, multiple callsigns, one primary callsign, lifecycle states, and verification fields.
 - [x] Implement programme listing/configuration, shared entity categories and programme assignments, programme-owned rules, themes, and optional OIDC configuration.
-- [x] Implement the candidate → proposed → approved geodata lifecycle.
+- [x] Implement the candidate → approved/rejected geodata lifecycle, with approved → retired protection.
 - [x] Implement provenance-aware adapter contracts for ParkServe US, OSM, government GIS, and manual proposals.
 - [x] Define PostgreSQL/PostGIS migrations, core/geodata database topology, QGIS views, and the storage ADR.
 - [x] Implement activation and QSO primitives with idempotent mutation paths.
@@ -146,7 +149,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
 - [x] Support shared, database-backed entity categories: entities may have multiple categories, categories may be assigned to multiple programmes, and the first ordered category remains the compatibility primary.
 - [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, SeaweedFS storage, NATS queue events, programme-independent candidate-only semantics.
-- [x] Add map-based approver review with candidate/proposed/approved layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
+- [x] Add map-based approver review with candidate/approved/rejected layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
 - [x] Add an accessible responsive foundation with keyboard-friendly controls, labels, visible loading/error states, and mobile navigation.
@@ -195,7 +198,7 @@ primitive or local demo exists. The detailed analysis and owners are in
 [`myota-docs/docs/charter-gap-analysis.md`](https://github.com/myota-platform/myota-docs/blob/main/docs/charter-gap-analysis.md).
 
 - [ ] Publish a map-first **MyOTA Explorer** with nearby search, clear
-  Candidate/Proposed/Approved distinction, entity details, and a “propose a
+  Candidate/Approved/Rejected distinction, entity details, and a “propose a
   place” path.
 - [ ] Seed and license a useful Sevilla/Andalucía dataset, then run a small
   real-operator beta that measures parks activated, QSOs, distance to parks,
