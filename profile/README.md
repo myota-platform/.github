@@ -1,6 +1,20 @@
 # MyOTA
 
-MyOTA is a programme-agnostic Outdoor Activation Platform for amateur-radio initiatives. It provides reusable identity, programme configuration, geospatial data, activation, QSO, award, approval, and map capabilities. Each programme defines its own charter, eligibility, rules, awards, minimum QSOs, jurisdictions, themes, and content; MyOTA does not copy or inherit rules from POTA or another programme.
+MyOTA is open infrastructure for geographic amateur-radio activation
+programmes. It provides reusable identity, programme configuration, geospatial
+data, activation, QSO, award, approval, and map capabilities. Each programme
+defines its own charter, eligibility, rules, awards, minimum QSOs,
+jurisdictions, themes, and content; MyOTA does not copy or inherit rules from
+POTA, MPOTA, or another programme.
+
+The project is motivated by a simple accessibility problem: many operators
+live close to legitimate local or municipal parks but far from the entities
+recognized by existing activation programmes. MyOTA aims to make nearby
+places usable for short, urban, QRP, VHF/UHF, satellite, and spontaneous
+activations while remaining complementary to other programmes.
+
+Read the detailed [purpose, motivation, and working charter](https://github.com/myota-platform/myota-docs/blob/main/docs/project-charter.md)
+and the [current charter gap analysis](https://github.com/myota-platform/myota-docs/blob/main/docs/charter-gap-analysis.md).
 
 The organization login is `myota-platform`; the visible organization name is **MyOTA**.
 
@@ -39,7 +53,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
 | [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web for programme configuration, geodata review, identity administration, award design, signature/background assets, and activity operations. |
 | [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, SeaweedFS/S3 configuration, Helm chart, service routing, health probes, and deployment configuration. |
-| [`myota-docs`](https://github.com/myota-platform/myota-docs) | Architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, migration strategy, source inspection, and repository map. |
+| [`myota-docs`](https://github.com/myota-platform/myota-docs) | Project charter, motivation, architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, gap analyses, migration strategy, source inspection, diagrams, and repository map. |
 
 ## Storage and geodata
 
@@ -71,6 +85,8 @@ Open <http://127.0.0.1:8080>. This starts the gateway and the four service bound
 - PostgreSQL/PostGIS as the geospatial source of truth.
 - Idempotent mutations, auditability, scoped approvals, health checks, and observable deployment boundaries.
 - MPOTA is retained only as synthetic sample data; it is not the platform definition.
+- The public story starts with nearby places and useful participant outcomes;
+  microservices are an enabling detail, not the product promise.
 
 ## Roadmap
 
@@ -169,6 +185,41 @@ Implemented in the geodata service/API vertical slice. Network fetching and long
 - [x] Add public programme award listing, participant sign-in, server-side award progress, and level request workflow.
 - [x] Add public activation history, leaderboards, JSON/CSV downloadable results, and privacy-aware callsign display.
 - [x] Add notifications for proposal decisions, import failures, award qualification, and account security events through durable notification jobs and event consumption.
+
+### Charter-derived product and community gap analysis — 2026-09-27
+
+The internal platform slice is substantially ahead of the public participant
+experience. The following items come from the project-purpose and launch
+conversation and are intentionally not marked complete merely because an API
+primitive or local demo exists. The detailed analysis and owners are in
+[`myota-docs/docs/charter-gap-analysis.md`](https://github.com/myota-platform/myota-docs/blob/main/docs/charter-gap-analysis.md).
+
+- [ ] Publish a map-first **MyOTA Explorer** with nearby search, clear
+  Candidate/Proposed/Approved distinction, entity details, and a “propose a
+  place” path.
+- [ ] Seed and license a useful Sevilla/Andalucía dataset, then run a small
+  real-operator beta that measures parks activated, QSOs, distance to parks,
+  repeat participation, and software failures.
+- [ ] Finish participant workflows in `myota-web`: production authentication,
+  profile/callsign management, proposals, activation logging, ADIF/QSO flows,
+  public history, shareable results, and privacy-aware leaderboards.
+- [ ] Publish a governance and contributor model: reviewer handbook, local
+  stewardship/Park Steward proposal, escalation/SLA policy, country/region
+  coordinators, and programme onboarding guidance.
+- [ ] Make interoperability tangible with public API examples, generated SDK
+  releases, external-reference endpoints, bulk/change-feed documentation, and
+  at least one logger/client integration.
+- [ ] Decide and document software/data licences, open-data publication rules,
+  source attribution, and a reproducible regional-data workflow.
+- [ ] Complete the Internet-facing beta gates: load/soak tests for large QSO
+  volumes, observability/SLOs, backups and restore drills, security review,
+  secret/key management, supply-chain controls, and incident runbooks.
+- [ ] Define the shared participant mobile API/offline/push model, then build
+  Android and iOS applications for user workflows only; administration remains
+  in the web control plane.
+
+These gaps are product and delivery work, not default programme rules. Every
+programme still supplies its own policy and charter.
 
 ### 6. Public web experience
 
