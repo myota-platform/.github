@@ -221,6 +221,19 @@ primitive or local demo exists. The detailed analysis and owners are in
 These gaps are product and delivery work, not default programme rules. Every
 programme still supplies its own policy and charter.
 
+### API consistency and REST consolidation — proposed
+
+- [ ] Reconcile the canonical OpenAPI document with the duplicate root and
+  platform integration copies.
+- [ ] Consolidate ordinary update/action routes into resource updates,
+  relationship resources, and explicit asynchronous job resources while
+  preserving audited domain commands.
+- [ ] Migrate generated clients and web clients through compatibility aliases,
+  deprecation headers, route-usage telemetry, and a documented sunset window.
+
+The full endpoint-by-endpoint table and implementation plan are maintained in
+the myota-docs REST API consolidation plan.
+
 ### 6. Public web experience
 
 - [ ] Add production authentication and account/profile pages.
