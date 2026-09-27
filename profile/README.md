@@ -36,7 +36,11 @@ The geodata lifecycle is:
 
 ```text
 authoritative/imported source ─┐
-community proposal ────────────┴→ CANDIDATE → APPROVED
+community proposal ────────────┴→ candidate source
+                                  │
+                         pre-process + validate
+                                  │
+                               CANDIDATE → APPROVED
                                            ├→ REJECTED
 APPROVED → RETIRED
 ```
@@ -67,7 +71,7 @@ The initial production topology is one PostgreSQL cluster with two databases:
 
 This keeps operations simple while giving geodata an independent backup, scaling, and eventual cluster-split path. QGIS is the recommended graphical PostGIS tool for geometry inspection and controlled editing; lifecycle transitions remain API-owned and audited.
 
-Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, loads the complete shared category catalogue from the database, keeps imports programme-independent, stores provenance, and always writes candidates. Uploaded objects are malware-scanned, stored in SeaweedFS through its S3 API, and queued through the geodata outbox/NATS path.
+Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, loads the complete shared category catalogue from the database, keeps imports programme-independent, and now stops after durable pre-processing. Administrators validate a compact paged selection and explicitly queue confirmed records to `CANDIDATE` or `APPROVED` through the NATS-backed promotion path. Uploaded objects are malware-scanned, stored in SeaweedFS through its S3 API, and queued through the geodata outbox/NATS path.
 
 ## Local development
 
@@ -149,6 +153,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
 - [x] Support shared, database-backed entity categories: entities may have multiple categories, categories may be assigned to multiple programmes, and the first ordered category remains the compatibility primary.
 - [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, SeaweedFS storage, NATS queue events, programme-independent candidate-only semantics.
+- [x] Add the two-stage import safety boundary: durable pre-processed records, paged administrator validation with select-all, and an explicit NATS promotion queue targeting CANDIDATE or APPROVED.
 - [x] Add map-based approver review with candidate/approved/rejected layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
