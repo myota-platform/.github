@@ -152,7 +152,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add identity administration: accounts, privacy export, deactivation/anonymization, roles/scopes returned by the identity API, and security events.
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
 - [x] Support shared, database-backed entity categories: entities may have multiple categories, categories may be assigned to multiple programmes, and the first ordered category remains the compatibility primary.
-- [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, SeaweedFS storage, NATS queue events, and programme-independent staged promotion semantics.
+- [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, an explicit OpenStreetMap GeoJSON option, SeaweedFS storage, NATS queue events, and programme-independent staged promotion semantics.
 - [x] Add the two-stage import safety boundary: durable pre-processed records, paged administrator validation with select-all, and an explicit NATS promotion queue targeting CANDIDATE or APPROVED.
 - [x] Add map-based approver review with candidate/approved/rejected layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
@@ -165,7 +165,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Implement OSM extraction/filtering for the required tags, attribution preservation, geometry normalization, and regional refresh jobs.
 - [x] Implement configurable local-government GIS adapters for WFS, GeoJSON, Shapefile, and ArcGIS FeatureServer sources.
 - [x] Implement manual proposal import and map drawing with geometry validity, CRS normalization, size limits, and attachment metadata.
-- [x] Implement spatial deduplication/conflation scoring using name, source identifiers, containment, overlap, distance, and jurisdiction.
+- [x] Implement spatial deduplication/conflation scoring using name, source identifiers, containment, overlap, distance, and jurisdiction, plus a pre-processing warning for identical or sub-50-metre existing-entity matches with map comparison.
 - [x] Implement reviewable merge/keep-separate/ignore decisions with full provenance and reversible history.
 - [x] Implement source disappearance semantics: unchanged, stale, retired, or review-required according to programme policy.
 - [x] Integrate QGIS staging/edit workflows with least-privilege roles and API-owned approval transitions.
