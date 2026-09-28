@@ -153,7 +153,7 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add geodata administration: manual import launch, source metadata, provenance, and candidate/proposal review queue.
 - [x] Support shared, database-backed entity categories: entities may have multiple categories, categories may be assigned to multiple programmes, and the first ordered category remains the compatibility primary.
 - [x] Move dataset intake into a dedicated Geodata imports page with database-backed shared category selection, pasted text, file upload, an explicit OpenStreetMap GeoJSON option, SeaweedFS storage, NATS queue events, and programme-independent staged promotion semantics.
-- [x] Add the two-stage import safety boundary: durable pre-processed records, paged administrator validation with select-all, and an explicit NATS promotion queue targeting CANDIDATE or APPROVED.
+- [x] Add the two-stage import safety boundary: a dedicated visible pre-processing queue with durable records, candidate counts, paged administrator validation with select-all, and an explicit NATS promotion queue targeting CANDIDATE or APPROVED before Geodata Review.
 - [x] Add map-based approver review with candidate/approved/rejected layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
