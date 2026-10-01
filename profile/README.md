@@ -231,18 +231,23 @@ primitive or local demo exists. The detailed analysis and owners are in
 These gaps are product and delivery work, not default programme rules. Every
 programme still supplies its own policy and charter.
 
-### API consistency and REST consolidation — proposed
+### API consistency and REST consolidation — Phases 0–1 complete
 
-- [ ] Reconcile the canonical OpenAPI document with the duplicate root and
-  platform integration copies.
-- [ ] Consolidate ordinary update/action routes into resource updates,
-  relationship resources, and explicit asynchronous job resources while
-  preserving audited domain commands.
-- [ ] Migrate generated clients and web clients through compatibility aliases,
-  deprecation headers, route-usage telemetry, and a documented sunset window.
+- [x] Reconcile and freeze the canonical OpenAPI document with the generated
+  root and platform integration copies.
+- [x] Add low-risk resource updates for accounts, programmes, category
+  memberships, primary callsigns, content, policy drafts, and awards.
+- [x] Preserve legacy action routes as audited compatibility aliases with
+  deprecation/sunset headers; verify route registration and contract parity in
+  CI.
+- [ ] Consolidate geodata resources and asynchronous job resources in the next
+  phases, then migrate generated clients and web clients with route-usage
+  telemetry.
 
-The full endpoint-by-endpoint table and implementation plan are maintained in
-the myota-docs REST API consolidation plan.
+The endpoint-by-endpoint table, contract links, and implementation record are
+maintained in the
+[myota-docs REST API consolidation plan](https://github.com/myota-platform/myota-docs/blob/main/docs/api-rest-consolidation-plan.md)
+and [Phase 1 resource update record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase1-resource-updates.md).
 
 ### 6. Public web experience
 
