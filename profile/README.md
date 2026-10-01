@@ -231,7 +231,7 @@ primitive or local demo exists. The detailed analysis and owners are in
 These gaps are product and delivery work, not default programme rules. Every
 programme still supplies its own policy and charter.
 
-### API consistency and REST consolidation — Phases 0–3 complete
+### API consistency and REST consolidation — Phases 0–4 complete
 
 - [x] Reconcile and freeze the canonical OpenAPI document with the generated
   root and platform integration copies.
@@ -247,7 +247,12 @@ programme still supplies its own policy and charter.
   ingestion, statistics, award evaluation/recalculation, issuance, rendering,
   and certificate artifacts, with owner authorization, version-scoped
   recalculation, and deterministic statistics snapshots.
-- [ ] Migrate generated clients and web clients with route-usage telemetry.
+- [x] Migrate the checked-in typed clients and admin/public web clients to the
+  preferred resource APIs, with route-usage telemetry. See the
+  [Phase 4 client and operational migration record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase4-client-operational-migration.md).
+- [x] Add Prometheus/Grafana operational dashboards for deprecated alias
+  traffic, job lag, failed jobs, pending corrections, and HTTP errors; run the
+  durable-stack verification gate before local releases.
 
 The endpoint-by-endpoint table, contract links, and implementation record are
 maintained in the
@@ -256,6 +261,9 @@ and [Phase 1 resource update record](https://github.com/myota-platform/myota-doc
 plus the [Phase 2 geodata resource model](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase2-geodata-resource-model.md).
 The Phase 3 implementation is recorded in the
 [activity and award job record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase3-activity-award-jobs.md).
+Phase 4 operations, dashboards, and the verification gate are recorded in the
+[Phase 4 implementation record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase4-client-operational-migration.md)
+and [operations diagram](https://github.com/myota-platform/myota-docs/blob/main/docs/diagrams/api-phase4-operational-migration.md).
 
 ### 6. Public web experience
 
