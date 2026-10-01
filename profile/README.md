@@ -245,7 +245,8 @@ programme still supplies its own policy and charter.
   collections, and confirmation-based deletion jobs.
 - [x] Add activity and award job resources for activation closure, QSO
   ingestion, statistics, award evaluation/recalculation, issuance, rendering,
-  and certificate artifacts.
+  and certificate artifacts, with owner authorization, version-scoped
+  recalculation, and deterministic statistics snapshots.
 - [ ] Migrate generated clients and web clients with route-usage telemetry.
 
 The endpoint-by-endpoint table, contract links, and implementation record are
