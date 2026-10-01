@@ -231,7 +231,7 @@ primitive or local demo exists. The detailed analysis and owners are in
 These gaps are product and delivery work, not default programme rules. Every
 programme still supplies its own policy and charter.
 
-### API consistency and REST consolidation — Phases 0–2 complete
+### API consistency and REST consolidation — Phases 0–3 complete
 
 - [x] Reconcile and freeze the canonical OpenAPI document with the generated
   root and platform integration copies.
@@ -243,14 +243,18 @@ programme still supplies its own policy and charter.
 - [x] Consolidate the geodata resource model: import representations,
   proposals, metadata, categories, geometry, reviews, bbox-filtered entity
   collections, and confirmation-based deletion jobs.
-- [ ] Add the remaining activity and award job resources, then migrate
-  generated clients and web clients with route-usage telemetry.
+- [x] Add activity and award job resources for activation closure, QSO
+  ingestion, statistics, award evaluation/recalculation, issuance, rendering,
+  and certificate artifacts.
+- [ ] Migrate generated clients and web clients with route-usage telemetry.
 
 The endpoint-by-endpoint table, contract links, and implementation record are
 maintained in the
 [myota-docs REST API consolidation plan](https://github.com/myota-platform/myota-docs/blob/main/docs/api-rest-consolidation-plan.md)
 and [Phase 1 resource update record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase1-resource-updates.md),
 plus the [Phase 2 geodata resource model](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase2-geodata-resource-model.md).
+The Phase 3 implementation is recorded in the
+[activity and award job record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase3-activity-award-jobs.md).
 
 ### 6. Public web experience
 
