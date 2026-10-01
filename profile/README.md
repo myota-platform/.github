@@ -282,7 +282,7 @@ and [operations diagram](https://github.com/myota-platform/myota-docs/blob/main/
 
 ### 7. Reliability, security, and operations
 
-- [x] Add service-owned real metrics, OpenTelemetry request traces, collector-based Prometheus/Grafana dashboards, and Tempo storage. See the [observability architecture](https://github.com/myota-platform/myota-docs/blob/main/docs/observability.md). Alerts, structured log retention, and formal SLOs remain production hardening work.
+- [x] Add service-owned real metrics, OpenTelemetry request traces, collector-based Prometheus/Grafana dashboards, Tempo storage, per-service/per-route/per-method API performance graphs, Prometheus/Alertmanager availability and latency alerts, and equivalent Grafana-managed rules. See the [observability architecture](https://github.com/myota-platform/myota-docs/blob/main/docs/observability.md). Structured log retention and formal SLOs remain production hardening work.
 - [ ] Add Kubernetes readiness/liveness behavior, autoscaling guidance, network policies, pod disruption budgets, and resource profiles.
 - [ ] Add secret management, key rotation, image signing, SBOM generation, dependency scanning, and supply-chain verification.
 - [ ] Add API gateway authentication, quotas, WAF/rate-limit policy, CORS/CSRF policy, and request-size limits.
