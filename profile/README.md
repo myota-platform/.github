@@ -29,7 +29,9 @@ API gateway / ingress
         ├── Geodata service        PostGIS, imports, provenance, conflation, review
         └── Activity service       activations, QSOs, award progress, certificates
                  │
-        PostgreSQL + PostGIS / event outbox
+        ├── myota_core       PostgreSQL
+        ├── myota_activity  PostgreSQL
+        └── myota_geo       PostgreSQL + PostGIS
 ```
 
 The geodata lifecycle is:
@@ -64,12 +66,20 @@ Approved entities are public programme references. Candidates remain visibly dis
 
 ## Storage and geodata
 
-The initial production topology is one PostgreSQL cluster with two databases:
+The platform uses three service-owned database targets:
 
-- `myota_core`: identity, programme, activity-owned awards, permissions, audit, and outbox data.
-- `myota_geo`: PostGIS geometry, imported snapshots, source references, conflation candidates, and review records.
+- `myota_core` (plain PostgreSQL): identity, programmes, shared configuration, permissions, and core outbox data.
+- `myota_activity` (plain PostgreSQL): activations, QSOs, aggregates, awards, jobs, notifications, and activity outbox data.
+- `myota_geo` (PostgreSQL + PostGIS): entities and geometry, imported snapshots, source references, conflation candidates, and review records.
 
-This keeps operations simple while giving geodata an independent backup, scaling, and eventual cluster-split path. QGIS is the recommended graphical PostGIS tool for geometry inspection and controlled editing; lifecycle transitions remain API-owned and audited.
+Local development runs these as three database containers; the Helm chart can
+run three persistent StatefulSets or connect to externally managed database
+endpoints. Only `myota_geo` requires PostGIS. Separate targets isolate service
+migrations, backup/restore, and capacity planning without requiring three
+separate database products. Cross-service references use IDs and events rather
+than cross-database foreign keys. QGIS is the recommended graphical PostGIS
+tool for geometry inspection and controlled editing; lifecycle transitions
+remain API-owned and audited. See the [storage ADR](https://github.com/myota-platform/myota-docs/blob/main/docs/adr/0007-three-database-migration.md), [service-boundary diagram](https://github.com/myota-platform/myota-docs/blob/main/docs/diagrams/service-boundaries.md), and [Fleet operations guide](https://github.com/myota-platform/myota-docs/blob/main/docs/operations.md#rancher-fleet-on-k3s).
 
 Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, loads the complete shared category catalogue from the database, keeps imports programme-independent, and now stops after durable pre-processing. Normalized records are checked for identical geometry or existing entities within 50 metres; possible duplicates are warnings with map comparison, not automatic merges. Administrators validate a compact paged selection in the visible pre-processing queue and explicitly queue confirmed records to `CANDIDATE` or `APPROVED` through the NATS-backed promotion path; only promoted candidates appear in Geodata Review. Uploaded objects are malware-scanned, stored in SeaweedFS through its S3 API, and queued through the geodata outbox/NATS path. Import sources and lifecycle state are durable: a geodata restart requeues queued or interrupted preprocessing runs before dispatching recovery workers, while unsupported binary adapters remain visibly queued.
 
@@ -110,7 +120,7 @@ The roadmap is intentionally platform-first. A programme supplies its own charte
 - [x] Implement programme listing/configuration, shared entity categories and programme assignments, programme-owned rules, themes, and optional OIDC configuration.
 - [x] Implement the candidate → approved/rejected geodata lifecycle, with approved → retired protection.
 - [x] Implement provenance-aware adapter contracts for ParkServe US, OSM, government GIS, and manual proposals.
-- [x] Define PostgreSQL/PostGIS migrations, core/geodata database topology, QGIS views, and the storage ADR.
+- [x] Define PostgreSQL/PostGIS migrations, the three-database core/activity/geodata topology, QGIS views, and the storage ADR.
 - [x] Implement activation and QSO primitives with idempotent mutation paths.
 - [x] Implement the universal public programme view with programme switching and approved/candidate distinction.
 - [x] Add Helm, Compose, CI, threat notes, migration notes, and local Colima smoke coverage.
@@ -286,7 +296,7 @@ and [operations diagram](https://github.com/myota-platform/myota-docs/blob/main/
 - [ ] Add Kubernetes readiness/liveness behavior, autoscaling guidance, network policies, pod disruption budgets, and resource profiles.
 - [ ] Add secret management, key rotation, image signing, SBOM generation, dependency scanning, and supply-chain verification.
 - [ ] Add API gateway authentication, quotas, WAF/rate-limit policy, CORS/CSRF policy, and request-size limits.
-- [ ] Add disaster-recovery runbooks, independent core/geodata backups, restore drills, and cluster-split procedures.
+- [ ] Add disaster-recovery runbooks, independent core/activity/geodata backups, restore drills, and cluster-split procedures.
 - [ ] Add load, soak, spatial-query, import-throughput, failover, and migration compatibility tests.
 - [ ] Add security review for identity, OIDC, callsign evidence, uploaded ADIF, geometry uploads, and admin actions.
 
