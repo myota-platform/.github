@@ -83,9 +83,10 @@ remain API-owned and audited. See the [storage ADR](https://github.com/myota-pla
 
 S3-compatible object storage uses distinct buckets for geodata imports,
 participant ADIF logs, editable award backgrounds, manager signatures, and
-issued award certificates. Only geodata imports use the automatic 30-day
-expunge policy; award artwork, signatures, ADIF uploads, and issued certificates
-have independent retention boundaries. See the [bucket policy and upgrade
+issued award certificates. Geodata imports use their own 30-day expunge policy;
+completed ADIF source files are removed after 15 days while import results stay
+in PostgreSQL. Failed/pending ADIF uploads and award assets, signatures, and
+issued certificates are excluded from those cleanup jobs. See the [bucket policy and upgrade
 guide](https://github.com/myota-platform/myota-docs/blob/main/docs/operations.md#object-storage-bucket-boundaries).
 
 Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, loads the complete shared category catalogue from the database, keeps imports programme-independent, and now stops after durable pre-processing. Normalized records are checked for identical geometry or existing entities within 50 metres; possible duplicates are warnings with map comparison, not automatic merges. Administrators validate a compact paged selection in the visible pre-processing queue and explicitly queue confirmed records to `CANDIDATE` or `APPROVED` through the NATS-backed promotion path; only promoted candidates appear in Geodata Review. Uploaded objects are malware-scanned, stored in SeaweedFS through its S3 API, and queued through the geodata outbox/NATS path. Import sources and lifecycle state are durable: a geodata restart requeues queued or interrupted preprocessing runs before dispatching recovery workers, while unsupported binary adapters remain visibly queued.
@@ -200,6 +201,7 @@ Implemented in the geodata service/API vertical slice. Network fetching and long
 - [x] Expose activation execution and award management through the same activity-service process and port 8004.
 - [x] Implement activation start/close, validity windows, location checks, operator/callsign authorization inputs, and programme rule evaluation with retained rule snapshots.
 - [x] Implement ADIF upload, object storage, malware scanning gates, parsing, validation, deduplication, and asynchronous processing jobs.
+- [x] Delete completed ADIF source objects after 15 days while retaining import results and excluding failed, queued, and processing uploads; keep this policy isolated from award assets and certificates. See the [object-storage retention policy](https://github.com/myota-platform/myota-docs/blob/main/docs/operations.md#object-storage-bucket-boundaries).
 - [x] Implement QSO normalization, worked-station identity, band/mode validation, time-window rules, PostgreSQL COPY batches, and correction workflows.
 - [x] Implement programme-linked, programme-owned award definitions with explicit draft, review, approval, publication, and effective-date lifecycle.
 - [x] Implement recursive programme-owned QSO/activity conditions with AND, OR, NOT, and supported metric/entity leaves.
