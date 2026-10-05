@@ -81,6 +81,13 @@ than cross-database foreign keys. QGIS is the recommended graphical PostGIS
 tool for geometry inspection and controlled editing; lifecycle transitions
 remain API-owned and audited. See the [storage ADR](https://github.com/myota-platform/myota-docs/blob/main/docs/adr/0007-three-database-migration.md), [service-boundary diagram](https://github.com/myota-platform/myota-docs/blob/main/docs/diagrams/service-boundaries.md), and [Fleet operations guide](https://github.com/myota-platform/myota-docs/blob/main/docs/operations.md#rancher-fleet-on-k3s).
 
+S3-compatible object storage uses distinct buckets for geodata imports,
+participant ADIF logs, editable award backgrounds, manager signatures, and
+issued award certificates. Only geodata imports use the automatic 30-day
+expunge policy; award artwork, signatures, ADIF uploads, and issued certificates
+have independent retention boundaries. See the [bucket policy and upgrade
+guide](https://github.com/myota-platform/myota-docs/blob/main/docs/operations.md#object-storage-bucket-boundaries).
+
 Supported adapter designs include ParkServe US, OpenStreetMap tags (`leisure=park`, `leisure=nature_reserve`, `boundary=protected_area`, and `landuse=recreation_ground`), local-government GIS feeds, and manual proposals. The dedicated Geodata imports page accepts pasted GeoJSON/KML/GPX/WFS/ArcGIS JSON and uploaded text or binary files, loads the complete shared category catalogue from the database, keeps imports programme-independent, and now stops after durable pre-processing. Normalized records are checked for identical geometry or existing entities within 50 metres; possible duplicates are warnings with map comparison, not automatic merges. Administrators validate a compact paged selection in the visible pre-processing queue and explicitly queue confirmed records to `CANDIDATE` or `APPROVED` through the NATS-backed promotion path; only promoted candidates appear in Geodata Review. Uploaded objects are malware-scanned, stored in SeaweedFS through its S3 API, and queued through the geodata outbox/NATS path. Import sources and lifecycle state are durable: a geodata restart requeues queued or interrupted preprocessing runs before dispatching recovery workers, while unsupported binary adapters remain visibly queued.
 
 ## Local development
