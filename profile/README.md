@@ -303,11 +303,13 @@ and [operations diagram](https://github.com/myota-platform/myota-docs/blob/main/
 ### 7. Reliability, security, and operations
 
 - [x] Add service-owned real metrics, OpenTelemetry request traces, collector-based Prometheus/Grafana dashboards, Tempo storage, per-service/per-route/per-method API performance graphs, Prometheus/Alertmanager availability and latency alerts, and equivalent Grafana-managed rules. See the [observability architecture](https://github.com/myota-platform/myota-docs/blob/main/docs/observability.md). Structured log retention and formal SLOs remain production hardening work.
+- [x] Add bounded, fixture-cleaning geodata load profiles for uploads, concurrent edits, preprocessing, promotion, and queue backlog; add PostGIS query timing/slow-query metrics, guarded `EXPLAIN (ANALYZE, BUFFERS)` evidence, JetStream consumer-lag metrics, and dedicated Grafana views. The detailed safety and operator procedure is in the [geodata load/query evidence runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-load-test-and-query-evidence.md).
+- [ ] Execute the mutating geodata profiles in non-production only, review query plans at representative cardinality, and retain the evidence with an operator-approved test run. Production remains read-only for load-baseline testing.
 - [ ] Add Kubernetes readiness/liveness behavior, autoscaling guidance, network policies, pod disruption budgets, and resource profiles.
 - [ ] Add secret management, key rotation, image signing, SBOM generation, dependency scanning, and supply-chain verification.
 - [ ] Add API gateway authentication, quotas, WAF/rate-limit policy, CORS/CSRF policy, and request-size limits.
 - [ ] Add disaster-recovery runbooks, independent core/activity/geodata backups, restore drills, and cluster-split procedures.
-- [ ] Add load, soak, spatial-query, import-throughput, failover, and migration compatibility tests.
+- [ ] Complete load, soak, spatial-query, import-throughput, failover, and migration compatibility testing; the bounded geodata profiles and query-evidence tooling exist, but non-production execution and the remaining domain-wide campaigns are outstanding.
 - [ ] Add security review for identity, OIDC, callsign evidence, uploaded ADIF, geometry uploads, and admin actions.
 
 ### 8. Programme onboarding and migration
