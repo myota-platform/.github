@@ -61,7 +61,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, SeaweedFS/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
 | [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web with grouped workspaces, persistent programme scope, geodata review/import/entity-management flows, identity administration, award design, signature/background assets, and activity operations. |
-| [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, SeaweedFS/S3 configuration, Helm chart, service routing, health probes, and deployment configuration. |
+| [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, SeaweedFS/S3 configuration, Helm chart, authenticated observability stack, service routing, health probes, and deployment configuration. |
 | [`myota-docs`](https://github.com/myota-platform/myota-docs) | Project charter, motivation, architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, gap analyses, migration strategy, source inspection, diagrams, and repository map. |
 
 ## Storage and geodata
@@ -101,6 +101,7 @@ Open <http://127.0.0.1:8080>. This starts the gateway and the four service bound
 - No copied POTA rules or charter language.
 - PostgreSQL/PostGIS as the geospatial source of truth.
 - Idempotent mutations, auditability, scoped approvals, health checks, and observable deployment boundaries.
+- Admin-only Grafana access through the MyOTA identity token; Prometheus, Alertmanager, Tempo, and telemetry ingestion stay cluster-internal.
 - MPOTA is retained only as synthetic sample data; it is not the platform definition.
 - The public story starts with nearby places and useful participant outcomes;
   microservices are an enabling detail, not the product promise.
