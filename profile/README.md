@@ -26,6 +26,7 @@ Universal programme UI
 API gateway / ingress
         ├── Identity service       accounts, callsigns, SWLs, scopes, OIDC mappings
         ├── Programme service      programmes, shared categories, assignments, rules, themes
+        ├── Operations service     real JetStream status and persistent sampled history
         ├── Geodata service        PostGIS, imports, provenance, conflation, review
         └── Activity service       activations, QSOs, award progress, certificates
                  │
@@ -42,9 +43,8 @@ community proposal ────────────┴→ candidate source
                                   │
                          pre-process + validate
                                   │
-                               CANDIDATE → APPROVED
-                                           ├→ REJECTED
-APPROVED → RETIRED
+                               CANDIDATE ──→ APPROVED ──→ RETIRED
+                                   └───────→ REJECTED
 ```
 
 Approved entities are public programme references. Candidates remain visibly distinct until reviewed by an approver with the correct jurisdiction and entity-type scope; platform-wide candidates can be reviewed before a programme is assigned.
@@ -60,6 +60,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, two-stage GeoJSON/KML/GPX/Shapefile/OSM/ParkServe intake, import runs, deduplication/conflation, candidate review, and approval workflow. |
 | [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, SeaweedFS/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
+| [`myota-operations-service`](https://github.com/myota-platform/myota-operations-service) | Authenticated, read-only NATS/JetStream stream and consumer inspection, timestamped durable status history and operational metrics. Domain workers remain separate. |
 | [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web with grouped workspaces, persistent programme scope, geodata review/import/entity-management flows, identity administration, award design, signature/background assets, and activity operations. |
 | [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, SeaweedFS/S3 configuration, Helm chart, authenticated observability stack, service routing, health probes, and deployment configuration. |
 | [`myota-docs`](https://github.com/myota-platform/myota-docs) | Project charter, motivation, architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, gap analyses, migration strategy, source inspection, diagrams, and repository map. |
@@ -196,13 +197,26 @@ The initial administration web is available in `myota-admin-web` and is served o
 
 Implemented in the geodata service/API vertical slice. Network fetching and long-running OSM/ParkServe binary decoding remain deployment-worker responsibilities; the intake stores their source object and durable queued run while GeoJSON/KML/GPX/Shapefile decoding is available at the service boundary.
 
-### Geodata horizontal scaling — upload and worker phases
+### Geodata horizontal scaling — database authority, uploads and workers
 
 The [geodata horizontal-scaling roadmap](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-horizontal-scaling-roadmap.md)
 is the detailed source of truth. Phases 2 and 3 have implementation work in
 place, but are not considered closed until their integration and failure tests
-pass. Phase 1's shared in-memory catalogue state remains a separate blocker to
-scaling API replicas safely.
+pass. Phase 1 database authority is now implemented and verified, including two
+running API containers; see the [concurrency evidence and migration/rollout record](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-phase1-relational-authority.md).
+Infrastructure, forced-failure, memory and production canary gates remain open.
+
+- [x] Replace mutable process snapshots with request/job-scoped, database-authoritative
+  row repositories, indexed pagination, transactionally coupled audit/events and
+  database-enforced idempotency.
+- [x] Protect concurrent entity edits with revisions and `If-Match`; reject stale
+  writes and fence obsolete snapshot writers during rollout.
+- [x] Verify migration replay, promotion replay, rollback and independent-instance
+  concurrency in local PostGIS and two real API containers; run these in CI.
+- [x] Improve admin resumable uploads with pause/resume, checksum-checked recovery,
+  fresh repeat submissions, correct worker counts and automatic status refresh.
+- [x] Add authenticated [NATS/JetStream status and sampled history](https://github.com/myota-platform/myota-docs/blob/main/docs/jetstream-admin-status.md)
+  through a domain-neutral operations service; provision it in Compose and Helm.
 
 - [x] Replace whole-file API upload buffering/shared spool dependency with
   user-bound, resumable SeaweedFS multipart upload sessions and bounded parts.
