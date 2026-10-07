@@ -3,26 +3,26 @@
 Python source in the platform, service, deployment, and contracts repositories
 uses Ruff with a 79-column formatting target and Python 3.11 compatibility.
 The shared GitHub Actions workflow runs on pushes and pull requests. Each
-repository also has a pre-commit configuration for local commit and push checks.
+repository includes tracked Git hooks for local commit and push checks.
 
 ## Install local hooks
 
-From the root of any Python repository, run:
+From the root of each Python repository, run:
 
 ```sh
-python3 -m pip install -r requirements-dev.txt
 ./scripts/install-quality-hooks.sh
 ```
 
-The installed pre-commit hook runs Ruff formatting and lint checks before each
-commit and push. CI runs the same checks, so bypassing local hooks does not
-bypass the repository check.
+The installer creates a repository-local `.venv-quality`, installs the pinned
+Ruff version there, and configures Git to use the tracked `.githooks`
+directory. Both hooks run Ruff formatting and lint checks. CI repeats the same
+checks, so bypassing local hooks does not bypass CI.
 
 To format files after a check fails:
 
 ```sh
-python3 -m ruff format .
-python3 -m ruff check --fix .
+.venv-quality/bin/ruff format .
+.venv-quality/bin/ruff check --fix .
 ```
 
 Ruff enforces core PEP 8 errors, import correctness, and undefined/unused
