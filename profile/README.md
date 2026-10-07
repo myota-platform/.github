@@ -206,6 +206,10 @@ pass. Phase 1 database authority is now implemented and verified, including two
 running API containers; see the [concurrency evidence and migration/rollout record](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-phase1-relational-authority.md).
 Infrastructure, forced-failure, memory and production canary gates remain open.
 
+The [7 October delivery reconciliation and published CI links](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-horizontal-scaling-roadmap.md#latest-delivery-and-evidence--7-october-2026)
+separates implemented capabilities from the remaining qualification gates;
+checked implementation items do not authorize production replica increases.
+
 - [x] Replace mutable process snapshots with request/job-scoped, database-authoritative
   row repositories, indexed pagination, transactionally coupled audit/events and
   database-enforced idempotency.
@@ -225,7 +229,7 @@ Infrastructure, forced-failure, memory and production canary gates remain open.
   geodata-owned schema.
 - [x] Verify part and completed-object checksums, scan the stored object, and
   persist import/outbox state before acknowledging completion.
-- [x] Split durable import/preprocessing and promotion consumers into a
+- [x] Split durable import/preprocessing, promotion and confirmed entity-deletion consumers into a
   separately deployable geodata-owned JetStream worker; API replicas do not
   submit durable jobs to in-process executors.
 - [x] Use durable pull consumers, explicit ACKs, bounded pending delivery,
@@ -238,12 +242,16 @@ Infrastructure, forced-failure, memory and production canary gates remain open.
   recorded in the [scaling roadmap](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-horizontal-scaling-roadmap.md#phase-2--make-upload-handoff-durable-without-a-shared-pod-volume).
 - [ ] Test resumable API-session recovery across API termination and SeaweedFS
   restart against the production image.
-- [ ] Stream/parse large sources in bounded feature batches and remove
-  whole-catalogue compatibility hydration from the worker hot path.
+- [x] Remove authoritative whole-catalogue snapshot hydration/rewrite from
+  durable API and worker paths; retain the old JSON snapshot only as an archive.
+- [ ] Stream/parse large sources in bounded feature batches and bound broad
+  candidate/spatial traversals in worker memory.
 - [x] Implement graceful SIGTERM/SIGINT worker drain; see the
   [operations runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations.md#import-recovery).
-- [ ] Test worker termination, lease recovery, duplicate JetStream delivery,
-  and atomic promotion/audit persistence; record evidence in the roadmap.
+- [x] Verify atomic promotion/result/audit persistence and duplicate promotion
+  replay in PostGIS; see the [Phase 1 tests](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-phase1-relational-authority.md#recorded-validation).
+- [ ] Test forced worker termination, lease recovery and concurrent multi-worker
+  JetStream delivery; record failure-injection evidence in the roadmap.
 - [ ] Close Phases 2 and 3 only after their exit criteria and the above
   verification gates are met.
 
