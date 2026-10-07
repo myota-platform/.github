@@ -196,6 +196,43 @@ The initial administration web is available in `myota-admin-web` and is served o
 
 Implemented in the geodata service/API vertical slice. Network fetching and long-running OSM/ParkServe binary decoding remain deployment-worker responsibilities; the intake stores their source object and durable queued run while GeoJSON/KML/GPX/Shapefile decoding is available at the service boundary.
 
+### Geodata horizontal scaling — upload and worker phases
+
+The [geodata horizontal-scaling roadmap](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-horizontal-scaling-roadmap.md)
+is the detailed source of truth. Phases 2 and 3 have implementation work in
+place, but are not considered closed until their integration and failure tests
+pass. Phase 1's shared in-memory catalogue state remains a separate blocker to
+scaling API replicas safely.
+
+- [x] Replace whole-file API upload buffering/shared spool dependency with
+  user-bound, resumable SeaweedFS multipart upload sessions and bounded parts.
+- [x] Persist session ownership, idempotency key, expected size/checksum,
+  received-part checksums, object key, expiry, and completion state in the
+  geodata-owned schema.
+- [x] Verify part and completed-object checksums, scan the stored object, and
+  persist import/outbox state before acknowledging completion.
+- [x] Split durable import/preprocessing and promotion consumers into a
+  separately deployable geodata-owned JetStream worker; API replicas do not
+  submit durable jobs to in-process executors.
+- [x] Use durable pull consumers, explicit ACKs, bounded pending delivery,
+  database leases/heartbeats, retry limits, terminal failure records, and
+  stable identities for idempotent replay.
+- [x] Remove the upload-spool PVC from Compose and Helm; retain only bounded
+  per-part temporary scratch files.
+- [x] Exercise SeaweedFS multipart create/upload/complete/read-checksum/delete
+  and abort against the pinned local image; the exact digest and test are
+  recorded in the [scaling roadmap](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-horizontal-scaling-roadmap.md#phase-2--make-upload-handoff-durable-without-a-shared-pod-volume).
+- [ ] Test resumable API-session recovery across API termination and SeaweedFS
+  restart against the production image.
+- [ ] Stream/parse large sources in bounded feature batches and remove
+  whole-catalogue compatibility hydration from the worker hot path.
+- [x] Implement graceful SIGTERM/SIGINT worker drain; see the
+  [operations runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations.md#import-recovery).
+- [ ] Test worker termination, lease recovery, duplicate JetStream delivery,
+  and atomic promotion/audit persistence; record evidence in the roadmap.
+- [ ] Close Phases 2 and 3 only after their exit criteria and the above
+  verification gates are met.
+
 ### 5. Activity, awards, and programme execution
 
 - [x] Expose activation execution and award management through the same activity-service process and port 8004.
