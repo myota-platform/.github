@@ -60,7 +60,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-geodata-service`](https://github.com/myota-platform/myota-geodata-service) | PostGIS entities, source provenance, two-stage GeoJSON/KML/GPX/Shapefile/OSM/ParkServe intake, import runs, deduplication/conflation, candidate review, and approval workflow. |
 | [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, SeaweedFS/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
-| [`myota-operations-service`](https://github.com/myota-platform/myota-operations-service) | Authenticated, read-only NATS/JetStream stream and consumer inspection, timestamped durable status history and operational metrics. Domain workers remain separate. |
+| [`myota-operations-service`](https://github.com/myota-platform/myota-operations-service) | Authenticated NATS/JetStream and SeaweedFS status inspection, timestamped durable history, operational metrics and per-account Grafana role resolution. Domain workers remain separate. |
 | [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web with grouped workspaces, persistent programme scope, geodata review/import/entity-management flows, identity administration, award design, signature/background assets, and activity operations. |
 | [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, SeaweedFS/S3 configuration, Helm chart, authenticated observability stack, service routing, health probes, and deployment configuration. |
 | [`myota-docs`](https://github.com/myota-platform/myota-docs) | Project charter, motivation, architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, gap analyses, migration strategy, source inspection, diagrams, and repository map. |
@@ -221,6 +221,9 @@ checked implementation items do not authorize production replica increases.
   fresh repeat submissions, correct worker counts and automatic status refresh.
 - [x] Add authenticated [NATS/JetStream status and sampled history](https://github.com/myota-platform/myota-docs/blob/main/docs/jetstream-admin-status.md)
   through a domain-neutral operations service; provision it in Compose and Helm.
+- [x] Add the [SeaweedFS status/history page and Grafana Editor access](https://github.com/myota-platform/myota-docs/blob/main/docs/seaweedfs-admin-status.md)
+  for GLOBAL_OPERATOR/GLOBAL_ADMIN; provision all dashboards with a 30-minute
+  window and 30-second refresh, and retain Viewer access for other readers.
 
 - [x] Replace whole-file API upload buffering/shared spool dependency with
   user-bound, resumable SeaweedFS multipart upload sessions and bounded parts.
