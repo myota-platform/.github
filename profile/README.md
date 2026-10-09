@@ -61,7 +61,7 @@ Approved entities are public programme references. Candidates remain visibly dis
 | [`myota-activity-service`](https://github.com/myota-platform/myota-activity-service) | Activations, QSOs, server-side award progress, programme-owned award definitions, SeaweedFS/S3 assets, certificate rendering, requests, issuance records, and award events on the shared activity port 8004. |
 | [`myota-web`](https://github.com/myota-platform/myota-web) | Universal, programme-themed browser experience with approved/candidate map distinction, programme switching, published award progress, and participant level requests. |
 | [`myota-operations-service`](https://github.com/myota-platform/myota-operations-service) | Authenticated NATS/JetStream and SeaweedFS status inspection, timestamped durable history, operational metrics and per-account Grafana role resolution. Domain workers remain separate. |
-| [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web with grouped workspaces, persistent programme scope, geodata review/import/entity-management flows, identity administration, award design, signature/background assets, and activity operations. |
+| [`myota-admin-web`](https://github.com/myota-platform/myota-admin-web) | Authenticated global administration web with grouped workspaces, explicit programme context, geodata review/import/entity-management flows, identity administration, award design, signature/background assets, and activity operations. |
 | [`myota-deploy`](https://github.com/myota-platform/myota-deploy) | PostgreSQL/PostGIS bootstrap, Docker Compose manifests, SeaweedFS/S3 configuration, Helm chart, authenticated observability stack, service routing, health probes, and deployment configuration. |
 | [`myota-docs`](https://github.com/myota-platform/myota-docs) | Project charter, motivation, architecture, ADRs, storage-topology decision, QGIS workflow, threat notes, gap analyses, migration strategy, source inspection, diagrams, and repository map. |
 
@@ -178,8 +178,9 @@ The initial administration web is available in `myota-admin-web` and is served o
 - [x] Add map-based approver review with candidate/approved/rejected layers, geometry editing, source comparison, editable audited names and shared categories (including programme-independent entities), review notes, and audit history.
 - [x] Add activation/QSO administration with protected activation status and QSO counts; ADIF processing remains a later activity milestone.
 - [x] Add translation/content administration with draft, review, publish, fallback, and locale coverage reporting.
-- [x] Add a grouped administration shell with persistent programme scope, breadcrumbs, active navigation state, and consistent workspace labels.
+- [x] Reorganize administration into permission-aware searchable workspaces, shared headings/refresh, one programme selector, read-only header context and consistent labels; preserve stable routes. See the [workspace guide](https://github.com/myota-platform/myota-docs/blob/main/docs/domain/administration/navigation-reorganization.md).
 - [x] Replace the blocking import summary dialog with a responsive detail workspace that keeps preprocessing and history visible while records are validated.
+- [x] Separate Users, Roles & permissions and Security events into tabs; preserve scoped grants on user saves and clarify published/built-in read-only records. See [delivery evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/domain/administration/evidence/admin-workspaces-2026-10-09.md).
 - [x] Add an accessible responsive foundation with keyboard-friendly controls, labels, visible loading/error states, and mobile navigation.
 
 ### 4. Geodata production pipeline
