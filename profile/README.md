@@ -221,7 +221,7 @@ checked implementation items do not authorize production replica increases.
   concurrency in local PostGIS and two real API containers; run these in CI.
 - [x] Improve admin resumable uploads with pause/resume, checksum-checked recovery,
   fresh repeat submissions, correct worker counts and automatic status refresh.
-- [x] Add authenticated [NATS/JetStream status and sampled history](https://github.com/myota-platform/myota-docs/blob/main/docs/jetstream-admin-status.md)
+- [x] Add authenticated [NATS/JetStream status and sampled history](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/jetstream-admin-status.md)
   through a domain-neutral operations service; provision it in Compose and Helm.
 - [x] Add the [SeaweedFS status/history page and Grafana Editor access](https://github.com/myota-platform/myota-docs/blob/main/docs/seaweedfs-admin-status.md)
   for GLOBAL_OPERATOR/GLOBAL_ADMIN; provision all dashboards with a 30-minute
