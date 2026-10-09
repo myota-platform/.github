@@ -142,11 +142,21 @@ Delivered in the integration/runtime and deployment repositories; see `docs/prod
 - [x] Replace prototype JSONB activity state with a service-owned relational PostgreSQL schema, indexed tables, migrations, bounded pools, and transactional repository methods.
 - [x] Add connection pooling, transaction boundaries, bounded retry policies, optimistic-safe idempotent writes, and graceful shutdown.
 - [x] Add a durable outbox in each service-owned database and connect it to NATS JetStream.
-- [x] Add event consumer primitives with replay, event-ID deduplication, dead-letter handling, and schema-major compatibility checks.
+- [x] Add existing event-consumer primitives for broker redelivery,
+  event-ID deduplication, dead-letter handling, and schema-major checks;
+  historical fact replay and supported dead-letter redrive remain migration work.
 - [x] Generate a checked-in typed client and define server validation/compatibility rules from the versioned OpenAPI contract.
 - [x] Standardize API errors, pagination, request/correlation IDs, body limits, API version headers, and deprecation policy.
 - [x] Add programme-policy versioning so historical activation and award decisions remain reproducible.
 - [x] Add migration automation, rollback guidance, seed separation, and backup/restore verification.
+
+The checklist above describes the existing delivery baseline, not completion of
+the cross-service NATS migration. Phase 0 inventory/ADR is complete; Phase 1
+contract and create-only provisioner preparation is in progress. The deployed
+broker still uses the mixed Interest-retained stream, and no migration producer
+or consumer cutover is claimed. See the [migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
+[Phase 1 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-contract-topology-2026-10-09.md),
+and [current/target topology diagrams](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/diagrams/nats-event-migration.md).
 
 ### 2. Identity, authentication, and authorization
 
