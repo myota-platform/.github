@@ -270,6 +270,7 @@ checked implementation items do not authorize production replica increases.
 - [x] Implement recursive programme-owned QSO/activity conditions with AND, OR, NOT, and supported metric/entity leaves.
 - [x] Implement hunter and activator categories with administrator-configured incremental achievement levels.
 - [x] Implement A4/Letter print profiles, aspect-ratio/resolution validation, normalized WYSIWYG certificate field placement, and award-manager signature metadata.
+- [x] Fix programme detail loading and aligned identifier/name fields; preserve programme-owned metadata during edits. Restore default award placement fields, named PNG/JPEG uploads and selectable backgrounds/signatures; generate bounded mock-data preview PDFs in a separate window. See the [editor/design guide](https://github.com/myota-platform/myota-docs/blob/main/docs/programme-and-award-design.md).
 - [x] Implement SeaweedFS/S3-compatible background/signature asset registration, presigned uploads, small API uploads, and certificate-bucket targets.
 - [x] Implement server-side award progress from activity-owned data, participant identity-scoped level requests, permanent issuance records, and higher-level re-requests.
 - [x] Implement PDF certificate rendering when assets are available, retry rendering, and expiring download URLs; preserve issuance history when rendering is deferred.
