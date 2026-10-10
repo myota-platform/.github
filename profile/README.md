@@ -44,8 +44,9 @@ from a pinned Surveyor provisioning revision. Validate every dashboard panel
 against Surveyor metrics and keep MyOTA's datasource/provider configuration.
 After direct broker comparison and rollback checks pass, retire the current
 Admin NATS page, duplicate broker pollers, and the combined MyOTA JetStream
-backlog/PostGIS dashboard (after moving its PostGIS panels), then remove the
-sampled-history table after a verified backup.
+backlog/PostGIS dashboard; its two PostGIS panels were removed from source
+assets and will not be migrated or recreated. Remove the sampled-history table
+after a verified backup.
 ## Platform at a glance## Platform at a glance
 
 ```text
