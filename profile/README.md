@@ -39,9 +39,12 @@ fact-stream retention work is separate. See the
 
 The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md)
 is planned and not deployed. It proposes a pinned internal Surveyor exporter
-and a compatibility-checked Grafana dashboard, followed by a seven-day
-overlap before removing the current Admin NATS page, duplicate broker
-pollers, prior Grafana NATS dashboard and sampled-history table.
+and Grafana folder `NATS` containing dashboard 16256 plus all ten dashboards
+from a pinned Surveyor provisioning revision. Validate every dashboard panel
+against Surveyor metrics and keep MyOTA's datasource/provider configuration.
+After a seven-day overlap, retire the current Admin NATS page, duplicate broker
+pollers, and the combined MyOTA JetStream backlog/PostGIS dashboard (after
+moving its PostGIS panels), then remove the sampled-history table.
 ## Platform at a glance## Platform at a glance
 
 ```text
