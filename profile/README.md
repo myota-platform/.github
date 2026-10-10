@@ -28,14 +28,17 @@ bounds. Phase 5 has moved the four Geodata work kinds to
 `MYOTA_GEODATA_WORK`, installed migration 021, and deployed retry-safe
 partial-deletion recovery.
 
-The production Geodata workers subscribe to four exact WorkQueue durables. No
-accepted Geodata work was available to exercise at cutover. The four former
+The production Geodata workers subscribe to four exact WorkQueue durables.
+No accepted Geodata work was available to exercise at cutover. The four former
 Geodata durable definitions remain inactive and empty through the 24-hour
-rollback observation; the shared Interest-retained `MYOTA_EVENTS` stream and
-Activity notification durable remain active. At the last check, Helm revision
-187 pods were ready but Fleet reported `WaitApplied`. The two-database cascade
-failure path, cancellation/expiry replay qualification, and final legacy
-durable retirement remain open. See the [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md),
+rollback observation, ending no earlier than 20:58:36 UTC on 11 October. The
+shared Interest-retained `MYOTA_EVENTS` stream and Activity notification
+durable remain active. Helm revision 189 is deployed and Fleet reports
+Ready=True with 60/60 resources. A disposable two-database cascade retry passed
+after NAK/redelivery with one Activity cascade fact. The Activity idempotency
+source fix is committed and mirrored but its image deployment remains open;
+cancellation race, expiry-to-completion, and final legacy durable retirement
+also remain open. See the [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md),
 [Phase 5 plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
 [Phase 4 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase4-activity-work-2026-10-10.md),
 and [Activity work runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-work-queues.md).
