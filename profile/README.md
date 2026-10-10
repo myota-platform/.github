@@ -25,11 +25,13 @@ tracks the phased event/work-queue migration. NATS remains cluster-internal,
 with no broker authentication or TLS requirement while it is exposed only as a
 ClusterIP service. Phases 0–3 are complete within their evidence bounds.
 Phase 3's exact-filter Activity notification durable is deployed with
-transactional idempotency and audited redrive. The live broker remains on the
-mixed Interest-retained stream; work migration and production cutover remain
-gated. Fleet has fetched the current deploy commit and reports 60/60 resources
-ready, but its bundle condition remains `WaitApplied` after rollout recovery.
-Reconcile Fleet before another runtime phase. See the [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md),
+transactional idempotency and audited redrive. Phase 4 Activity work code and
+isolated database/broker qualification are complete, but production still runs
+the DB-polling worker; the target Activity stream, guarded backfill, and staged
+worker rollout remain open. Fleet reports the MyOTA bundle Ready at Helm 173.
+The live broker remains on the mixed Interest-retained stream. See the [Phase 4 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase4-activity-work-2026-10-10.md),
+[Activity work runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-work-queues.md),
+and [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md),
 [Phase 1 completion evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-completion-2026-10-10.md),
 [Phase 2 relay evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md),
 [Phase 3 consumer evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase3-domain-consumers-2026-10-10.md),
