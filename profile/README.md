@@ -36,9 +36,11 @@ shared Interest-retained `MYOTA_EVENTS` stream and Activity notification
 durable remain active. Helm revision 189 is deployed and Fleet reports
 Ready=True with 60/60 resources. A disposable two-database cascade retry passed
 after NAK/redelivery with one Activity cascade fact. The Activity idempotency
-source fix is committed and mirrored but its image deployment remains open;
-cancellation race, expiry-to-completion, and final legacy durable retirement
-also remain open. See the [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md),
+source fix is committed and mirrored but its image deployment remains open.
+The cancellation race and expiry-to-completion chains passed in the isolated
+K3s namespace, which has been cleaned up. The 24-hour rollback observation,
+final legacy durable retirement, and Phase 6 fact-stream transition remain
+open. See the [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md),
 [Phase 5 plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
 [Phase 4 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase4-activity-work-2026-10-10.md),
 and [Activity work runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-work-queues.md).
