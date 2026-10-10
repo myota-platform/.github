@@ -24,23 +24,21 @@ The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs
 tracks the phased event/work-queue migration. NATS remains cluster-internal,
 with no broker authentication or TLS requirement while it is exposed only as a
 ClusterIP service. Phases 0–4 are complete within their recorded evidence
-bounds.
-Phase 3's exact-filter Activity notification durable is deployed with
-transactional idempotency and audited redrive. Phase 4 Activity work code and
-isolated database/broker qualification are complete, and production now runs
-two JetStream workers on six exact Activity work durables. Migration 007
-removed the obsolete DB-poller index and synthetic notification jobs while
-preserving `activity_job` history. The compatibility repair is disabled. No
-selected production job was queued at cutover, so production handler execution
-is not claimed; all six work types passed isolated processing qualification.
-Fleet reports the MyOTA bundle Ready at Helm 181. The live broker's shared
-fact stream remains Interest-retained; Geodata work is unchanged. See the [Phase 4 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase4-activity-work-2026-10-10.md),
-[Activity work runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-work-queues.md),
-and [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md),
-[Phase 1 completion evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-completion-2026-10-10.md),
-[Phase 2 relay evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md),
-[Phase 3 consumer evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase3-domain-consumers-2026-10-10.md),
-and the [Activity notification runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-notification-consumer.md).
+bounds. Phase 5 has moved the four Geodata work kinds to
+`MYOTA_GEODATA_WORK`, installed migration 021, and deployed retry-safe
+partial-deletion recovery.
+
+The production Geodata workers subscribe to four exact WorkQueue durables. No
+accepted Geodata work was available to exercise at cutover. The four former
+Geodata durable definitions remain inactive and empty through the 24-hour
+rollback observation; the shared Interest-retained `MYOTA_EVENTS` stream and
+Activity notification durable remain active. At the last check, Helm revision
+187 pods were ready but Fleet reported `WaitApplied`. The two-database cascade
+failure path, cancellation/expiry replay qualification, and final legacy
+durable retirement remain open. See the [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md),
+[Phase 5 plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
+[Phase 4 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase4-activity-work-2026-10-10.md),
+and [Activity work runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-work-queues.md).
 
 ## Platform at a glance
 
