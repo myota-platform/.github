@@ -152,7 +152,9 @@ Delivered in the integration/runtime and deployment repositories; see `docs/prod
 
 The checklist above describes the existing delivery baseline, not completion of
 the cross-service NATS migration. Phase 0 inventory/ADR is complete; Phase 1
-contract and create-only provisioner preparation is in progress. The deployed
+contract and create-only provisioner preparation is in progress. Source-derived
+payload schemas now cover Identity, Programme, Activity, and Geodata; Geodata
+preprocessing payload minimization and owner/privacy/CI review remain open. The deployed
 broker still uses the mixed Interest-retained stream, and no migration producer
 or consumer cutover is claimed. See the [migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
 [Phase 1 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-contract-topology-2026-10-09.md),
