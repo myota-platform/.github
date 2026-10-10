@@ -23,12 +23,17 @@ The organization login is `myota-platform`; the visible organization name is **M
 The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md)
 tracks the phased event/work-queue migration. NATS remains cluster-internal,
 with no broker authentication or TLS requirement while it is exposed only as a
-ClusterIP service. Phase 1 contract/topology work and Phase 2 relay hardening
-are implemented and qualified in an isolated namespace. The live broker remains
-on the mixed Interest-retained stream; consumer/work migration and production
-cutover remain gated. See the [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md),
+ClusterIP service. Phases 0–2 are complete within their evidence bounds, and
+Phase 3's exact-filter Activity notification durable is deployed with
+transactional idempotency and audited redrive. The live broker remains on the
+mixed Interest-retained stream; work migration and production cutover remain
+gated. Fleet has fetched the current deploy commit and reports 60/60 resources
+ready, but its bundle condition remains `WaitApplied` after rollout recovery.
+Reconcile Fleet before another runtime phase. See the [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md),
 [Phase 1 completion evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-completion-2026-10-10.md),
-and [Phase 2 relay evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md).
+[Phase 2 relay evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md),
+[Phase 3 consumer evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase3-domain-consumers-2026-10-10.md),
+and the [Activity notification runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-notification-consumer.md).
 
 ## Platform at a glance
 
@@ -163,13 +168,16 @@ Delivered in the integration/runtime and deployment repositories; see `docs/prod
 - [x] Add migration automation, rollback guidance, seed separation, and backup/restore verification.
 
 The checklist above describes the existing delivery baseline, not completion of
-the cross-service NATS migration. Phase 0 inventory/ADR, Phase 1 contracts and
-topology preparation, and Phase 2 relay hardening/source audit are complete.
-Payload schema and prohibited-field enforcement, Geodata preprocessing
-minimization, consumer/work migration, and production cutover remain open. The
-live broker still uses the mixed Interest-retained stream; no producer or
-consumer cutover is claimed. See the [migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
+the cross-service NATS migration. Phases 0–3 are complete within their evidence
+bounds. Phase 3 deployed Activity's exact-filter `activity-notifications-v1`
+durable, atomic local notification/checkpoint transaction, audited poison-event
+redrive, and bounded consumer metrics. Payload/schema enforcement, the Activity
+and Geodata work migrations, and final production topology cutover remain open.
+The live broker still uses the mixed Interest-retained stream. See the
+[migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
+[Activity notification runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-notification-consumer.md),
 [Phase 2 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md),
+[Phase 3 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase3-domain-consumers-2026-10-10.md),
 and [current/target topology diagrams](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/diagrams/nats-event-migration.md).
 
 ### 2. Identity, authentication, and authorization
