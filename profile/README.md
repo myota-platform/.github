@@ -23,10 +23,12 @@ The organization login is `myota-platform`; the visible organization name is **M
 The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md)
 tracks the phased event/work-queue migration. NATS remains cluster-internal,
 with no broker authentication or TLS requirement while it is exposed only as a
-ClusterIP service. Phase 1 contract/topology and isolated single-node safety
-qualification are complete; producer/consumer cutover and production recovery
-gates remain open. See the [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md)
-and [completion evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-completion-2026-10-10.md).
+ClusterIP service. Phase 1 contract/topology work and Phase 2 relay hardening
+are implemented and qualified in an isolated namespace. The live broker remains
+on the mixed Interest-retained stream; consumer/work migration and production
+cutover remain gated. See the [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md),
+[Phase 1 completion evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-completion-2026-10-10.md),
+and [Phase 2 relay evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md).
 
 ## Platform at a glance
 
@@ -161,13 +163,13 @@ Delivered in the integration/runtime and deployment repositories; see `docs/prod
 - [x] Add migration automation, rollback guidance, seed separation, and backup/restore verification.
 
 The checklist above describes the existing delivery baseline, not completion of
-the cross-service NATS migration. Phase 0 inventory/ADR is complete; Phase 1
-contract and create-only provisioner preparation is in progress. Source-derived
-payload schemas now cover Identity, Programme, Activity, and Geodata; Geodata
-preprocessing payload minimization and owner/privacy/CI review remain open. The deployed
-broker still uses the mixed Interest-retained stream, and no migration producer
-or consumer cutover is claimed. See the [migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
-[Phase 1 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-contract-topology-2026-10-09.md),
+the cross-service NATS migration. Phase 0 inventory/ADR, Phase 1 contracts and
+topology preparation, and Phase 2 relay hardening/source audit are complete.
+Payload schema and prohibited-field enforcement, Geodata preprocessing
+minimization, consumer/work migration, and production cutover remain open. The
+live broker still uses the mixed Interest-retained stream; no producer or
+consumer cutover is claimed. See the [migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
+[Phase 2 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md),
 and [current/target topology diagrams](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/diagrams/nats-event-migration.md).
 
 ### 2. Identity, authentication, and authorization
