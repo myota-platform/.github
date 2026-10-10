@@ -24,28 +24,26 @@ The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs
 tracks the phased event/work-queue migration. NATS remains cluster-internal,
 with no broker authentication or TLS requirement while it is exposed only as a
 ClusterIP service. Phases 0–4 are complete within their recorded evidence
-bounds. Phase 5 has moved the four Geodata work kinds to
-`MYOTA_GEODATA_WORK`, installed migration 021, and deployed retry-safe
-partial-deletion recovery.
+bounds. Phase 5 routes four Geodata work kinds to `MYOTA_GEODATA_WORK`, applies
+migration 021 and deploys Activity's transactional idempotency fix.
 
-The production Geodata workers subscribe to four exact WorkQueue durables.
-No accepted Geodata work was available to exercise at cutover. The four former
-Geodata durable definitions remain inactive and empty through the 24-hour
-rollback observation, ending no earlier than 20:58:36 UTC on 11 October. The
-shared Interest-retained `MYOTA_EVENTS` stream and Activity notification
-durable remain active. Helm revision 189 is deployed and Fleet reports
-Ready=True with 60/60 resources. A disposable two-database cascade retry passed
-after NAK/redelivery with one Activity cascade fact. The Activity idempotency
-source fix is committed and mirrored but its image deployment remains open.
-The cancellation race and expiry-to-completion chains passed in the isolated
-K3s namespace, which has been cleaned up. The 24-hour rollback observation,
-final legacy durable retirement, and Phase 6 fact-stream transition remain
-open. See the [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md),
+Helm revision 191 is deployed. Fleet reports Ready=True at Deploy commit
+`a68eedd5ba7ee8aa0297d14ed8a38c4fceb9f109` with 60/60 resources. First-party workloads use immutable image
+references; Activity, Geodata and shared runtime pod IDs match their pins. The
+four target Geodata durables are empty with active workers. Four legacy
+Geodata durables remain inactive and empty through the rollback observation,
+ending no earlier than 21:28:41 UTC on 11 October 2026. The shared Interest-retained `MYOTA_EVENTS`
+stream and Activity notification durable remain active. No accepted Geodata
+work was available for production processing. The isolated retry, cancellation
+and expiry-to-completion tests passed, and their namespace/PVC was removed.
+Only the rollback observation and safe legacy durable retirement remain open;
+Phase 6's fact-stream transition stays separate. See the
+[Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md),
 [Phase 5 plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
 [Phase 4 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase4-activity-work-2026-10-10.md),
 and [Activity work runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-work-queues.md).
 
-## Platform at a glance
+## Platform at a glance## Platform at a glance
 
 ```text
 Universal programme UI
