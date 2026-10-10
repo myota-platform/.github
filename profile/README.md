@@ -23,7 +23,7 @@ The organization login is `myota-platform`; the visible organization name is **M
 The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md)
 tracks the phased event/work-queue migration. NATS remains cluster-internal,
 with no broker authentication or TLS requirement while it is exposed only as a
-ClusterIP service. Phases 0–2 are complete within their evidence bounds, and
+ClusterIP service. Phases 0–3 are complete within their evidence bounds.
 Phase 3's exact-filter Activity notification durable is deployed with
 transactional idempotency and audited redrive. The live broker remains on the
 mixed Interest-retained stream; work migration and production cutover remain
