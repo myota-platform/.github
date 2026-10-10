@@ -18,6 +18,12 @@ and the [current charter gap analysis](https://github.com/myota-platform/myota-d
 
 The organization login is `myota-platform`; the visible organization name is **MyOTA**.
 
+## Current engineering decisions
+
+The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md)
+tracks the phased event/work-queue migration. Phase 1 review decisions and open
+implementation gates are recorded in the [joint review](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase1-joint-review-2026-10-10.md).
+
 ## Platform at a glance
 
 ```text
