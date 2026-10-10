@@ -42,9 +42,10 @@ is planned and not deployed. It proposes a pinned internal Surveyor exporter
 and Grafana folder `NATS` containing dashboard 16256 plus all ten dashboards
 from a pinned Surveyor provisioning revision. Validate every dashboard panel
 against Surveyor metrics and keep MyOTA's datasource/provider configuration.
-After a seven-day overlap, retire the current Admin NATS page, duplicate broker
-pollers, and the combined MyOTA JetStream backlog/PostGIS dashboard (after
-moving its PostGIS panels), then remove the sampled-history table.
+After direct broker comparison and rollback checks pass, retire the current
+Admin NATS page, duplicate broker pollers, and the combined MyOTA JetStream
+backlog/PostGIS dashboard (after moving its PostGIS panels), then remove the
+sampled-history table after a verified backup.
 ## Platform at a glance## Platform at a glance
 
 ```text
