@@ -21,8 +21,9 @@ The organization login is `myota-platform`; the visible organization name is **M
 ## Current engineering decisions
 
 The [cross-repository architecture review](https://github.com/myota-platform/myota-docs/blob/main/REVIEW.md)
-records confirmed contract and source/mirror inconsistencies with a phased,
-evidence-gated implementation plan. The review changed documentation only.
+records Phases 1–4 as implemented, with owner/mirror, CI, image, and K3s
+evidence. The separate duplicate-YAML-key contract safeguard remains open;
+see the [phase evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/evidence/review-phases-1-4-2026-10-11.md).
 
 The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md)
 tracks the phased event/work-queue migration. Phases 0–6 are complete within
@@ -194,7 +195,7 @@ Delivered in the integration/runtime and deployment repositories; see `docs/prod
   event-ID deduplication, dead-letter handling, and schema-major checks;
   historical fact replay and supported dead-letter redrive remain migration work.
 - [x] Generate a checked-in typed client and define server validation/compatibility rules from the versioned OpenAPI contract.
-- [x] Standardize API errors, pagination, request/correlation IDs, body limits, API version headers, and deprecation policy.
+- [x] Standardize API errors, pagination, request/correlation IDs, body limits, and API version headers.
 - [x] Add programme-policy versioning so historical activation and award decisions remain reproducible.
 - [x] Add migration automation, rollback guidance, seed separation, and backup/restore verification.
 
@@ -332,7 +333,7 @@ checked implementation items do not authorize production replica increases.
 - [x] Implement A4/Letter print profiles, aspect-ratio/resolution validation, normalized WYSIWYG certificate field placement, and award-manager signature metadata.
 - [x] Fix programme detail loading and aligned identifier/name fields; preserve programme-owned metadata during edits. Restore default award placement fields, named PNG/JPEG uploads and selectable backgrounds/signatures; generate bounded mock-data preview PDFs in a separate window. See the [editor/design guide](https://github.com/myota-platform/myota-docs/blob/main/docs/programme-and-award-design.md).
 - [x] Standardize operational times on UTC across effective-date inputs, publication APIs, status/history displays, provisioned Grafana dashboards and retention schedules; no programme-local timezone override. See the [UTC policy](https://github.com/myota-platform/myota-docs/blob/main/docs/utc-time-policy.md).
-- [x] Implement SeaweedFS/S3-compatible background/signature asset registration, presigned uploads, small API uploads, and certificate-bucket targets.
+- [x] Implement SeaweedFS/S3-compatible background/signature asset registration, authenticated bounded binary uploads, and certificate-bucket targets.
 - [x] Implement server-side award progress from activity-owned data, participant identity-scoped level requests, permanent issuance records, and higher-level re-requests.
 - [x] Implement PDF certificate rendering when assets are available, retry rendering, and expiring download URLs; preserve issuance history when rendering is deferred.
 - [x] Implement versioned award-rule recalculation jobs for historical definitions and explicit retirement semantics.
@@ -376,41 +377,25 @@ primitive or local demo exists. The detailed analysis and owners are in
 These gaps are product and delivery work, not default programme rules. Every
 programme still supplies its own policy and charter.
 
-### API consistency and REST consolidation — Phases 0–4 complete
+### API consistency and REST consolidation — complete
 
-- [x] Reconcile and freeze the canonical OpenAPI document with the generated
-  root and platform integration copies.
-- [x] Add low-risk resource updates for accounts, programmes, category
-  memberships, primary callsigns, content, policy drafts, and awards.
-- [x] Preserve legacy action routes as audited compatibility aliases with
-  deprecation/sunset headers; verify route registration and contract parity in
-  CI.
-- [x] Consolidate the geodata resource model: import representations,
-  proposals, metadata, categories, geometry, reviews, bbox-filtered entity
-  collections, and confirmation-based deletion jobs.
-- [x] Add activity and award job resources for activation closure, QSO
-  ingestion, statistics, award evaluation/recalculation, issuance, rendering,
-  and certificate artifacts, with owner authorization, version-scoped
-  recalculation, and deterministic statistics snapshots.
-- [x] Migrate the checked-in typed clients and admin/public web clients, including
-  identity role creation, account deactivation, and geodata deletion workflows,
-  to the preferred resource APIs; migrate geodata-to-activity deletion calls as
-  well, with route-usage telemetry. See the
-  [Phase 4 client and operational migration record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase4-client-operational-migration.md).
-- [x] Add Prometheus/Grafana operational dashboards for deprecated alias
-  traffic, job lag, failed jobs, pending corrections, and HTTP errors; run the
-  durable-stack verification gate before local releases.
+- [x] Keep Contracts as the canonical OpenAPI owner and synchronize the root
+  and Platform contract copies.
+- [x] Publish current resource and durable-job operations while preserving
+  explicit audited lifecycle commands.
+- [x] Move first-party clients to the current contract and remove unused
+  pre-live API aliases and their runtime deprecation counters and headers.
+- [x] Verify 132 contract operations against 170 service route registrations;
+  current Contract CI reports no missing or unregistered operations and no
+  duplicate operation identifiers.
 
-The endpoint-by-endpoint table, contract links, and implementation record are
-maintained in the
-[myota-docs REST API consolidation plan](https://github.com/myota-platform/myota-docs/blob/main/docs/api-rest-consolidation-plan.md)
-and [Phase 1 resource update record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase1-resource-updates.md),
-plus the [Phase 2 geodata resource model](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase2-geodata-resource-model.md).
-The Phase 3 implementation is recorded in the
-[activity and award job record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase3-activity-award-jobs.md).
-Phase 4 operations, dashboards, and the verification gate are recorded in the
-[Phase 4 implementation record](https://github.com/myota-platform/myota-docs/blob/main/docs/api-phase4-client-operational-migration.md)
-and [operations diagram](https://github.com/myota-platform/myota-docs/blob/main/docs/diagrams/api-phase4-operational-migration.md).
+The current API and evidence are documented in the
+[REST API consolidation record](https://github.com/myota-platform/myota-docs/blob/main/docs/domain/api/rest-consolidation-plan.md),
+[contract inventory](https://github.com/myota-platform/myota-docs/blob/main/docs/domain/api/contract-freeze.md),
+[phase records](https://github.com/myota-platform/myota-docs/tree/main/docs/domain/api),
+and [cross-repository evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/evidence/review-phases-1-4-2026-10-11.md).
+The only open contract-safety item is duplicate-YAML-key rejection, tracked in
+[REVIEW.md](https://github.com/myota-platform/myota-docs/blob/main/REVIEW.md).
 
 ### 6. Public web experience
 
