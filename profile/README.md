@@ -20,6 +20,10 @@ The organization login is `myota-platform`; the visible organization name is **M
 
 ## Current engineering decisions
 
+The [cross-repository architecture review](https://github.com/myota-platform/myota-docs/blob/main/REVIEW.md)
+records confirmed contract and source/mirror inconsistencies with a phased,
+evidence-gated implementation plan. The review changed documentation only.
+
 The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md)
 tracks the phased event/work-queue migration. Phases 0–6 are complete within
 their recorded evidence bounds. NATS remains cluster-internal under the
@@ -51,14 +55,15 @@ The structured logging implementation is tracked in the
 Current Identity, Programme, Activity, and Geodata logging images are live. A
 safe Identity health request has a matching Loki record and Tempo span, and all
 seven provisioned dashboard queries returned successfully against Loki. The
-PostgreSQL/PostGIS dashboard asset is mounted; read-only monitor credentials
-passed `psql` checks, but the Collector receiver failed with those same Secrets
-and is paused in the active pipeline. Authenticated UI navigation, async
-correlation, Phase 6 retention/capacity/privacy evidence, and Phase 7 database
-metrics remain open. Helm revision 234 is deployed; Helm history labels it a rollback to revision
-233. The Fleet BundleDeployment is Ready=True at sync generation 93. All 67
-resources are ready, and all Deployments meet their requested replica counts.
-See the [evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-11.md)
+Operations-owned read-only PostgreSQL/PostGIS fallback sampler reports bounded
+metrics for the three databases; the direct Collector PostgreSQL receiver
+remains disabled after authentication failures. Authenticated Grafana
+navigation, representative request-to-worker correlation, a Loki
+prohibited-field audit, and full Compose parity remain open. The latest evidence
+records Helm revision 242 as pending-upgrade while Fleet reports revision 241
+Ready with 67/67 resources; reconcile this release-state discrepancy before
+calling the rollout complete. See the
+[evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-11.md)
 and [runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-runbook.md).
 
 ## Platform at a glance
