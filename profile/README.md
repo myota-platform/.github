@@ -51,9 +51,10 @@ The structured logging implementation is tracked in the
 Current Identity, Programme, Activity, and Geodata logging images are live. A
 safe Identity health request has a matching Loki record and Tempo span, and all
 seven provisioned dashboard queries returned successfully against Loki. Helm
-revision 225 mounted the metadata-aware dashboard and datasource. Fleet
-readiness and authenticated UI navigation, asynchronous correlation, Phase 6
+revision 225 mounted the metadata-aware dashboard and datasource. Authenticated UI navigation, asynchronous correlation, Phase 6
 retention/capacity/privacy evidence, and Phase 7 database telemetry remain open.
+Fleet is Ready=True on Deploy commit `904bef2`; Helm revision 227 is deployed
+after rollback to 226.
 See the [evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-11.md)
 and [runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-runbook.md).
 
