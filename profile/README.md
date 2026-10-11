@@ -91,7 +91,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 23:10 UTC**. The organization-wide GitHub issue search returned 20 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 23:09:08 UTC**. The organization-wide GitHub issue search returned 19 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -122,4 +122,3 @@ Snapshot: **2026-10-11 23:10 UTC**. The organization-wide GitHub issue search re
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
 | **Operations Service retirement and OpenTelemetry migration** |  |  |  |
 |  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#3: Retire Operations Service and archive its repository](https://github.com/myota-platform/myota-operations-service/issues/3) | `enhancement` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#6: Document complete Operations Service retirement and OpenTelemetry replacements](https://github.com/myota-platform/myota-docs/issues/6) | `documentation` |
