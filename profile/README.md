@@ -31,10 +31,14 @@ establish production qualification or off-node recovery.
 - NATS Surveyor and eleven Grafana dashboards are deployed. Operations has no
   NATS connection; it retains storage status/history and Grafana role
   resolution.
-- Geodata Phase 5 scale qualification remains open. Logging/observability
-  acceptance also remains open for authenticated Grafana navigation,
-  request-to-worker correlation, Loki privacy/cardinality review, Compose
-  parity, and Identity/Programme metrics coverage.
+- Geodata Phase 5 scale qualification remains open. The 11 October
+  2/10/50-VU read-only check passed on ten catalogue entities (95.07 requests/s
+  and 22.94 ms p95 at 50 VUs), but did not qualify broad capacity or writes.
+  See the [scaling roadmap](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/horizontal-scaling-roadmap.md)
+  and [dated evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/evidence/phase5-read-only-follow-up-2026-10-11.md).
+- Logging/observability acceptance also remains open for authenticated Grafana
+  navigation, request-to-worker correlation, Loki privacy/cardinality review,
+  Compose parity, and Identity/Programme metrics coverage.
 - Programme configuration, Admin UI internationalization, award-condition
   modeling, and charter delivery remain planned product work.
 
