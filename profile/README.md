@@ -37,7 +37,7 @@ durables, migration markers and authoritative recovery data remain. Phase 6
 fact-stream retention work is separate. See the
 [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md).
 
-The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md) records the live Surveyor 0.9.11 exporter, eleven-dashboard Grafana `NATS` folder, bounded JetStream capacity, and retired Admin/Operations/Geodata polling paths. Helm revision 206 applied the Operations history-table migration after image and backup verification; storage history remains. Fleet still reports `WaitApplied(1)` with stale applied-release metadata, so Phase 2 remains open.
+The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md) records the live Surveyor 0.9.11 exporter, eleven-dashboard Grafana `NATS` folder, bounded JetStream capacity, and retired Admin/Operations/Geodata polling paths. Helm revision 207 applied the Operations history-table migration after image and backup verification; storage history remains. Fleet is Ready=True on Deploy main commit `fa4e0127af2cc7d29851f1f76b3bb8303655ad46` with 64/64 resources ready, so Phase 2 is complete.
 
 ## Platform at a glance## Platform at a glance
 
