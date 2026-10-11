@@ -92,7 +92,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 19:05 UTC**. The organization-wide GitHub issue search returned 31 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 19:10 UTC**. The organization-wide GitHub issue search returned 37 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -129,6 +129,7 @@ Snapshot: **2026-10-11 19:05 UTC**. The organization-wide GitHub issue search re
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#4: Restore Identity service metrics coverage](https://github.com/myota-platform/myota-identity-service/issues/4) | `enhancement` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#3: Restore Programme service metrics coverage](https://github.com/myota-platform/myota-programme-service/issues/3) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#7: Scrape and dashboard Identity and Programme service metrics](https://github.com/myota-platform/myota-deploy/issues/7) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#10: Resolve WARN and 404 responses from service /metrics endpoints](https://github.com/myota-platform/myota-deploy/issues/10) | `enhancement` |
 | **Admin UI internationalization** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#1: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota-docs/issues/1) | `documentation` |
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#4: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota-admin-web/issues/4) | `enhancement` |
@@ -136,3 +137,10 @@ Snapshot: **2026-10-11 19:05 UTC**. The organization-wide GitHub issue search re
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#2: Complete Phase 0 decisions for the future award-condition model](https://github.com/myota-platform/myota-docs/issues/2) | `documentation` |
 | **Charter gap roadmap decomposition** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
+
+| **Operations Service retirement and OpenTelemetry migration** |  |  |  |
+|  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#3: Retire Operations Service and archive its repository](https://github.com/myota-platform/myota-operations-service/issues/3) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#9: Replace Operations workload with OpenTelemetry](https://github.com/myota-platform/myota-deploy/issues/9) | `enhancement` |
+|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#6: Remove retired Operations API from contracts and clients](https://github.com/myota-platform/myota-contracts/issues/6) | `enhancement` |
+|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#6: Move Grafana auth proxy off Operations](https://github.com/myota-platform/myota-admin-web/issues/6) | `enhancement` |
+|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#6: Document complete Operations Service retirement and OpenTelemetry replacements](https://github.com/myota-platform/myota-docs/issues/6) | `documentation` |
