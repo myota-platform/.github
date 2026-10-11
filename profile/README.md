@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 253 is deployed from Deploy commit `2968cdaa2d785975c9eab29ce3ca9eda99df594b`; all 27/27 Deployments and 67/67 chart resources are ready. Fleet currently reports NotReady because the Geodata HPA could not read CPU utilization during rollout. The single-node readiness checks do not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 257 is deployed from Deploy commit `f37a1fa8b5f3f5c0eb639c7125fcc9ab0fe323b8`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the Deploy GitRepo Ready 1/1 and the MyOTA bundle deployed and monitored. The single-node readiness checks do not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -86,7 +86,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 19:52 UTC**. The organization-wide GitHub issue search returned 38 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 20:11 UTC**. The organization-wide GitHub issue search returned 37 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -123,9 +123,6 @@ Snapshot: **2026-10-11 19:52 UTC**. The organization-wide GitHub issue search re
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#11: Add a K3s workload health and capacity Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/11) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#12: Add an application workflow and JetStream delivery Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/12) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#13: Expand the PostgreSQL and PostGIS Grafana dashboard with database health panels](https://github.com/myota-platform/myota-deploy/issues/13) | `enhancement` |
-| **Geodata OpenTelemetry TracerProvider warning** |  |  |  |
-|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#7: Initialize the Geodata OpenTelemetry TracerProvider once per process](https://github.com/myota-platform/myota-geodata-service/issues/7) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#14: Roll out and verify the Geodata TracerProvider initialization fix](https://github.com/myota-platform/myota-deploy/issues/14) | `enhancement` |
 | **Admin UI internationalization** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#1: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota-docs/issues/1) | `documentation` |
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#4: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota-admin-web/issues/4) | `enhancement` |
