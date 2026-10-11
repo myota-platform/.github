@@ -50,11 +50,13 @@ The structured logging implementation is tracked in the
 [logging roadmap](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-implementation.md).
 Current Identity, Programme, Activity, and Geodata logging images are live. A
 safe Identity health request has a matching Loki record and Tempo span, and all
-seven provisioned dashboard queries returned successfully against Loki. Helm
-revision 225 mounted the metadata-aware dashboard and datasource. Authenticated UI navigation, asynchronous correlation, Phase 6
-retention/capacity/privacy evidence, and Phase 7 database telemetry remain open.
-Fleet is Ready=True on Deploy commit `904bef2`; Helm revision 227 is deployed
-after rollback to 226.
+seven provisioned dashboard queries returned successfully against Loki. The
+PostgreSQL/PostGIS dashboard asset is mounted; read-only monitor credentials
+passed `psql` checks, but the Collector receiver failed with those same Secrets
+and is paused in the active pipeline. Authenticated UI navigation, async
+correlation, Phase 6 retention/capacity/privacy evidence, and Phase 7 database
+metrics remain open. All Deployments are Ready; Helm revision 231 awaits final
+Fleet reconciliation.
 See the [evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-11.md)
 and [runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-runbook.md).
 
