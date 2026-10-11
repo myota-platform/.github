@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 257 is deployed from Deploy commit `f37a1fa8b5f3f5c0eb639c7125fcc9ab0fe323b8`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the Deploy GitRepo Ready 1/1 and the MyOTA bundle deployed and monitored. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 259 is deployed from Deploy commit `cd13e2ce8396025c84b89eb4e9e3c153ca5a8489`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the Deploy GitRepo Ready 1/1 and the MyOTA bundle deployed and monitored. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -34,9 +34,11 @@ The [current system state](https://github.com/myota-platform/myota-docs/blob/mai
   accepted for closure. Reopen these gates before expanding capacity. See the
   [closure decision](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/evidence/phase5-owner-acceptance-2026-10-11.md)
   and [read-only evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/evidence/phase5-read-only-follow-up-2026-10-11.md).
-- Logging/observability acceptance also remains open for authenticated Grafana
-  navigation, request-to-worker correlation, Loki privacy/cardinality review,
-  Compose parity, and Identity/Programme metrics coverage.
+- Logging/observability acceptance remains open for authenticated Grafana
+  navigation, Programme/Activity/Geodata request-to-worker evidence, Loki
+  privacy/cardinality review, Compose parity, alerts/retention/recovery, and
+  Identity/Programme metrics coverage. The Identity correlation issue is closed
+  after deployed request-to-worker and ACK evidence.
 - Programme configuration, Admin UI internationalization, award-condition
   modeling, and charter delivery remain planned product work.
 
@@ -86,11 +88,13 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 20:25 UTC**. The organization-wide GitHub issue search returned 29 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 21:15 UTC**. The organization-wide GitHub issue search returned 29 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
 | **Geodata capacity qualification** |  |  |  |
+| **Geodata Website and Description fields** |  |  |  |
+|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#2: Add Website and Description fields to Geodata administration](https://github.com/myota-platform/myota-admin-web/issues/2) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement` |
 | **Programme governance, jurisdiction, and eligibility** |  |  |  |
@@ -103,7 +107,6 @@ Snapshot: **2026-10-11 20:25 UTC**. The organization-wide GitHub issue search re
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#2: Evaluate activity against immutable published programme policy versions](https://github.com/myota-platform/myota-activity-service/issues/2) | `enhancement` |
 | **Structured logging and request-to-worker correlation** |  |  |  |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#6: Close structured logging deployment and acceptance gaps](https://github.com/myota-platform/myota-deploy/issues/6) | `enhancement` |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#3: Propagate request correlation through Identity outbox work](https://github.com/myota-platform/myota-identity-service/issues/3) | `enhancement` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#4: Propagate request correlation through Programme outbox events](https://github.com/myota-platform/myota-programme-service/issues/4) | `enhancement` |
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#3: Propagate request correlation through Activity outbox events](https://github.com/myota-platform/myota-activity-service/issues/3) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#6: Propagate request correlation through Geodata outbox work](https://github.com/myota-platform/myota-geodata-service/issues/6) | `enhancement` |
