@@ -25,8 +25,8 @@ tracks the phased event/work-queue migration. Phases 0–6 are complete within
 their recorded evidence bounds. NATS remains cluster-internal under the
 accepted trust boundary. The bounded Limits-retained `MYOTA_EVENTS` stream
 captures only `myota.events.>`; Activity and Geodata work use distinct
-WorkQueue streams. Helm revision 211 is deployed and Fleet is Ready=True at
-Deploy commit `16af2edf6b8e868904f9284e481d971ae7d6d38c`. The one-time
+WorkQueue streams. Helm revision 213 is deployed and Fleet is Ready=True at
+Deploy commit `de01650e19b88bc99a11ede1f25694202c8c8d17`. The one-time
 migration flag is disabled and topology drift validation remains enabled.
 Phase 5's 24-hour observation was explicitly waived and closed early, not
 represented as a full-day observation. PostgreSQL remains authoritative;
