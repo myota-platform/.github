@@ -55,8 +55,8 @@ PostgreSQL/PostGIS dashboard asset is mounted; read-only monitor credentials
 passed `psql` checks, but the Collector receiver failed with those same Secrets
 and is paused in the active pipeline. Authenticated UI navigation, async
 correlation, Phase 6 retention/capacity/privacy evidence, and Phase 7 database
-metrics remain open. All Deployments are Ready; Helm revision 231 awaits final
-Fleet reconciliation.
+metrics remain open. All Deployments are Ready. Helm revision 231 is deployed and the last Fleet-
+applied release reports Ready; forced resync revision 232 is still pending-upgrade.
 See the [evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-11.md)
 and [runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-runbook.md).
 
