@@ -15,11 +15,11 @@ and spontaneous activations while remaining complementary to other programmes.
 
 The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md)
 is the dated source for repository revisions, deployed images, live K3s status,
-architecture, and remaining evidence gates. The latest check found Helm revision
-249 pending-upgrade, all 23/23 MyOTA Deployments ready, and 67/67 Fleet resources
-reported ready on the single-node K3s host. The Fleet GitRepo still reports
-WaitApplied(1), so current readiness is not production qualification or proof of
-a clean GitOps reconciliation.
+architecture, and remaining evidence gates. Helm revision 249 is deployed and
+Fleet is Ready 1/1 on Deploy commit `12251ff0ccea4c01ac039cc85cd1ee44e29d1b95`;
+applied and desired deployment IDs match, all 23/23 Deployments are Ready, and
+67/67 resources are ready. The single-node readiness checks do not establish
+production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -92,7 +92,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 19:04:23 UTC**. The organization-wide GitHub issue search returned 31 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 19:05 UTC**. The organization-wide GitHub issue search returned 31 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
