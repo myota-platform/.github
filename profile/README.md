@@ -37,11 +37,18 @@ durables, migration markers and authoritative recovery data remain. Phase 6
 fact-stream retention work is separate. See the
 [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md).
 
-The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md) records the live Surveyor 0.9.11 exporter, eleven-dashboard Grafana `NATS` folder, bounded JetStream capacity, and retired Admin/Operations/Geodata polling paths. Helm revision 208 applied the Operations history-table migration after image and backup verification; storage history remains. Fleet is Ready=True on Deploy main commit `d0d2f50846fe2c9e239d46a48809860f4b98d7f5` with 64/64 resources ready, so Phase 2 is complete. A follow-up Grafana API check verified all thirteen dashboard 16256
-expressions without query errors; see the
+The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md)
+records the live Surveyor 0.9.11 exporter, eleven-dashboard Grafana `NATS`
+folder, bounded JetStream capacity, and retired Admin/Operations/Geodata
+polling paths. Helm revision 208 applied the Operations history-table
+migration after image and backup verification; storage history remains.
+Fleet is Ready=True on Deploy main commit
+`d0d2f50846fe2c9e239d46a48809860f4b98d7f5` with 64/64 resources ready, so
+Phase 2 is complete. A follow-up Grafana API check verified all thirteen
+dashboard 16256 expressions without query errors; see the
 [cutover evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/2026-10-11-nats-surveyor-cutover.md).
 
-## Platform at a glance## Platform at a glance
+## Platform at a glance
 
 ```text
 Universal programme UI
