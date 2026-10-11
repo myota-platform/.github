@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 259 is deployed from Deploy commit `cd13e2ce8396025c84b89eb4e9e3c153ca5a8489`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the Deploy GitRepo Ready 1/1 and the MyOTA bundle deployed and monitored. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 261 is deployed from Deploy commit `26d13abaef55f1c545d0fff3b8003f2572bd5483`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the MyOTA bundle ready with 67/67 resources. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -36,9 +36,11 @@ The [current system state](https://github.com/myota-platform/myota-docs/blob/mai
   and [read-only evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/evidence/phase5-read-only-follow-up-2026-10-11.md).
 - Logging/observability acceptance remains open for authenticated Grafana
   navigation, Programme/Activity/Geodata request-to-worker evidence, Loki
-  privacy/cardinality review, Compose parity, alerts/retention/recovery, and
-  Identity/Programme metrics coverage. The Identity correlation issue is closed
-  after deployed request-to-worker and ACK evidence.
+  privacy/cardinality review, Compose parity, and alerts/retention/recovery.
+  Identity and Programme metrics coverage is verified and closed; see the
+  [metrics evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/identity-programme-metrics-2026-10-11.md).
+  The Identity correlation issue is closed after deployed request-to-worker
+  and ACK evidence.
 - Programme configuration, Admin UI internationalization, award-condition
   modeling, and charter delivery remain planned product work.
 
@@ -88,7 +90,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 21:15 UTC**. The organization-wide GitHub issue search returned 29 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 21:38 UTC**. The organization-wide GitHub issue search returned 26 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -110,10 +112,6 @@ Snapshot: **2026-10-11 21:15 UTC**. The organization-wide GitHub issue search re
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#4: Propagate request correlation through Programme outbox events](https://github.com/myota-platform/myota-programme-service/issues/4) | `enhancement` |
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#3: Propagate request correlation through Activity outbox events](https://github.com/myota-platform/myota-activity-service/issues/3) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#6: Propagate request correlation through Geodata outbox work](https://github.com/myota-platform/myota-geodata-service/issues/6) | `enhancement` |
-| **Identity and Programme metrics coverage** |  |  |  |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#4: Restore Identity service metrics coverage](https://github.com/myota-platform/myota-identity-service/issues/4) | `enhancement` |
-|  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#3: Restore Programme service metrics coverage](https://github.com/myota-platform/myota-programme-service/issues/3) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#7: Scrape and dashboard Identity and Programme service metrics](https://github.com/myota-platform/myota-deploy/issues/7) | `enhancement` |
 | **Observability dashboard enhancements** |  |  |  |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#11: Add a K3s workload health and capacity Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/11) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#12: Add an application workflow and JetStream delivery Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/12) | `enhancement` |
