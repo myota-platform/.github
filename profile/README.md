@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 261 is deployed from Deploy commit `26d13abaef55f1c545d0fff3b8003f2572bd5483`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the MyOTA bundle ready with 67/67 resources. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 265 is deployed from Deploy commit `226d9f63cc08ce1852dbf2c04856feb45a9f0966`; all 24 Deployments and 28/28 desired replicas are ready. Fleet reports the MyOTA bundle deployed and monitored. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -90,7 +90,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 21:38 UTC**. The organization-wide GitHub issue search returned 26 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 22:07 UTC**. The organization-wide GitHub issue search returned 23 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -112,10 +112,6 @@ Snapshot: **2026-10-11 21:38 UTC**. The organization-wide GitHub issue search re
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#4: Propagate request correlation through Programme outbox events](https://github.com/myota-platform/myota-programme-service/issues/4) | `enhancement` |
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#3: Propagate request correlation through Activity outbox events](https://github.com/myota-platform/myota-activity-service/issues/3) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#6: Propagate request correlation through Geodata outbox work](https://github.com/myota-platform/myota-geodata-service/issues/6) | `enhancement` |
-| **Observability dashboard enhancements** |  |  |  |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#11: Add a K3s workload health and capacity Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/11) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#12: Add an application workflow and JetStream delivery Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/12) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#13: Expand the PostgreSQL and PostGIS Grafana dashboard with database health panels](https://github.com/myota-platform/myota-deploy/issues/13) | `enhancement` |
 | **Admin UI internationalization** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#1: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota-docs/issues/1) | `documentation` |
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#4: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota-admin-web/issues/4) | `enhancement` |
