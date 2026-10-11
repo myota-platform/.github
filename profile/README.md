@@ -37,16 +37,8 @@ durables, migration markers and authoritative recovery data remain. Phase 6
 fact-stream retention work is separate. See the
 [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md).
 
-The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md)
-is planned and not deployed. It proposes a pinned internal Surveyor exporter
-and Grafana folder `NATS` containing dashboard 16256 plus all ten dashboards
-from a pinned Surveyor provisioning revision. Validate every dashboard panel
-against Surveyor metrics and keep MyOTA's datasource/provider configuration.
-After direct broker comparison and rollback checks pass, retire the current
-Admin NATS page, duplicate broker pollers, and the combined MyOTA JetStream
-backlog/PostGIS dashboard; its two PostGIS panels were removed from source
-assets and will not be migrated or recreated. Remove the sampled-history table
-after a verified backup.
+The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md) documents the live Surveyor 0.9.11 exporter and Grafana `NATS` folder. Admin, Operations, and Geodata source retirements passed CI. Fleet rollout of corrected JetStream capacity settings and replacement service images is pending; the Operations history-table migration follows the live-image and verified-backup gate.
+
 ## Platform at a glance## Platform at a glance
 
 ```text
