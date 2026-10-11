@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 265 is deployed from Deploy commit `226d9f63cc08ce1852dbf2c04856feb45a9f0966`; all 24 Deployments and 28/28 desired replicas are ready. Fleet reports the MyOTA bundle deployed and monitored. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 272 is deployed from Deploy commit `ced2df0d35c869b93c3b5fe1943f1c1eeed59e43`; Fleet reports the MyOTA bundle Ready, with 23 Deployments and 27/27 replicas ready. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -23,11 +23,11 @@ The [current system state](https://github.com/myota-platform/myota-docs/blob/mai
   a full-day window. Six unresolved Geodata application DLQ records remain
   preserved. PostgreSQL remains authoritative; off-node NATS recovery is
   deferred.
-- NATS Surveyor and eleven Grafana dashboards are deployed. Operations has no
-  NATS connection and retains bounded read-only PostgreSQL/PostGIS metrics and
-  Grafana role resolution. SeaweedFS monitoring now uses the Collector and
-  provisioned Grafana dashboard; the Operations sampler, API, history table,
-  and dedicated Admin page are retired.
+- NATS Surveyor and eleven Grafana dashboards are deployed. The Operations
+  runtime, API, sampler, and history tables are retired. OpenTelemetry collects
+  bounded read-only PostgreSQL/PostGIS metrics, while Gateway and Identity own
+  Grafana authentication and role resolution. SeaweedFS monitoring uses the
+  Collector and provisioned Grafana dashboard.
 - Geodata Phase 5 was administratively closed by owner acceptance on
   11 October. Broad capacity, independent writes, node/storage failure, canary,
   rollback, and scaling above three replicas remain unverified and were
@@ -75,7 +75,8 @@ documents source ownership and synchronized mirrors. The main repositories are:
 - [Activity](https://github.com/myota-platform/myota-activity-service) —
   activations, QSOs, awards, and notifications.
 - [Operations](https://github.com/myota-platform/myota-operations-service) —
-  bounded read-only PostgreSQL/PostGIS metrics and Grafana role resolution.
+  retired historical implementation; runtime dependencies are removed and
+  repository archival remains open in issue #3.
 - [Deploy](https://github.com/myota-platform/myota-deploy) — Compose, Helm,
   runtime configuration, and infrastructure.
 - [Platform](https://github.com/myota-platform/myota-platform) — integration
@@ -90,15 +91,15 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 22:07 UTC**. The organization-wide GitHub issue search returned 23 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 23:10 UTC**. The organization-wide GitHub issue search returned 20 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
 | **Geodata capacity qualification** |  |  |  |
-| **Geodata Website and Description fields** |  |  |  |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#2: Add Website and Description fields to Geodata administration](https://github.com/myota-platform/myota-admin-web/issues/2) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement` |
+| **Geodata Website and Description fields** |  |  |  |
+|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#2: Add Website and Description fields to Geodata administration](https://github.com/myota-platform/myota-admin-web/issues/2) | `enhancement` |
 | **Programme governance, jurisdiction, and eligibility** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#4: Define phased delivery decisions for programme configuration](https://github.com/myota-platform/myota-docs/issues/4) | `documentation` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#2: Add versioned programme governance, jurisdiction, and eligibility policy](https://github.com/myota-platform/myota-programme-service/issues/2) | `enhancement` |
@@ -121,7 +122,4 @@ Snapshot: **2026-10-11 22:07 UTC**. The organization-wide GitHub issue search re
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
 | **Operations Service retirement and OpenTelemetry migration** |  |  |  |
 |  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#3: Retire Operations Service and archive its repository](https://github.com/myota-platform/myota-operations-service/issues/3) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#9: Replace Operations workload with OpenTelemetry](https://github.com/myota-platform/myota-deploy/issues/9) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#6: Remove retired Operations API from contracts and clients](https://github.com/myota-platform/myota-contracts/issues/6) | `enhancement` |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#6: Move Grafana auth proxy off Operations](https://github.com/myota-platform/myota-admin-web/issues/6) | `enhancement` |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#6: Document complete Operations Service retirement and OpenTelemetry replacements](https://github.com/myota-platform/myota-docs/issues/6) | `documentation` |
