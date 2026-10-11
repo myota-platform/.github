@@ -15,10 +15,11 @@ and spontaneous activations while remaining complementary to other programmes.
 
 The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md)
 is the dated source for repository revisions, deployed images, live K3s status,
-architecture, and remaining evidence gates. The latest read-only reconciliation
-found Helm revision 246 deployed, Fleet Ready with 67/67 resources, and 23/23
-MyOTA Deployments Ready on a single-node K3s host. These readiness checks do not
-establish production qualification or off-node recovery.
+architecture, and remaining evidence gates. The latest check found Helm revision
+249 pending-upgrade, all 23/23 MyOTA Deployments ready, and 67/67 Fleet resources
+reported ready on the single-node K3s host. The Fleet GitRepo still reports
+WaitApplied(1), so current readiness is not production qualification or proof of
+a clean GitOps reconciliation.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -29,8 +30,10 @@ establish production qualification or off-node recovery.
   preserved. PostgreSQL remains authoritative; off-node NATS recovery is
   deferred.
 - NATS Surveyor and eleven Grafana dashboards are deployed. Operations has no
-  NATS connection; it retains storage status/history and Grafana role
-  resolution.
+  NATS connection and retains bounded read-only PostgreSQL/PostGIS metrics and
+  Grafana role resolution. SeaweedFS monitoring now uses the Collector and
+  provisioned Grafana dashboard; the Operations sampler, API, history table,
+  and dedicated Admin page are retired.
 - Geodata Phase 5 was administratively closed by owner acceptance on
   11 October. Broad capacity, independent writes, node/storage failure, canary,
   rollback, and scaling above three replicas remain unverified and were
@@ -74,7 +77,7 @@ documents source ownership and synchronized mirrors. The main repositories are:
 - [Activity](https://github.com/myota-platform/myota-activity-service) —
   activations, QSOs, awards, and notifications.
 - [Operations](https://github.com/myota-platform/myota-operations-service) —
-  storage status/history and Grafana role resolution.
+  bounded read-only PostgreSQL/PostGIS metrics and Grafana role resolution.
 - [Deploy](https://github.com/myota-platform/myota-deploy) — Compose, Helm,
   runtime configuration, and infrastructure.
 - [Platform](https://github.com/myota-platform/myota-platform) — integration
@@ -89,7 +92,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 18:24:05 UTC**. The organization-wide GitHub issue search returned 36 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 19:04:23 UTC**. The organization-wide GitHub issue search returned 31 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -133,9 +136,3 @@ Snapshot: **2026-10-11 18:24:05 UTC**. The organization-wide GitHub issue search
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#2: Complete Phase 0 decisions for the future award-condition model](https://github.com/myota-platform/myota-docs/issues/2) | `documentation` |
 | **Charter gap roadmap decomposition** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
-| **SeaweedFS monitoring retirement** |  |  |  |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#8: Make SeaweedFS Grafana observability the sole monitoring path](https://github.com/myota-platform/myota-deploy/issues/8) | `enhancement` |
-|  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#2: Retire SeaweedFS sampler, API, and sampled-history database table](https://github.com/myota-platform/myota-operations-service/issues/2) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#5: Retire the Operations SeaweedFS monitoring API contract](https://github.com/myota-platform/myota-contracts/issues/5) | `enhancement` |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#5: Remove the SeaweedFS monitoring page from the Admin UI](https://github.com/myota-platform/myota-admin-web/issues/5) | `enhancement` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#5: Document retirement of the SeaweedFS Admin monitoring page](https://github.com/myota-platform/myota-docs/issues/5) | `documentation` |
