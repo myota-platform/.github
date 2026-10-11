@@ -21,21 +21,19 @@ The organization login is `myota-platform`; the visible organization name is **M
 ## Current engineering decisions
 
 The [NATS JetStream migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md)
-tracks the phased event/work-queue migration. NATS remains cluster-internal,
-with no broker authentication or TLS requirement while exposed only as a
-ClusterIP service. Phases 0–5 are complete within their recorded evidence
-bounds. Phase 5 moved all four Geodata work kinds to MYOTA_GEODATA_WORK,
-applied migration 021, deployed Activity's transactional idempotency fix and
-retired the four legacy Geodata durables after final checks. The user waived
-the 24-hour elapsed-time minimum; this early close is not represented as a
-completed 24-hour observation.
-
-Helm revision 193 remains deployed. Fleet is Ready=True at Deploy commit
-cfecd655d9c0eee9d19db26725fb11c99366815a. The shared Interest-retained
-MYOTA_EVENTS stream, Activity notification durable, four target Geodata
-durables, migration markers and authoritative recovery data remain. Phase 6
-fact-stream retention work is separate. See the
-[Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md).
+tracks the phased event/work-queue migration. Phases 0–6 are complete within
+their recorded evidence bounds. NATS remains cluster-internal under the
+accepted trust boundary. The bounded Limits-retained `MYOTA_EVENTS` stream
+captures only `myota.events.>`; Activity and Geodata work use distinct
+WorkQueue streams. Helm revision 211 is deployed and Fleet is Ready=True at
+Deploy commit `16af2edf6b8e868904f9284e481d971ae7d6d38c`. The one-time
+migration flag is disabled and topology drift validation remains enabled.
+Phase 5's 24-hour observation was explicitly waived and closed early, not
+represented as a full-day observation. PostgreSQL remains authoritative;
+previously Interest-expired facts cannot be recovered and off-node recovery is
+deferred. See the
+[Phase 6 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase6-fact-stream-cutover-2026-10-11.md)
+and [Phase 5 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase5-geodata-work-2026-10-10.md).
 
 The [NATS Surveyor monitoring consolidation](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/nats-surveyor-migration.md)
 records the live Surveyor 0.9.11 exporter, eleven-dashboard Grafana `NATS`
@@ -180,13 +178,10 @@ Delivered in the integration/runtime and deployment repositories; see `docs/prod
 - [x] Add programme-policy versioning so historical activation and award decisions remain reproducible.
 - [x] Add migration automation, rollback guidance, seed separation, and backup/restore verification.
 
-The checklist above describes the existing delivery baseline, not completion of
-the cross-service NATS migration. Phases 0–3 are complete within their evidence
-bounds. Phase 3 deployed Activity's exact-filter `activity-notifications-v1`
-durable, atomic local notification/checkpoint transaction, audited poison-event
-redrive, and bounded consumer metrics. Payload/schema enforcement, the Activity
-and Geodata work migrations, and final production topology cutover remain open.
-The live broker still uses the mixed Interest-retained stream. See the
+The checklist above describes the existing delivery baseline; the NATS
+migration is now complete through Phase 6 within its recorded evidence bounds.
+The live broker uses the bounded fact stream and separate Activity and Geodata
+WorkQueue streams. See the
 [migration plan](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/nats-event-migration-plan.md),
 [Activity notification runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/activity-notification-consumer.md),
 [Phase 2 evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/phase2-relay-hardening-2026-10-10.md),
