@@ -86,7 +86,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 19:35 UTC**. The organization-wide GitHub issue search returned 41 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 19:52 UTC**. The organization-wide GitHub issue search returned 38 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -98,10 +98,6 @@ Snapshot: **2026-10-11 19:35 UTC**. The organization-wide GitHub issue search re
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#2: Close Geodata transaction and recovery evidence gates](https://github.com/myota-platform/myota-geodata-service/issues/2) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#3: Qualify JetStream limits, relay DLQ recovery, and deployment controls](https://github.com/myota-platform/myota-deploy/issues/3) | `enhancement` |
 |  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#1: Provide read-only JetStream operational evidence](https://github.com/myota-platform/myota-operations-service/issues/1) | `enhancement` |
-| **Geodata Website and Description fields** |  |  |  |
-|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#3: Add Website and Description metadata to geodata entities](https://github.com/myota-platform/myota-geodata-service/issues/3) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#3: Add Website and Description to Geodata API schemas](https://github.com/myota-platform/myota-contracts/issues/3) | `enhancement` |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#2: Add Website and Description fields to Geodata administration](https://github.com/myota-platform/myota-admin-web/issues/2) | `enhancement` |
 | **Geodata capacity qualification** |  |  |  |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement` |
