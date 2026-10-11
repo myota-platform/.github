@@ -46,6 +46,17 @@ Phase 2 is complete. A follow-up Grafana API check verified all thirteen
 dashboard 16256 expressions without query errors; see the
 [cutover evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/2026-10-11-nats-surveyor-cutover.md).
 
+The structured logging implementation is tracked in the
+[logging roadmap](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-implementation.md).
+Current Identity, Programme, Activity, and Geodata logging images are live. A
+safe Identity health request has a matching Loki record and Tempo span, and all
+seven provisioned dashboard queries returned successfully against Loki. Helm
+revision 225 mounted the metadata-aware dashboard and datasource. Fleet
+readiness and authenticated UI navigation, asynchronous correlation, Phase 6
+retention/capacity/privacy evidence, and Phase 7 database telemetry remain open.
+See the [evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-11.md)
+and [runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-runbook.md).
+
 ## Platform at a glance
 
 ```text
@@ -407,7 +418,7 @@ and [operations diagram](https://github.com/myota-platform/myota-docs/blob/main/
 
 ### 7. Reliability, security, and operations
 
-- [x] Add service-owned real metrics, OpenTelemetry request traces, collector-based Prometheus/Grafana dashboards, Tempo storage, per-service/per-route/per-method API performance graphs, Prometheus/Alertmanager availability and latency alerts, and equivalent Grafana-managed rules. See the [observability architecture](https://github.com/myota-platform/myota-docs/blob/main/docs/observability.md). Structured log retention and formal SLOs remain production hardening work.
+- [x] Add service-owned real metrics, OpenTelemetry request traces, collector-based Prometheus/Grafana dashboards, Tempo storage, per-service/per-route/per-method API performance graphs, Prometheus/Alertmanager availability and latency alerts, and equivalent Grafana-managed rules. See the [observability overview](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/overview.md). Structured logging is being implemented separately; its live Identity log/trace smoke and seven dashboard query checks pass, while Phase 6 hardening and Phase 7 PostgreSQL/PostGIS telemetry remain open. See the [logging plan](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/logging-implementation.md) and [current evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-11.md).
 - [x] Add bounded, fixture-cleaning geodata load profiles for uploads, concurrent edits, preprocessing, promotion, and queue backlog; add PostGIS query timing/slow-query metrics, guarded `EXPLAIN (ANALYZE, BUFFERS)` evidence, JetStream consumer-lag metrics, and dedicated Grafana views. Profiles can target production only with explicit environment acknowledgement, exact host allowlisting, hard workload caps, and separately enabled production cleanup. See the [geodata load/query evidence runbook](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-load-test-and-query-evidence.md).
 - [x] Update large-upload load tests to the resumable API, verify binary parts/checksums and abort recovery, and clean exact-tag terminal upload sessions/parts. Gate image publication on harness regressions; see the [local verification record](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata-load-test-upload-verification.md). Representative non-production capacity qualification remains open.
 - [ ] Execute the mutating geodata profiles in a planned test window, review query plans at representative cardinality, and retain the evidence with an operator-approved test run. Production execution must use the dedicated test administrator, hard caps, and verified cleanup.
