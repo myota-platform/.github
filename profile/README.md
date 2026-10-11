@@ -86,7 +86,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 19:31 UTC**. The organization-wide GitHub issue search returned 36 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 19:34 UTC**. The organization-wide GitHub issue search returned 39 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -123,6 +123,10 @@ Snapshot: **2026-10-11 19:31 UTC**. The organization-wide GitHub issue search re
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#4: Restore Identity service metrics coverage](https://github.com/myota-platform/myota-identity-service/issues/4) | `enhancement` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#3: Restore Programme service metrics coverage](https://github.com/myota-platform/myota-programme-service/issues/3) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#7: Scrape and dashboard Identity and Programme service metrics](https://github.com/myota-platform/myota-deploy/issues/7) | `enhancement` |
+| **Observability dashboard enhancements** |  |  |  |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#11: Add a K3s workload health and capacity Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/11) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#12: Add an application workflow and JetStream delivery Grafana dashboard](https://github.com/myota-platform/myota-deploy/issues/12) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#13: Expand the PostgreSQL and PostGIS Grafana dashboard with database health panels](https://github.com/myota-platform/myota-deploy/issues/13) | `enhancement` |
 | **Admin UI internationalization** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#1: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota-docs/issues/1) | `documentation` |
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#4: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota-admin-web/issues/4) | `enhancement` |
