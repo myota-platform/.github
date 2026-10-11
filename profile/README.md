@@ -137,7 +137,6 @@ Snapshot: **2026-10-11 19:10 UTC**. The organization-wide GitHub issue search re
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#2: Complete Phase 0 decisions for the future award-condition model](https://github.com/myota-platform/myota-docs/issues/2) | `documentation` |
 | **Charter gap roadmap decomposition** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
-
 | **Operations Service retirement and OpenTelemetry migration** |  |  |  |
 |  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#3: Retire Operations Service and archive its repository](https://github.com/myota-platform/myota-operations-service/issues/3) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#9: Replace Operations workload with OpenTelemetry](https://github.com/myota-platform/myota-deploy/issues/9) | `enhancement` |
