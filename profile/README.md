@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 257 is deployed from Deploy commit `f37a1fa8b5f3f5c0eb639c7125fcc9ab0fe323b8`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the Deploy GitRepo Ready 1/1 and the MyOTA bundle deployed and monitored. The single-node readiness checks do not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 257 is deployed from Deploy commit `f37a1fa8b5f3f5c0eb639c7125fcc9ab0fe323b8`; all 23 Deployments and 27/27 desired replicas are ready. Fleet reports the Deploy GitRepo Ready 1/1 and the MyOTA bundle deployed and monitored. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -86,18 +86,10 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-11 20:12 UTC**. The organization-wide GitHub issue search returned 36 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-11 20:22 UTC**. The organization-wide GitHub issue search returned 30 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
-| **NATS migration evidence and readiness** |  |  |  |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#1: Define JetStream envelope and event/consumer registry](https://github.com/myota-platform/myota-contracts/issues/1) | `enhancement` |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#1: Confirm Identity event subscriber dispositions](https://github.com/myota-platform/myota-identity-service/issues/1) | `enhancement` |
-|  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#1: Confirm Programme event subscriber dispositions](https://github.com/myota-platform/myota-programme-service/issues/1) | `enhancement` |
-|  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#1: Close Activity notification and worker evidence gates](https://github.com/myota-platform/myota-activity-service/issues/1) | `enhancement` |
-|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#2: Close Geodata transaction and recovery evidence gates](https://github.com/myota-platform/myota-geodata-service/issues/2) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#3: Qualify JetStream limits, relay DLQ recovery, and deployment controls](https://github.com/myota-platform/myota-deploy/issues/3) | `enhancement` |
-|  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#1: Provide read-only JetStream operational evidence](https://github.com/myota-platform/myota-operations-service/issues/1) | `enhancement` |
 | **Geodata capacity qualification** |  |  |  |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement` |
