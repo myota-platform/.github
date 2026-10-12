@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. As of 2026-10-12 07:43 UTC, Helm revision 280 is deployed; Prometheus and Grafana are 1/1, all 23 Deployments / 27 replicas are ready, and the MyOTA Fleet GitRepo and BundleDeployment are Ready at sync generation 94/94 with matching deployment IDs. Prometheus loaded 33 runbook-linked rules; Grafana mounted two alert runbook links and three dashboard links and logged successful dashboard provisioning. Remaining logging acceptance gates are authenticated navigation, representative capacity/recovery, and Compose runtime parity. See current-state and logging evidence for exact IDs. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. As of 2026-10-12 07:56 UTC, Helm revision 281 is deployed; Prometheus and Grafana are 1/1, all 23 Deployments / 27 replicas are ready, and the MyOTA Fleet GitRepo is Ready at Deploy commit `9d80741`; its BundleDeployment is Ready at sync generation 94/94 with matching staged/applied deployment IDs. Prometheus loaded 33 runbook-linked rules; Grafana mounted two alert runbook links and three dashboard links and logged successful dashboard provisioning. Remaining logging acceptance gates are authenticated navigation, representative capacity/recovery, and Compose runtime parity. See current-state and logging evidence for exact IDs. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -38,7 +38,7 @@ The [current system state](https://github.com/myota-platform/myota-docs/blob/mai
   Programme, Activity, and Geodata; their service-owned issues are closed.
   Deploy #6 remains open for authenticated Grafana navigation, representative
   capacity/recovery qualification, and Compose runtime parity. Helm/Fleet status
-  has converged at revision 280 and sync 94/94. The corrected rule and dashboard
+  has converged at revision 281 and sync 94/94. The corrected rule and dashboard
   assets are loaded and provisioned, but authenticated trace/log navigation is
   untested. Loki's three indexed labels,
   sampled payload exclusion, 14-day policy, and compactor activity are verified
@@ -96,7 +96,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-12 07:53 UTC**. The organization-wide GitHub issue search returned 15 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-12 07:56 UTC**. The organization-wide GitHub issue search returned 15 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
