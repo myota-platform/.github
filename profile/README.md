@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 275 is deployed from Deploy commit `c7b6956ebd23a220eb359a9814d749d2b2d94b58`; Fleet reports the MyOTA bundle Ready, Deployed, and Monitored with 71/71 resources ready, 23 Deployments, and 27/27 replicas ready (rechecked 12 October 2026 at 01:26 UTC). Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 279 is deployed after rollback to the last valid revision 277 source; Prometheus is 1/1 and all 23 Deployments / 27 replicas are ready. The corrected Deploy source commit 4910201 is staged in Fleet, but its BundleDeployment applied ID and sync generation remain behind desired (92 vs 93), so the corrected runbook/dashboard links are not live yet. See current-state evidence for exact IDs. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -34,13 +34,15 @@ The [current system state](https://github.com/myota-platform/myota-docs/blob/mai
   accepted for closure. Reopen these gates before expanding capacity. See the
   [closure decision](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/evidence/phase5-owner-acceptance-2026-10-11.md)
   and [read-only evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/evidence/phase5-read-only-follow-up-2026-10-11.md).
-- Logging/observability acceptance remains open for authenticated Grafana
-  navigation, Programme/Activity/Geodata request-to-worker evidence, Loki
-  privacy/cardinality review, Compose parity, and alerts/retention/recovery.
-  Identity and Programme metrics coverage is verified and closed; see the
+- Logging and request-to-worker correlation are deployed for Identity,
+  Programme, Activity, and Geodata; their service-owned issues are closed.
+  Deploy #6 remains open for authenticated Grafana navigation, Compose runtime
+  parity, representative capacity/recovery, and Fleet application of the latest
+  chart. Loki's three indexed labels, sampled payload exclusion, 14-day policy,
+  and compactor activity are verified within the limits in the
+  [12 October evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-12.md).
+  Identity and Programme metrics coverage is also verified; see the
   [metrics evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/identity-programme-metrics-2026-10-11.md).
-  The Identity correlation issue is closed after deployed request-to-worker
-  and ACK evidence.
 - Programme configuration, Admin UI internationalization, award-condition
   modeling, and charter delivery remain planned product work.
 
@@ -91,7 +93,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-12 00:23:33 UTC**. The organization-wide GitHub issue search returned 18 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-12 07:27 UTC**. The organization-wide GitHub issue search returned 15 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -110,7 +112,6 @@ Snapshot: **2026-10-12 00:23:33 UTC**. The organization-wide GitHub issue search
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#6: Close structured logging deployment and acceptance gaps](https://github.com/myota-platform/myota-deploy/issues/6) | `enhancement` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#4: Propagate request correlation through Programme outbox events](https://github.com/myota-platform/myota-programme-service/issues/4) | `enhancement` |
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#3: Propagate request correlation through Activity outbox events](https://github.com/myota-platform/myota-activity-service/issues/3) | `enhancement` |
-|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#6: Propagate request correlation through Geodata outbox work](https://github.com/myota-platform/myota-geodata-service/issues/6) | `enhancement` |
 | **Admin UI internationalization** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#1: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota-docs/issues/1) | `documentation` |
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#4: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota-admin-web/issues/4) | `enhancement` |
