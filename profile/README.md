@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 280 is pending-upgrade after rollback to the last valid revision 277 source; Prometheus and Grafana are 1/1, and all 23 Deployments / 27 replicas are ready. Deploy main is at corrected commit b460a69 and Fleet force-sync generation 94; Fleet reports WaitApplied (0/1), with BundleDeployment sync generation 92 still behind desired. Prometheus loaded 33 runbook-linked rules; Grafana mounted two alert runbook links and three dashboard links and logged successful dashboard provisioning. Authenticated navigation and release status remain open. See current-state evidence for exact IDs. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. As of 2026-10-12 07:43 UTC, Helm revision 280 is deployed; Prometheus and Grafana are 1/1, all 23 Deployments / 27 replicas are ready, and the MyOTA Fleet GitRepo and BundleDeployment are Ready at sync generation 94/94 with matching deployment IDs. Prometheus loaded 33 runbook-linked rules; Grafana mounted two alert runbook links and three dashboard links and logged successful dashboard provisioning. Remaining logging acceptance gates are authenticated navigation, representative capacity/recovery, and Compose runtime parity. See current-state and logging evidence for exact IDs. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -36,10 +36,11 @@ The [current system state](https://github.com/myota-platform/myota-docs/blob/mai
   and [read-only evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/geodata/evidence/phase5-read-only-follow-up-2026-10-11.md).
 - Logging and request-to-worker correlation are deployed for Identity,
   Programme, Activity, and Geodata; their service-owned issues are closed.
-  Deploy #6 remains open for authenticated Grafana navigation, Compose runtime
-  parity, representative capacity/recovery, and Helm/Fleet status convergence.
-  The corrected rule and dashboard assets are loaded and provisioned, but
-  authenticated trace/log navigation is untested. Loki's three indexed labels,
+  Deploy #6 remains open for authenticated Grafana navigation, representative
+  capacity/recovery qualification, and Compose runtime parity. Helm/Fleet status
+  has converged at revision 280 and sync 94/94. The corrected rule and dashboard
+  assets are loaded and provisioned, but authenticated trace/log navigation is
+  untested. Loki's three indexed labels,
   sampled payload exclusion, 14-day policy, and compactor activity are verified
   within the limits in the
   [12 October evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-12.md).
