@@ -110,8 +110,6 @@ Snapshot: **2026-10-12 07:35 UTC**. The organization-wide GitHub issue search re
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#2: Evaluate activity against immutable published programme policy versions](https://github.com/myota-platform/myota-activity-service/issues/2) | `enhancement` |
 | **Structured logging and request-to-worker correlation** |  |  |  |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#6: Close structured logging deployment and acceptance gaps](https://github.com/myota-platform/myota-deploy/issues/6) | `enhancement` |
-|  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#4: Propagate request correlation through Programme outbox events](https://github.com/myota-platform/myota-programme-service/issues/4) | `enhancement` |
-|  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#3: Propagate request correlation through Activity outbox events](https://github.com/myota-platform/myota-activity-service/issues/3) | `enhancement` |
 | **Admin UI internationalization** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#1: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota-docs/issues/1) | `documentation` |
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#4: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota-admin-web/issues/4) | `enhancement` |
