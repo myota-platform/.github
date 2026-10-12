@@ -13,7 +13,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 279 is deployed after rollback to the last valid revision 277 source; Prometheus is 1/1 and all 23 Deployments / 27 replicas are ready. Deploy main is at corrected commit b460a69 and Fleet force-sync generation 94; Fleet reports WaitApplied (0/1), with BundleDeployment sync generation 92 still behind desired. The corrected runbook/dashboard links are not live yet. See current-state evidence for exact IDs. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. Helm revision 280 is pending-upgrade after rollback to the last valid revision 277 source; Prometheus and Grafana are 1/1, and all 23 Deployments / 27 replicas are ready. Deploy main is at corrected commit b460a69 and Fleet force-sync generation 94; Fleet reports WaitApplied (0/1), with BundleDeployment sync generation 92 still behind desired. Prometheus loaded 33 runbook-linked rules; Grafana mounted two alert runbook links and three dashboard links and logged successful dashboard provisioning. Authenticated navigation and release status remain open. See current-state evidence for exact IDs. Operations has been removed from runtime, APIs, and observability ownership; only repository archival remains open in Operations issue #3. The NATS migration evidence/readiness issues are closed within their recorded evidence bounds; the [issue closeout record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/evidence/nats-readiness-issue-closeout-2026-10-11.md) records accepted limits. Single-node readiness does not establish production qualification or off-node recovery.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -37,9 +37,11 @@ The [current system state](https://github.com/myota-platform/myota-docs/blob/mai
 - Logging and request-to-worker correlation are deployed for Identity,
   Programme, Activity, and Geodata; their service-owned issues are closed.
   Deploy #6 remains open for authenticated Grafana navigation, Compose runtime
-  parity, representative capacity/recovery, and Fleet application of the latest
-  chart. Deploy/Platform rule YAML and dashboard JSON are syntax-checked; Fleet has not applied the source. Loki's three indexed labels, sampled payload exclusion, 14-day policy,
-  and compactor activity are verified within the limits in the
+  parity, representative capacity/recovery, and Helm/Fleet status convergence.
+  The corrected rule and dashboard assets are loaded and provisioned, but
+  authenticated trace/log navigation is untested. Loki's three indexed labels,
+  sampled payload exclusion, 14-day policy, and compactor activity are verified
+  within the limits in the
   [12 October evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/logging-implementation-2026-10-12.md).
   Identity and Programme metrics coverage is also verified; see the
   [metrics evidence](https://github.com/myota-platform/myota-docs/blob/main/docs/observability/evidence/identity-programme-metrics-2026-10-11.md).
@@ -93,7 +95,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-12 07:35 UTC**. The organization-wide GitHub issue search returned 15 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-12 07:40 UTC**. The organization-wide GitHub issue search returned 15 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
