@@ -16,7 +16,7 @@ and spontaneous activations while remaining complementary to other programmes.
 Engineering contributions use short-lived feature/fix branches and quality-
 gated pull requests. See the organization [contributor workflow](https://github.com/myota-platform/.github/blob/main/CONTRIBUTING.md).
 
-The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. As of 2026-10-13 11:08 UTC, Helm revision 288 is deployed and Fleet reports 71/71 resources Ready. Deploy #15/#16, Activity #4/#5, and Geodata #8/#9 are complete and closed; all three databases were rebuilt from their authoritative baselines, restored from verified archives, and validated in the live cluster. Archive checksums, restore rehearsals, row/catalog checks, API health, and cleanup evidence are in the [database rebuild record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/databases/database-rebuild-evidence-2026-10-13.md). Operations runtime and observability ownership are retired; only repository archival remains open in Operations issue #3. Remaining logging acceptance gates and other evidence limits are recorded in current-state and the linked work items.
+The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. As of 2026-10-13 11:08 UTC, Helm revision 288 is deployed and Fleet reports 71/71 resources Ready. Deploy #15/#16, Activity #4/#5, and Geodata #8/#9 are complete and closed; all three databases were rebuilt from their authoritative baselines, restored from verified archives, and validated in the live cluster. Archive checksums, restore rehearsals, row/catalog checks, API health, and cleanup evidence are in the [database rebuild record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/databases/database-rebuild-evidence-2026-10-13.md). Operations runtime and observability ownership are retired; GitHub archived the Operations repository on 2026-10-13 and closed issue #3. Remaining logging acceptance gates and other evidence limits are recorded in current-state and the linked work items.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
   rejection and the final handler/mirror check. See
@@ -99,7 +99,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-13 14:09 UTC**. The organization-wide GitHub issue search returned 15 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 14:32 UTC**. The organization-wide GitHub issue search returned 14 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -123,5 +123,3 @@ Snapshot: **2026-10-13 14:09 UTC**. The organization-wide GitHub issue search re
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#2: Complete Phase 0 decisions for the future award-condition model](https://github.com/myota-platform/myota-docs/issues/2) | `documentation` |
 | **Charter gap roadmap decomposition** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
-| **Operations Service retirement and OpenTelemetry migration** |  |  |  |
-|  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#3: Retire Operations Service and archive its repository](https://github.com/myota-platform/myota-operations-service/issues/3) | `enhancement` |
