@@ -96,10 +96,20 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-13 07:20 UTC**. The organization-wide GitHub issue search returned 21 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 07:36 UTC**. The organization-wide GitHub issue search returned 30 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
+| **Testing branches and quality-gated pull requests** |  |  |  |
+|  | [.github](https://github.com/myota-platform/.github) | [#2: Set workspace feature-branch, testing-branch, and quality-gated PR workflow](https://github.com/myota-platform/.github/issues/2) | `documentation` |
+|  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#6: Create protected testing branch for Activity service artifact builds](https://github.com/myota-platform/myota-activity-service/issues/6) | `enhancement` |
+|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#7: Create protected testing branch for Admin Web artifact builds](https://github.com/myota-platform/myota-admin-web/issues/7) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#17: Create protected testing branch for Deploy artifact builds](https://github.com/myota-platform/myota-deploy/issues/17) | `enhancement` |
+|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#10: Create protected testing branch for Geodata service artifact builds](https://github.com/myota-platform/myota-geodata-service/issues/10) | `enhancement` |
+|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#5: Create protected testing branch for Identity service artifact builds](https://github.com/myota-platform/myota-identity-service/issues/5) | `enhancement` |
+|  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#4: Create protected testing branch for Operations service artifact builds](https://github.com/myota-platform/myota-operations-service/issues/4) | `enhancement` |
+|  | [myota-platform](https://github.com/myota-platform/myota-platform) | [#2: Create protected testing branch for Platform artifact builds](https://github.com/myota-platform/myota-platform/issues/2) | `enhancement` |
+|  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#5: Create protected testing branch for Programme service artifact builds](https://github.com/myota-platform/myota-programme-service/issues/5) | `enhancement` |
 | **Database migration baselines and data-preserving rebuilds** |  |  |  |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#15: Consolidate myota_core schema into one baseline migration](https://github.com/myota-platform/myota-deploy/issues/15) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#16: Back up and rebuild myota_core from its baseline, then restore data](https://github.com/myota-platform/myota-deploy/issues/16) | `enhancement` |
