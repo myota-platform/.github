@@ -105,7 +105,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-13 15:54 UTC**. The organization-wide GitHub issue search returned 16 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 21:32 UTC**. The organization-wide GitHub issue list returned 22 open issues across the active repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -123,6 +123,14 @@ Snapshot: **2026-10-13 15:54 UTC**. The organization-wide GitHub issue search re
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#2: Bind programme governance to scoped identity and OIDC controls](https://github.com/myota-platform/myota-identity-service/issues/2) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#5: Enforce published programme geodata eligibility and moderation policy](https://github.com/myota-platform/myota-geodata-service/issues/5) | `enhancement` |
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#2: Evaluate activity against immutable published programme policy versions](https://github.com/myota-platform/myota-activity-service/issues/2) | `enhancement` |
+| **Database-backed participant and administrator authentication** |  |  |  |
+|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#9: Make PostgreSQL authoritative for participant and administrator authentication state](https://github.com/myota-platform/myota-identity-service/issues/9) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#45: Deploy Identity database-backed authentication schema safely](https://github.com/myota-platform/myota-deploy/issues/45) | `enhancement` |
+| **Administrator-created participant accounts** |  |  |  |
+|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#10: Provide a secure administrator API for creating participant accounts](https://github.com/myota-platform/myota-identity-service/issues/10) | `enhancement` |
+|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#7: Define the secure contract for administrator-created user accounts](https://github.com/myota-platform/myota-contracts/issues/7) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#46: Verify Gateway support for administrator user creation](https://github.com/myota-platform/myota-deploy/issues/46) | `enhancement` |
+|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#11: Add administrator user creation to the Admin UI](https://github.com/myota-platform/myota-admin-web/issues/11) | `enhancement` |
 | **Structured logging and request-to-worker correlation** |  |  |  |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#6: Close structured logging deployment and acceptance gaps](https://github.com/myota-platform/myota-deploy/issues/6) | `enhancement` |
 | **Admin UI internationalization** |  |  |  |
