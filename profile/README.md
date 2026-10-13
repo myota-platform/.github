@@ -96,10 +96,17 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-12 07:56 UTC**. The organization-wide GitHub issue search returned 15 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 07:20 UTC**. The organization-wide GitHub issue search returned 21 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
+| **Database migration baselines and data-preserving rebuilds** |  |  |  |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#15: Consolidate myota_core schema into one baseline migration](https://github.com/myota-platform/myota-deploy/issues/15) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#16: Back up and rebuild myota_core from its baseline, then restore data](https://github.com/myota-platform/myota-deploy/issues/16) | `enhancement` |
+|  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#4: Consolidate myota_activity schema into one baseline migration](https://github.com/myota-platform/myota-activity-service/issues/4) | `enhancement` |
+|  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#5: Back up and rebuild myota_activity from its baseline, then restore data](https://github.com/myota-platform/myota-activity-service/issues/5) | `enhancement` |
+|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#8: Consolidate myota_geo schema into one PostGIS baseline migration](https://github.com/myota-platform/myota-geodata-service/issues/8) | `enhancement` |
+|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#9: Back up and rebuild myota_geo from its PostGIS baseline, then restore data](https://github.com/myota-platform/myota-geodata-service/issues/9) | `enhancement` |
 | **Geodata capacity qualification** |  |  |  |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement` |
