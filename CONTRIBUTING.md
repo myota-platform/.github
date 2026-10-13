@@ -25,17 +25,27 @@ deployable-artifact build a required check before publishing or deploying it.
    work commits to `testing` or `main`.
 3. Open a pull request into `testing`. Every implementation change must enter
    `testing` through a pull request. Keep `main` as the default branch; promote
-   a validated `testing` state to `main` only through a separately reviewed
-   release pull request.
+   a validated `testing` state to `main` only through a release pull request
+   whose source is the same repository's `testing` branch. Main protection
+   requires the `Main PR source policy` check, which rejects every other source.
+   The `testing` branch remains an integration branch and is not deployed.
 4. Require the repository's style/lint, test, and artifact-build checks to
    finish successfully. A check that is missing, skipped, cancelled, or
    failing is not a pass. If a repository lacks a suitable check, add one
    before relying on it as a quality gate.
-5. Enable auto-merge only for a pull request whose configured required checks
+5. Main requires one approving review, successful required checks, and resolved
+   review conversations. Stale approvals are dismissed, force pushes and branch
+   deletion are disabled, and administrators cannot bypass these rules. The
+   current only write-capable reviewer in the active artifact repositories is
+   `kerk1v`; GitHub accepts required reviews only from users with write access.
+   Review dismissal is restricted to that account. A PR author cannot approve
+   their own PR, so a PR authored by `kerk1v` needs a separate author identity
+   to meet the approval gate.
+6. Enable auto-merge only for a pull request whose configured required checks
    have passed and whose branch protections and any required reviews are
    satisfied. Use the repository's configured merge method. Never use an admin
    bypass or merge around a failed, missing, or required review check.
-6. Keep testing builds isolated. After all required checks pass on a push to
+7. Keep testing builds isolated. After all required checks pass on a push to
    `testing` (including a merged pull request), publish both a mutable `testing`
    image tag and a unique `testing-<full-commit-sha>` tag. Add OCI source,
    revision, and ref-name labels; the ref-name label is `testing` for these
@@ -56,9 +66,9 @@ an existing pull request.
   not build deployable artifacts.
 - `myota-contracts` validates and publishes contract files but does not build a
   deployable artifact.
-- `myota-operations-service` has been retired from runtime use. Its current CI
-  validates the historical source; it no longer builds or publishes a
-  deployable image. The repository-archive work is tracked separately.
+- `myota-operations-service` is archived and retired from runtime use. GitHub's
+  archived state makes its repository read-only; no runtime image is built or
+  published.
 
 `myota-platform` publishes its CI/bootstrap image as
 `ghcr.io/myota-platform/myota-platform-ci:testing` plus the unique SHA tag only
@@ -66,5 +76,10 @@ from `testing`; it is separate from the Deploy-owned runtime images and is not
 used by the live stack. Web publishes its static-site image from `main` and
 `testing`; it is not deployed until Deploy adds an explicit runtime integration.
 
-If repository responsibilities change, update this list and the linked
-repository work items before changing branch protections.
+The main protections are active in Activity, Admin Web, Deploy, Geodata,
+Identity, Platform, Programme, and Web. `myota-docs`, `.github`, and
+`myota-contracts` are excluded. Operations is archived and read-only, so GitHub
+rejected a branch-protection update; the archive itself blocks writes. If that
+repository is ever unarchived, configure equivalent protection before enabling
+writes. If repository responsibilities or write-capable reviewers change,
+update this list and recheck the protections.
