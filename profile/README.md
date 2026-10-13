@@ -105,7 +105,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-13 21:34 UTC**. The organization-wide GitHub issue list returned 22 open issues across all 12 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 21:45 UTC**. The organization-wide GitHub issue list returned 23 open issues across all 12 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -115,6 +115,8 @@ Snapshot: **2026-10-13 21:34 UTC**. The organization-wide GitHub issue list retu
 | **Geodata capacity qualification** |  |  |  |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement`, `scalability` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement`, `scalability` |
+| **Geodata import review workflow** |  |  |  |
+|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#12: Add per-entity decisions and sequential navigation to import review map modal](https://github.com/myota-platform/myota-admin-web/issues/12) | `enhancement` |
 | **Programme governance, jurisdiction, and eligibility** |  |  |  |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#4: Define phased delivery decisions for programme configuration](https://github.com/myota-platform/myota-docs/issues/4) | `documentation` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#2: Add versioned programme governance, jurisdiction, and eligibility policy](https://github.com/myota-platform/myota-programme-service/issues/2) | `enhancement` |
