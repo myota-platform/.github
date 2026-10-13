@@ -99,10 +99,13 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-13 14:32 UTC**. The organization-wide GitHub issue search returned 14 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 15:54 UTC**. The organization-wide GitHub issue search returned 16 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
+| **Public coming-soon landing page** |  |  |  |
+|  | [myota-web](https://github.com/myota-platform/myota-web) | [#5: Add a public coming-soon landing page image](https://github.com/myota-platform/myota-web/issues/5) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#26: Deploy the coming-soon landing page at myota.top](https://github.com/myota-platform/myota-deploy/issues/26) | `enhancement` |
 | **Geodata capacity qualification** |  |  |  |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement`, `scalability` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement`, `scalability` |
