@@ -33,14 +33,12 @@ deployable-artifact build a required check before publishing or deploying it.
    finish successfully. A check that is missing, skipped, cancelled, or
    failing is not a pass. If a repository lacks a suitable check, add one
    before relying on it as a quality gate.
-5. Main requires one approving review, successful required checks, and resolved
-   review conversations. Stale approvals are dismissed, force pushes and branch
-   deletion are disabled, and administrators cannot bypass these rules. The
-   current only write-capable reviewer in the active artifact repositories is
-   `kerk1v`; GitHub accepts required reviews only from users with write access.
-   Review dismissal is restricted to that account. A PR author cannot approve
-   their own PR, so a PR authored by `kerk1v` needs a separate author identity
-   to meet the approval gate.
+5. Main requires the `Main PR source policy` check and resolved review
+   conversations. An approving review is optional: any user with repository
+   write access may merge their own PR after all required checks pass. Reviews
+   may still be requested as a human quality practice, but they are not a merge
+   gate. Force pushes and branch deletion are disabled, and administrators
+   cannot bypass the configured protections.
 6. Enable auto-merge only for a pull request whose configured required checks
    have passed and whose branch protections and any required reviews are
    satisfied. Use the repository's configured merge method. Never use an admin
