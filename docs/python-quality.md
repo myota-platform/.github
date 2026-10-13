@@ -2,8 +2,11 @@
 
 Python source in the platform, service, deployment, and contracts repositories
 uses Ruff with a 79-column formatting target and Python 3.11 compatibility.
-The shared GitHub Actions workflow runs on pushes and pull requests. Each
-repository includes tracked Git hooks for local commit and push checks.
+The shared GitHub Actions workflow runs on pushes and pull requests. Artifact
+repositories follow the branch and pull-request policy in
+[`CONTRIBUTING.md`](../CONTRIBUTING.md): pushes to `feature/*`, `fix/*`, and
+`testing` run quality checks, and PRs into `testing` run the required gates.
+Each repository includes tracked Git hooks for local commit and push checks.
 
 ## Install local hooks
 

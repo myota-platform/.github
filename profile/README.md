@@ -13,6 +13,9 @@ and spontaneous activations while remaining complementary to other programmes.
 
 ## Current state
 
+Engineering contributions use short-lived feature/fix branches and quality-
+gated pull requests. See the organization [contributor workflow](https://github.com/myota-platform/.github/blob/main/CONTRIBUTING.md).
+
 The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) is the dated source for repository revisions, deployed images, live K3s status, architecture, and remaining evidence gates. As of 2026-10-13 11:08 UTC, Helm revision 288 is deployed and Fleet reports 71/71 resources Ready. Deploy #15/#16, Activity #4/#5, and Geodata #8/#9 are complete and closed; all three databases were rebuilt from their authoritative baselines, restored from verified archives, and validated in the live cluster. Archive checksums, restore rehearsals, row/catalog checks, API health, and cleanup evidence are in the [database rebuild record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/databases/database-rebuild-evidence-2026-10-13.md). Operations runtime and observability ownership are retired; only repository archival remains open in Operations issue #3. Remaining logging acceptance gates and other evidence limits are recorded in current-state and the linked work items.
 
 - Cross-repository review Phases 0–4 are complete, including duplicate YAML key
@@ -96,7 +99,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-13 11:16 UTC**. The organization-wide GitHub issue search returned 25 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 13:37 UTC**. The organization-wide GitHub issue search returned 26 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -107,7 +110,6 @@ Snapshot: **2026-10-13 11:16 UTC**. The organization-wide GitHub issue search re
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#17: Create protected testing branch for Deploy artifact builds](https://github.com/myota-platform/myota-deploy/issues/17) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#10: Create protected testing branch for Geodata service artifact builds](https://github.com/myota-platform/myota-geodata-service/issues/10) | `enhancement` |
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#5: Create protected testing branch for Identity service artifact builds](https://github.com/myota-platform/myota-identity-service/issues/5) | `enhancement` |
-|  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#4: Create protected testing branch for Operations service artifact builds](https://github.com/myota-platform/myota-operations-service/issues/4) | `enhancement` |
 |  | [myota-platform](https://github.com/myota-platform/myota-platform) | [#2: Create protected testing branch for Platform artifact builds](https://github.com/myota-platform/myota-platform/issues/2) | `enhancement` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#5: Create protected testing branch for Programme service artifact builds](https://github.com/myota-platform/myota-programme-service/issues/5) | `enhancement` |
 |  | [myota-web](https://github.com/myota-platform/myota-web) | [#1: Create testing branch and PR gates for future Web artifacts](https://github.com/myota-platform/myota-web/issues/1) | `enhancement` |
