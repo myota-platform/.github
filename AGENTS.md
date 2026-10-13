@@ -1,17 +1,17 @@
 # Agent instructions
 
-For implementation and CI work in MyOTA's artifact-producing repositories,
-follow the authoritative [contributor and branch workflow](CONTRIBUTING.md).
-Start from `testing`, use a short-lived `feature/<name>` or `fix/<name>` branch,
-and open a pull request into `testing`. Run and inspect the repository's style,
-test, and artifact-build checks. Do not treat missing or skipped checks as
-passing. Enable or complete auto-merge only when every configured required check,
-branch protection, and required review is satisfied; never bypass a gate.
+For MyOTA changes, first read the workspace `AGENTS.md` and the relevant
+repository guidance. Keep each task within its agreed scope, preserve system
+boundaries, and report evidence before marking work complete.
 
-Keep test artifacts isolated from release tags and production deployment. Do not
-publish testing output as `latest`, and do not deploy from `testing`. Preserve
-existing branch history; reconcile stale branches through pull requests rather
-than resetting or force-pushing them.
+For implementation or CI work in a repository that builds deployable artifacts,
+follow [`CONTRIBUTING.md`](CONTRIBUTING.md). It defines the applicable
+repositories, feature/fix branches based on `testing`, pull-request quality
+gates, isolated testing artifacts, and exclusions. Do not duplicate or weaken
+those repository-specific rules here.
 
-Use repository-specific `AGENTS.md` instructions when present. The root
-workspace `AGENTS.md` may add host-specific operating and deployment guidance.
+Use the repository's authoritative source files and decisions; treat identified
+mirrors as synchronized copies. Make documentation and evidence updates in the
+owning repositories. Run focused checks, document exact results and remaining
+gaps, and commit and push completed work with meaningful messages. Test deployed
+systems only when needed, non-destructively, and clean up test data afterward.
