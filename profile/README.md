@@ -96,7 +96,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-13 07:36 UTC**. The organization-wide GitHub issue search returned 30 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-13 07:44 UTC**. The organization-wide GitHub issue search returned 31 open issues across all repositories. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -110,6 +110,7 @@ Snapshot: **2026-10-13 07:36 UTC**. The organization-wide GitHub issue search re
 |  | [myota-operations-service](https://github.com/myota-platform/myota-operations-service) | [#4: Create protected testing branch for Operations service artifact builds](https://github.com/myota-platform/myota-operations-service/issues/4) | `enhancement` |
 |  | [myota-platform](https://github.com/myota-platform/myota-platform) | [#2: Create protected testing branch for Platform artifact builds](https://github.com/myota-platform/myota-platform/issues/2) | `enhancement` |
 |  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#5: Create protected testing branch for Programme service artifact builds](https://github.com/myota-platform/myota-programme-service/issues/5) | `enhancement` |
+|  | [myota-web](https://github.com/myota-platform/myota-web) | [#1: Create testing branch and PR gates for future Web artifacts](https://github.com/myota-platform/myota-web/issues/1) | `enhancement` |
 | **Database migration baselines and data-preserving rebuilds** |  |  |  |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#15: Consolidate myota_core schema into one baseline migration](https://github.com/myota-platform/myota-deploy/issues/15) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#16: Back up and rebuild myota_core from its baseline, then restore data](https://github.com/myota-platform/myota-deploy/issues/16) | `enhancement` |
