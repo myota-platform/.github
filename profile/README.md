@@ -108,7 +108,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-14 11:37 UTC**. The organization-wide GitHub issue search returned 49 open issues across 11 repositories (13 repositories including archived Operations). Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `bug` marks a missing or broken existing behavior; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-14 11:40 UTC**. The organization-wide GitHub issue search returned 50 open issues across 11 repositories (13 repositories including archived Operations). Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `bug` marks a missing or broken existing behavior; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -147,6 +147,8 @@ Snapshot: **2026-10-14 11:37 UTC**. The organization-wide GitHub issue search re
 |  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#7: Define the secure contract for administrator-created accounts](https://github.com/myota-platform/myota-contracts/issues/7) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#46: Verify Gateway support for privileged account creation](https://github.com/myota-platform/myota-deploy/issues/46) | `enhancement` |
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#11: Create participant and administrator accounts](https://github.com/myota-platform/myota-admin-web/issues/11) | `enhancement` |
+| **Grafana session continuity with Admin UI** |  |  |  |
+|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#18: Keep Grafana authenticated with the active Admin UI session](https://github.com/myota-platform/myota-admin-web/issues/18) | `bug` |
 | **Structured logging, request correlation, and Grafana dashboards** |  |  |  |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#6: Close structured logging deployment and acceptance gaps](https://github.com/myota-platform/myota-deploy/issues/6) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#53: Add actionable Grafana dashboards for MyOTA logs and traces](https://github.com/myota-platform/myota-deploy/issues/53) | `enhancement` |
