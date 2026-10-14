@@ -17,7 +17,7 @@ jobs:
   propose-digest-update:
     runs-on: ubuntu-latest
     steps:
-      - name: Check whether the Deploy-scoped GitHub App is configured
+      - name: Check whether the MyOTA-scoped GitHub App is configured
         id: app-config
         env:
           APP_ID: ${{ vars.TESTING_DIGEST_APP_ID }}
@@ -25,12 +25,12 @@ jobs:
         run: |
           if [[ -z "$APP_ID" || -z "$APP_PRIVATE_KEY" ]]; then
             echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::Testing image polling is inactive until the Deploy-scoped App credentials are configured."
+            echo "::warning::Testing image polling is inactive until the monorepo-scoped App credentials are configured."
             exit 0
           fi
           echo "configured=true" >> "$GITHUB_OUTPUT"
 
-      - name: Create short-lived Deploy-only token
+      - name: Create short-lived MyOTA token
         if: steps.app-config.outputs.configured == 'true'
         id: app-token
         uses: actions/create-github-app-token@v3
@@ -38,7 +38,7 @@ jobs:
           app-id: ${{ vars.TESTING_DIGEST_APP_ID }}
           private-key: ${{ secrets.TESTING_DIGEST_APP_PRIVATE_KEY }}
           owner: myota-platform
-          repositories: myota-deploy
+          repositories: myota
           permission-contents: write
           permission-pull-requests: write
 
@@ -46,9 +46,9 @@ jobs:
         if: steps.app-config.outputs.configured == 'true'
         uses: actions/checkout@v6
         with:
-          repository: myota-platform/myota-deploy
+          repository: myota-platform/myota
           ref: testing
-          path: myota-deploy
+          path: myota
           token: ${{ steps.app-token.outputs.token }}
           persist-credentials: true
           fetch-depth: 0
@@ -61,7 +61,7 @@ jobs:
 
       - name: Resolve published testing image digests
         if: steps.app-config.outputs.configured == 'true'
-        working-directory: myota-deploy
+        working-directory: myota
         run: |
           go install github.com/google/go-containerregistry/cmd/crane@v0.20.3
           export PATH="$(go env GOPATH)/bin:$PATH"
@@ -70,7 +70,7 @@ jobs:
       - name: Stop when no digest changed or a digest PR is already open
         if: steps.app-config.outputs.configured == 'true'
         id: diff
-        working-directory: myota-deploy
+        working-directory: myota
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
@@ -81,7 +81,7 @@ jobs:
           fi
 
           open_pr="$(gh pr list \
-            --repo myota-platform/myota-deploy \
+            --repo myota-platform/myota \
             --state open \
             --base testing \
             --json number,headRefName \
@@ -99,10 +99,10 @@ jobs:
 
       - name: Propose the immutable digest update
         if: steps.diff.outputs.changed == 'true'
-        working-directory: myota-deploy
+        working-directory: myota
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          GH_REPO: myota-platform/myota-deploy
+          GH_REPO: myota-platform/myota
         run: |
           branch="automation/testing-image-digests-${GITHUB_RUN_ID}"
           git checkout -b "$branch" origin/testing
