@@ -15,7 +15,7 @@ and spontaneous activations while remaining complementary to other programmes.
 
 The [current system state](https://github.com/myota-platform/myota-docs/blob/main/docs/architecture/current-state.md) remains the dated source for deployed revisions and live K3s evidence. The existing production and Testing releases are still sourced from the split repositories; this monorepo migration has not changed either deployment.
 
-The new [myota monorepo](https://github.com/myota-platform/myota) was initialized from the current `main` snapshots of the authoritative application, contract, web, and deployment repositories. Its first quality-gated integration pull request merged into `testing`; PR checks passed on the feature branch. The merge triggered fresh component CI and image workflows on `testing`. Do not treat the migration as deployed until those runs pass, the digest path reconciles in `myota-test`, and the source owners/mirrors are verified.
+The new [myota monorepo](https://github.com/myota-platform/myota) was initialized from the current `main` snapshots of the authoritative application, contract, web, and deployment repositories. Its first quality-gated integration pull request merged into `testing`; PR checks passed on the feature branch. The merge triggered fresh component CI and image workflows on `testing`. Component and deployment test jobs passed, but every image publish currently fails with GHCR `permission_denied: write_package` because the existing packages do not grant Actions write access to `myota`. Track the settings and rerun in [myota #53](https://github.com/myota-platform/myota/issues/53). Do not treat the migration as deployed until images publish, the digest path reconciles in `myota-test`, and source owners/mirrors are verified.
 
 The open issue backlog is now in `myota`. The 49 source issues were closed as migrated with reciprocal links, and target issues retain their acceptance criteria. The previous service/deployment repositories remain available as transition sources. They must not be archived until the monorepo testing and release flows, source ownership, image publication, and live deployment are verified. GitHub connector access does not currently provide the repository archival or branch-protection administration write operations.
 
@@ -50,7 +50,7 @@ for the product purpose and longer-term delivery gaps.
 
 ## Open GitHub issues
 
-Snapshot: **2026-10-14**. The current open work backlog is in [`myota-platform/myota`](https://github.com/myota-platform/myota/issues), which contains 49 issues migrated from the former service and deployment repositories. Each source issue was closed as migrated with reciprocal links; the original issue remains available for history. Docs and organization governance work retain their owners in `myota-docs` and `.github` while being tracked here. Check GitHub for live state.
+Snapshot: **2026-10-14**. The current open work backlog is in [`myota-platform/myota`](https://github.com/myota-platform/myota/issues), which contains 50 issues migrated from the former service and deployment repositories. Each source issue was closed as migrated with reciprocal links; the original issue remains available for history. Docs and organization governance work retain their owners in `myota-docs` and `.github` while being tracked here. Check GitHub for live state.
 
 | Workstream | Issue | Labels |
 | --- | --- | --- |
@@ -62,6 +62,8 @@ Snapshot: **2026-10-14**. The current open work backlog is in [`myota-platform/m
 |  | [#7: Deployment: Dispatch Testing digest sync from a myota-test CronJob](https://github.com/myota-platform/myota/issues/7) | `enhancement` |
 |  | [#8: Governance: Configure a least-privilege App for Testing digest dispatch](https://github.com/myota-platform/myota/issues/8) | `enhancement` |
 |  | [#30: Governance: Set up the scoped App for automatic testing digest updates](https://github.com/myota-platform/myota/issues/30) | `enhancement` |
+|  | [#53: Deployment: Grant monorepo Actions write access to GHCR images](https://github.com/myota-platform/myota/issues/53) | `bug` |
+
 | **Shared user profile fields and images** |  |  |
 |  | [#11: Contracts: Define shared user profile fields and image upload contract](https://github.com/myota-platform/myota/issues/11) | `enhancement` |
 |  | [#9: Participant Web: Edit participant profile details and crop profile pictures](https://github.com/myota-platform/myota/issues/9) | `enhancement` |
