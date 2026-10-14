@@ -88,6 +88,9 @@ documents source ownership and synchronized mirrors. The main repositories are:
   entities, provenance, imports, and review.
 - [Activity](https://github.com/myota-platform/myota-activity-service) —
   activations, QSOs, awards, and notifications.
+- [Email service](https://github.com/myota-platform/myota-email-service) —
+  planned standalone NATS-backed email delivery; implementation is tracked in
+  the linked open issues below.
 - [Operations](https://github.com/myota-platform/myota-operations-service) —
   retired historical implementation; runtime dependencies are removed and
   repository archived on 2026-10-13; issue #3 is closed.
@@ -105,7 +108,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-14 07:05 UTC**. The organization-wide GitHub issue list returned 23 open issues across all 12 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-14 07:18 UTC**. The organization-wide GitHub issue list returned 29 open issues across all 13 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -142,3 +145,10 @@ Snapshot: **2026-10-14 07:05 UTC**. The organization-wide GitHub issue list retu
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
 | **Testing image digest automation** |  |  |  |
 |  | [.github](https://github.com/myota-platform/.github) | [#3: Set up the scoped App for automatic testing digest updates](https://github.com/myota-platform/.github/issues/3) | `enhancement` |
+| **Transactional email delivery** |  |  |  |
+|  | [myota-email-service](https://github.com/myota-platform/myota-email-service) | [#1: Implement asynchronous SMTP delivery for participants and administrators](https://github.com/myota-platform/myota-email-service/issues/1) | `enhancement` |
+|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#10: Define the versioned JetStream email work contract](https://github.com/myota-platform/myota-contracts/issues/10) | `enhancement` |
+|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#11: Publish safe participant and administrator email intents](https://github.com/myota-platform/myota-identity-service/issues/11) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#51: Deploy the email worker with isolated JetStream and SMTP configuration](https://github.com/myota-platform/myota-deploy/issues/51) | `enhancement` |
+|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#7: Document the email delivery architecture and operating procedures](https://github.com/myota-platform/myota-docs/issues/7) | `documentation` |
+|  | [.github](https://github.com/myota-platform/.github) | [#4: Apply testing-branch release policy to myota-email-service](https://github.com/myota-platform/.github/issues/4) | `enhancement` |
