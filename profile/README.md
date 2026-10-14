@@ -108,70 +108,65 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-14 11:49 UTC**. The organization-wide GitHub issue search returned 50 open issues across 11 repositories (13 repositories including archived Operations). Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `bug` marks a missing or broken existing behavior; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-14**. The current open work backlog is in [`myota-platform/myota`](https://github.com/myota-platform/myota/issues), which contains 49 issues migrated from the former service and deployment repositories. Each source issue was closed as migrated with reciprocal links; the original issue remains available for history. Docs and organization governance work retain their owners in `myota-docs` and `.github` while being tracked here. Check GitHub for live state.
 
-| Workstream | Repository | Issue | Labels |
-| --- | --- | --- | --- |
-| **Public coming-soon landing page** |  |  |  |
-|  | [myota-web](https://github.com/myota-platform/myota-web) | [#5: Add a public coming-soon landing page image](https://github.com/myota-platform/myota-web/issues/5) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#26: Deploy the coming-soon landing page at myota.top](https://github.com/myota-platform/myota-deploy/issues/26) | `enhancement` |
-| **Geodata capacity qualification** |  |  |  |
-|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#4: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota-geodata-service/issues/4) | `enhancement`, `scalability` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#5: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota-deploy/issues/5) | `enhancement`, `scalability` |
-| **Geodata location metadata enrichment** |  |  |  |
-|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#27: Queue location metadata enrichment when entities enter candidate or approved status](https://github.com/myota-platform/myota-geodata-service/issues/27) | `bug` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#60: Update production image digests through the protected release path](https://github.com/myota-platform/myota-deploy/issues/60) | `bug` |
-| **Programme governance, jurisdiction, and eligibility** |  |  |  |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#4: Define phased delivery decisions for programme configuration](https://github.com/myota-platform/myota-docs/issues/4) | `documentation` |
-|  | [myota-programme-service](https://github.com/myota-platform/myota-programme-service) | [#2: Add versioned programme governance, jurisdiction, and eligibility policy](https://github.com/myota-platform/myota-programme-service/issues/2) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#4: Define contracts for versioned programme policy and publication snapshots](https://github.com/myota-platform/myota-contracts/issues/4) | `enhancement` |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#3: Add audited programme governance and policy configuration workflows](https://github.com/myota-platform/myota-admin-web/issues/3) | `enhancement` |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#2: Bind programme governance to scoped identity and OIDC controls](https://github.com/myota-platform/myota-identity-service/issues/2) | `enhancement` |
-|  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#5: Enforce published programme geodata eligibility and moderation policy](https://github.com/myota-platform/myota-geodata-service/issues/5) | `enhancement` |
-|  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#2: Evaluate activity against immutable published programme policy versions](https://github.com/myota-platform/myota-activity-service/issues/2) | `enhancement` |
-| **Shared Identity accounts, roles, profiles, and onboarding** |  |  |  |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#9: Make PostgreSQL authoritative for participant and administrator authentication state](https://github.com/myota-platform/myota-identity-service/issues/9) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#45: Deploy Identity database-backed authentication schema safely](https://github.com/myota-platform/myota-deploy/issues/45) | `enhancement` |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#12: Unify participants and administrators under role-based Identity](https://github.com/myota-platform/myota-identity-service/issues/12) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#11: Define shared account, role, and participant registration contracts](https://github.com/myota-platform/myota-contracts/issues/11) | `enhancement` |
-|  | [myota-web](https://github.com/myota-platform/myota-web) | [#9: Add future participant self-registration using the shared Identity account](https://github.com/myota-platform/myota-web/issues/9) | `enhancement` |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#15: Manage Identity roles and gate Admin UI permissions by role](https://github.com/myota-platform/myota-admin-web/issues/15) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#54: Safely expose participant registration after Identity safeguards](https://github.com/myota-platform/myota-deploy/issues/54) | `enhancement` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#10: Document the shared Identity account and role-based access model](https://github.com/myota-platform/myota-docs/issues/10) | `documentation` |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#13: Add profile fields and SeaweedFS image handling to shared users](https://github.com/myota-platform/myota-identity-service/issues/13) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#12: Define shared user profile fields and image upload contract](https://github.com/myota-platform/myota-contracts/issues/12) | `enhancement` |
-|  | [myota-web](https://github.com/myota-platform/myota-web) | [#10: Edit participant profile details and crop profile pictures](https://github.com/myota-platform/myota-web/issues/10) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#55: Provision private SeaweedFS buckets for user profile images](https://github.com/myota-platform/myota-deploy/issues/55) | `enhancement` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#11: Document user profile fields and SeaweedFS image handling](https://github.com/myota-platform/myota-docs/issues/11) | `documentation` |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#10: Provide a secure API for creating participant and administrator accounts](https://github.com/myota-platform/myota-identity-service/issues/10) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#7: Define the secure contract for administrator-created accounts](https://github.com/myota-platform/myota-contracts/issues/7) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#46: Verify Gateway support for privileged account creation](https://github.com/myota-platform/myota-deploy/issues/46) | `enhancement` |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#11: Create participant and administrator accounts](https://github.com/myota-platform/myota-admin-web/issues/11) | `enhancement` |
-| **Grafana session continuity with Admin UI** |  |  |  |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#18: Keep Grafana authenticated with the active Admin UI session](https://github.com/myota-platform/myota-admin-web/issues/18) | `bug` |
-| **Structured logging, request correlation, and Grafana dashboards** |  |  |  |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#6: Close structured logging deployment and acceptance gaps](https://github.com/myota-platform/myota-deploy/issues/6) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#53: Add actionable Grafana dashboards for MyOTA logs and traces](https://github.com/myota-platform/myota-deploy/issues/53) | `enhancement` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#9: Document actionable Grafana log and trace dashboards](https://github.com/myota-platform/myota-docs/issues/9) | `documentation` |
-| **Admin UI internationalization** |  |  |  |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#1: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota-docs/issues/1) | `documentation` |
-|  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#4: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota-admin-web/issues/4) | `enhancement` |
-| **Future award-condition model** |  |  |  |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#2: Complete Phase 0 decisions for the future award-condition model](https://github.com/myota-platform/myota-docs/issues/2) | `documentation` |
-| **Charter gap roadmap decomposition** |  |  |  |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
-| **Testing image digest automation** |  |  |  |
-|  | [.github](https://github.com/myota-platform/.github) | [#3: Set up the scoped App for automatic testing digest updates](https://github.com/myota-platform/.github/issues/3) | `enhancement` |
-|  | [.github](https://github.com/myota-platform/.github) | [#6: Configure a least-privilege App for Testing digest dispatch](https://github.com/myota-platform/.github/issues/6) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#57: Dispatch Testing digest sync from a myota-test CronJob](https://github.com/myota-platform/myota-deploy/issues/57) | `enhancement` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#12: Document the Testing digest CronJob dispatch and App setup](https://github.com/myota-platform/myota-docs/issues/12) | `documentation` |
-| **Testing overall status dashboard** |  |  |  |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#52: Deploy the MyOTA operations dashboard in Testing](https://github.com/myota-platform/myota-deploy/issues/52) | `bug` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#8: Record MyOTA operations dashboard availability in Testing](https://github.com/myota-platform/myota-docs/issues/8) | `documentation` |
-| **Transactional email delivery** |  |  |  |
-|  | [myota-email-service](https://github.com/myota-platform/myota-email-service) | [#1: Implement asynchronous SMTP delivery for participants and administrators](https://github.com/myota-platform/myota-email-service/issues/1) | `enhancement` |
-|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#10: Define the versioned JetStream email work contract](https://github.com/myota-platform/myota-contracts/issues/10) | `enhancement` |
-|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#11: Publish safe participant and administrator email intents](https://github.com/myota-platform/myota-identity-service/issues/11) | `enhancement` |
-|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#51: Deploy the email worker with isolated JetStream and SMTP configuration](https://github.com/myota-platform/myota-deploy/issues/51) | `enhancement` |
-|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#7: Document the email delivery architecture and operating procedures](https://github.com/myota-platform/myota-docs/issues/7) | `documentation` |
-|  | [.github](https://github.com/myota-platform/.github) | [#4: Apply testing-branch release policy to myota-email-service](https://github.com/myota-platform/.github/issues/4) | `enhancement` |
+| Workstream | Issue | Labels |
+| --- | --- | --- |
+| **Production digest release** |  |  |
+|  | [#5: Deployment: Update production image digests through the protected release path](https://github.com/myota-platform/myota/issues/5) | `bug` |
+|  | [#4: Geodata: Queue location metadata enrichment when entities enter candidate or approved status](https://github.com/myota-platform/myota/issues/4) | `bug` |
+| **Testing image digest automation** |  |  |
+|  | [#6: Docs: Document the Testing digest CronJob dispatch and App setup](https://github.com/myota-platform/myota/issues/6) | `documentation` |
+|  | [#7: Deployment: Dispatch Testing digest sync from a myota-test CronJob](https://github.com/myota-platform/myota/issues/7) | `enhancement` |
+|  | [#8: Governance: Configure a least-privilege App for Testing digest dispatch](https://github.com/myota-platform/myota/issues/8) | `enhancement` |
+|  | [#30: Governance: Set up the scoped App for automatic testing digest updates](https://github.com/myota-platform/myota/issues/30) | `enhancement` |
+| **Shared user profile fields and images** |  |  |
+|  | [#11: Contracts: Define shared user profile fields and image upload contract](https://github.com/myota-platform/myota/issues/11) | `enhancement` |
+|  | [#9: Participant Web: Edit participant profile details and crop profile pictures](https://github.com/myota-platform/myota/issues/9) | `enhancement` |
+|  | [#10: Docs: Document user profile fields and SeaweedFS image handling](https://github.com/myota-platform/myota/issues/10) | `documentation` |
+|  | [#12: Deployment: Provision private SeaweedFS buckets for user profile images](https://github.com/myota-platform/myota/issues/12) | `enhancement` |
+|  | [#13: Identity: Add profile fields and SeaweedFS image handling to shared users](https://github.com/myota-platform/myota/issues/13) | `enhancement` |
+| **Shared Identity roles and account creation** |  |  |
+|  | [#14: Admin Web: Manage Identity roles and gate Admin UI permissions by role](https://github.com/myota-platform/myota/issues/14) | `enhancement` |
+|  | [#15: Contracts: Define shared account, role, and participant registration contracts](https://github.com/myota-platform/myota/issues/15) | `enhancement` |
+|  | [#16: Participant Web: Add future participant self-registration using the shared Identity account](https://github.com/myota-platform/myota/issues/16) | `enhancement` |
+|  | [#17: Deployment: Safely expose participant registration after Identity safeguards](https://github.com/myota-platform/myota/issues/17) | `enhancement` |
+|  | [#18: Docs: Document the shared Identity account and role-based access model](https://github.com/myota-platform/myota/issues/18) | `documentation` |
+|  | [#19: Identity: Unify participants and administrators under role-based Identity](https://github.com/myota-platform/myota/issues/19) | `enhancement` |
+|  | [#31: Admin Web: Create participant and administrator accounts](https://github.com/myota-platform/myota/issues/31) | `enhancement` |
+|  | [#33: Deployment: Verify Gateway support for privileged account creation](https://github.com/myota-platform/myota/issues/33) | `enhancement` |
+|  | [#32: Contracts: Define the secure contract for administrator-created accounts](https://github.com/myota-platform/myota/issues/32) | `enhancement` |
+|  | [#34: Identity: Provide a secure API for creating participant and administrator accounts](https://github.com/myota-platform/myota/issues/34) | `enhancement` |
+|  | [#35: Deployment: Deploy Identity database-backed authentication schema safely](https://github.com/myota-platform/myota/issues/35) | `enhancement` |
+|  | [#36: Identity: Make PostgreSQL authoritative for participant and administrator authentication state](https://github.com/myota-platform/myota/issues/36) | `enhancement` |
+| **Structured logging and Grafana dashboards** |  |  |
+|  | [#20: Docs: Document actionable Grafana log and trace dashboards](https://github.com/myota-platform/myota/issues/20) | `documentation` |
+|  | [#22: Deployment: Add actionable Grafana dashboards for MyOTA logs and traces](https://github.com/myota-platform/myota/issues/22) | `enhancement` |
+|  | [#21: Docs: Record MyOTA operations dashboard availability in Testing](https://github.com/myota-platform/myota/issues/21) | `documentation` |
+|  | [#24: Deployment: Deploy the MyOTA operations dashboard in Testing](https://github.com/myota-platform/myota/issues/24) | `bug` |
+|  | [#48: Deployment: Close structured logging deployment and acceptance gaps](https://github.com/myota-platform/myota/issues/48) | `enhancement` |
+| **Transactional email delivery** |  |  |
+|  | [#26: Governance: Apply testing-branch release policy to myota-email-service](https://github.com/myota-platform/myota/issues/26) | `enhancement` |
+|  | [#25: Docs: Document the email delivery architecture and operating procedures](https://github.com/myota-platform/myota/issues/25) | `documentation` |
+|  | [#23: Deployment: Deploy the email worker with isolated JetStream and SMTP configuration](https://github.com/myota-platform/myota/issues/23) | `enhancement` |
+|  | [#27: Identity: Publish safe participant and administrator email intents](https://github.com/myota-platform/myota/issues/27) | `enhancement` |
+|  | [#28: Contracts: Define the versioned JetStream email work contract](https://github.com/myota-platform/myota/issues/28) | `enhancement` |
+|  | [#29: Email: Implement asynchronous SMTP delivery for participants and administrators](https://github.com/myota-platform/myota/issues/29) | `enhancement` |
+| **Public coming-soon site** |  |  |
+|  | [#37: Deployment: Deploy the coming-soon landing page at myota.top](https://github.com/myota-platform/myota/issues/37) | `enhancement` |
+|  | [#38: Participant Web: Add a public coming-soon landing page image](https://github.com/myota-platform/myota/issues/38) | `enhancement` |
+| **Programme governance and policy** |  |  |
+|  | [#39: Docs: Define phased delivery decisions for programme configuration](https://github.com/myota-platform/myota/issues/39) | `documentation` |
+|  | [#40: Docs: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota/issues/40) | `documentation` |
+|  | [#41: Docs: Complete Phase 0 decisions for the future award-condition model](https://github.com/myota-platform/myota/issues/41) | `documentation` |
+|  | [#42: Admin Web: Implement Admin UI internationalization after Phase 0 decisions](https://github.com/myota-platform/myota/issues/42) | `enhancement` |
+|  | [#43: Docs: Complete Admin UI internationalization Phase 0 policy and inventory](https://github.com/myota-platform/myota/issues/43) | `documentation` |
+|  | [#44: Geodata: Enforce published programme geodata eligibility and moderation policy](https://github.com/myota-platform/myota/issues/44) | `enhancement` |
+|  | [#45: Activity: Evaluate activity against immutable published programme policy versions](https://github.com/myota-platform/myota/issues/45) | `enhancement` |
+|  | [#46: Identity: Bind programme governance to scoped identity and OIDC controls](https://github.com/myota-platform/myota/issues/46) | `enhancement` |
+|  | [#47: Contracts: Define contracts for versioned programme policy and publication snapshots](https://github.com/myota-platform/myota/issues/47) | `enhancement` |
+|  | [#50: Admin Web: Add audited programme governance and policy configuration workflows](https://github.com/myota-platform/myota/issues/50) | `enhancement` |
+|  | [#51: Programme: Add versioned programme governance, jurisdiction, and eligibility policy](https://github.com/myota-platform/myota/issues/51) | `enhancement` |
+| **Geodata capacity qualification** |  |  |
+|  | [#52: Geodata: Qualify Geodata capacity and write-contention limits before expansion](https://github.com/myota-platform/myota/issues/52) | `enhancement` |
+|  | [#49: Deployment: Qualify Geodata scaling and recovery deployment gates before expansion](https://github.com/myota-platform/myota/issues/49) | `enhancement` |
