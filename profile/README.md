@@ -108,7 +108,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-14 07:52 UTC**. The organization-wide GitHub issue list returned 39 open issues across all 13 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `bug` marks a missing or broken existing behavior; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-14 07:58 UTC**. The organization-wide GitHub issue list returned 44 open issues across all 13 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `bug` marks a missing or broken existing behavior; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ Snapshot: **2026-10-14 07:52 UTC**. The organization-wide GitHub issue list retu
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#2: Bind programme governance to scoped identity and OIDC controls](https://github.com/myota-platform/myota-identity-service/issues/2) | `enhancement` |
 |  | [myota-geodata-service](https://github.com/myota-platform/myota-geodata-service) | [#5: Enforce published programme geodata eligibility and moderation policy](https://github.com/myota-platform/myota-geodata-service/issues/5) | `enhancement` |
 |  | [myota-activity-service](https://github.com/myota-platform/myota-activity-service) | [#2: Evaluate activity against immutable published programme policy versions](https://github.com/myota-platform/myota-activity-service/issues/2) | `enhancement` |
-| **Shared Identity user base, roles, permissions, and account onboarding** |  |  |  |
+| **Shared Identity accounts, roles, profiles, and onboarding** |  |  |  |
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#9: Make PostgreSQL authoritative for participant and administrator authentication state](https://github.com/myota-platform/myota-identity-service/issues/9) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#45: Deploy Identity database-backed authentication schema safely](https://github.com/myota-platform/myota-deploy/issues/45) | `enhancement` |
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#12: Unify participants and administrators under role-based Identity](https://github.com/myota-platform/myota-identity-service/issues/12) | `enhancement` |
@@ -135,6 +135,11 @@ Snapshot: **2026-10-14 07:52 UTC**. The organization-wide GitHub issue list retu
 |  | [myota-admin-web](https://github.com/myota-platform/myota-admin-web) | [#15: Manage Identity roles and gate Admin UI permissions by role](https://github.com/myota-platform/myota-admin-web/issues/15) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#54: Safely expose participant registration after Identity safeguards](https://github.com/myota-platform/myota-deploy/issues/54) | `enhancement` |
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#10: Document the shared Identity account and role-based access model](https://github.com/myota-platform/myota-docs/issues/10) | `documentation` |
+|  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#13: Add profile fields and SeaweedFS image handling to shared users](https://github.com/myota-platform/myota-identity-service/issues/13) | `enhancement` |
+|  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#12: Define shared user profile fields and image upload contract](https://github.com/myota-platform/myota-contracts/issues/12) | `enhancement` |
+|  | [myota-web](https://github.com/myota-platform/myota-web) | [#10: Edit participant profile details and crop profile pictures](https://github.com/myota-platform/myota-web/issues/10) | `enhancement` |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#55: Provision private SeaweedFS buckets for user profile images](https://github.com/myota-platform/myota-deploy/issues/55) | `enhancement` |
+|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#11: Document user profile fields and SeaweedFS image handling](https://github.com/myota-platform/myota-docs/issues/11) | `documentation` |
 |  | [myota-identity-service](https://github.com/myota-platform/myota-identity-service) | [#10: Provide a secure API for creating participant and administrator accounts](https://github.com/myota-platform/myota-identity-service/issues/10) | `enhancement` |
 |  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#7: Define the secure contract for administrator-created accounts](https://github.com/myota-platform/myota-contracts/issues/7) | `enhancement` |
 |  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#46: Verify Gateway support for privileged account creation](https://github.com/myota-platform/myota-deploy/issues/46) | `enhancement` |
