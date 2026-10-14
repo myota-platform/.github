@@ -108,7 +108,7 @@ and [charter gap analysis](https://github.com/myota-platform/myota-docs/blob/mai
 for the product purpose and longer-term delivery gaps.
 ## Open GitHub issues
 
-Snapshot: **2026-10-14 07:18 UTC**. The organization-wide GitHub issue list returned 29 open issues across all 13 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
+Snapshot: **2026-10-14 07:44 UTC**. The organization-wide GitHub issue list returned 31 open issues across all 13 organization repositories, including archived Operations. Related issues in different repositories are grouped under a shared workstream below. Labels use the organization-wide GitHub defaults consistently: `enhancement` marks product, runtime, contract, deployment, and infrastructure work; `bug` marks a missing or broken existing behavior; `documentation` marks Docs-owned inventory, decision, and roadmap work. This is a point-in-time index; check GitHub for current state.
 
 | Workstream | Repository | Issue | Labels |
 | --- | --- | --- | --- |
@@ -145,6 +145,9 @@ Snapshot: **2026-10-14 07:18 UTC**. The organization-wide GitHub issue list retu
 |  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#3: Decompose charter gaps into owner-scoped delivery roadmaps](https://github.com/myota-platform/myota-docs/issues/3) | `documentation` |
 | **Testing image digest automation** |  |  |  |
 |  | [.github](https://github.com/myota-platform/.github) | [#3: Set up the scoped App for automatic testing digest updates](https://github.com/myota-platform/.github/issues/3) | `enhancement` |
+| **Testing overall status dashboard** |  |  |  |
+|  | [myota-deploy](https://github.com/myota-platform/myota-deploy) | [#52: Deploy the MyOTA operations dashboard in Testing](https://github.com/myota-platform/myota-deploy/issues/52) | `bug` |
+|  | [myota-docs](https://github.com/myota-platform/myota-docs) | [#8: Record MyOTA operations dashboard availability in Testing](https://github.com/myota-platform/myota-docs/issues/8) | `documentation` |
 | **Transactional email delivery** |  |  |  |
 |  | [myota-email-service](https://github.com/myota-platform/myota-email-service) | [#1: Implement asynchronous SMTP delivery for participants and administrators](https://github.com/myota-platform/myota-email-service/issues/1) | `enhancement` |
 |  | [myota-contracts](https://github.com/myota-platform/myota-contracts) | [#10: Define the versioned JetStream email work contract](https://github.com/myota-platform/myota-contracts/issues/10) | `enhancement` |
