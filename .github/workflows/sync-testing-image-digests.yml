@@ -2,7 +2,8 @@ name: Update testing image digests
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    # Offset from minute 00, a documented high-load boundary for Actions schedules.
+    - cron: "2-59/5 * * * *"
   workflow_dispatch:
 
 permissions:
