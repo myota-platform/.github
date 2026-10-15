@@ -45,6 +45,12 @@ and package boundaries described in its root `AGENTS.md`.
    until test-only credentials, a non-production SMTP target, and measured
    queue capacity are approved. See the [email delivery operations record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/email-delivery.md)
    and tracked [email workstream #58](https://github.com/myota-platform/myota/issues/58).
+   Supporting issues are [Deploy #23](https://github.com/myota-platform/myota/issues/23),
+   [Docs #25](https://github.com/myota-platform/myota/issues/25),
+   [Governance #26](https://github.com/myota-platform/myota/issues/26),
+   [Identity #27](https://github.com/myota-platform/myota/issues/27),
+   [Contracts #28](https://github.com/myota-platform/myota/issues/28), and
+   [Email #29](https://github.com/myota-platform/myota/issues/29).
 
 The monorepo import is in progress. The first integration PR has merged into
 `testing`; do not treat the source repositories as retired until the monorepo
