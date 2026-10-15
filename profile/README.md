@@ -22,8 +22,9 @@ The open issue backlog is now in `myota`. The 49 source issues were closed as mi
 The accepted asynchronous email design, current worker/deployment status,
 privacy boundaries, and operator procedure are recorded in the
 [email delivery architecture and operations guide](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/email-delivery.md).
-Work tracking remains in the canonical `myota` issues; this profile is not an
-issue index.
+The workstream and component tasks are tracked in
+[myota #58](https://github.com/myota-platform/myota/issues/58); this profile is
+not an issue index.
 
 ## Project principles
 
