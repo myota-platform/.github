@@ -19,6 +19,12 @@ The new [myota monorepo](https://github.com/myota-platform/myota) was initialize
 
 The open issue backlog is now in `myota`. The 49 source issues were closed as migrated with reciprocal links, and target issues retain their acceptance criteria. The previous service/deployment repositories remain available as transition sources. They must not be archived until the monorepo testing and release flows, source ownership, image publication, and live deployment are verified. GitHub connector access does not currently provide the repository archival or branch-protection administration write operations.
 
+The accepted asynchronous email design, current worker/deployment status,
+privacy boundaries, and operator procedure are recorded in the
+[email delivery architecture and operations guide](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/email-delivery.md).
+Work tracking remains in the canonical `myota` issues; this profile is not an
+issue index.
+
 ## Project principles
 
 - Programme policies and governance are programme-owned and versioned.

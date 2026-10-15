@@ -8,9 +8,11 @@ changing implementation code or CI in those repositories.
 
 The active implementation repository is
 [myota](https://github.com/myota-platform/myota), a monorepo containing
-Identity, Programme, Geodata, Activity, Gateway, deployment assets, contracts,
-and both web frontends. Use the service and package boundaries described in
-its root `AGENTS.md`.
+Identity, Programme, Geodata, Activity, Gateway, the asynchronous email worker
+(`apps/email`), deployment assets, contracts, and both web frontends. The
+`myota-email-service` image is a deployable artifact owned by this monorepo;
+it does not have a separate source repository or branch policy. Use the service
+and package boundaries described in its root `AGENTS.md`.
 
 1. Start each work item from `testing`.
 2. Use a short-lived `feature/<name>` or `fix/<name>` branch. Do not make
@@ -36,6 +38,13 @@ its root `AGENTS.md`.
    Feature and pull-request builds validate without publishing. The isolated
    release uses immutable image digests and is deployed only to namespace
    `myota-test`; never use `testing` images in production.
+8. The email worker follows the same gates: feature and PR builds do not
+   publish, while a successful `testing` push publishes
+   `ghcr.io/myota-platform/myota-email-service:testing` and the immutable
+   `testing-<full-commit-sha>` tag. Email delivery remains disabled in Testing
+   until test-only credentials, a non-production SMTP target, and measured
+   queue capacity are approved. See the [email delivery operations record](https://github.com/myota-platform/myota-docs/blob/main/docs/operations/messaging/email-delivery.md)
+   and tracked [email workstream #58](https://github.com/myota-platform/myota/issues/58).
 
 The monorepo import is in progress. The first integration PR has merged into
 `testing`; do not treat the source repositories as retired until the monorepo
